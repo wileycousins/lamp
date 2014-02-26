@@ -21,16 +21,16 @@ LIBS:uln-ic
 LIBS:lamp-pcb-cache
 EELAYER 24 0
 EELAYER END
-$Descr A4 11693 8268
+$Descr A 11000 8500
 encoding utf-8
 Sheet 1 1
-Title ""
+Title "lamp pcb"
 Date ""
-Rev ""
-Comp ""
-Comment1 ""
-Comment2 ""
-Comment3 ""
+Rev "0.1"
+Comp "copyright 2014 by Wiley Cousins"
+Comment1 "shared under the terms of the Attribution-ShareAlike 4.0 license"
+Comment2 "github.com/wileycousins/lamp"
+Comment3 "open source hardware"
 Comment4 ""
 $EndDescr
 $EndSCHEMATC
