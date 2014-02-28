@@ -1,0 +1,255 @@
+Cmp-Mod V01 Created by CvPcb (2014-02-03 BZR 4657)-product date = Fri 28 Feb 2014 03:05:37 PM CST
+
+BeginCmp
+TimeStamp = /530E2DE7;
+Reference = C1;
+ValeurCmp = 0.1uF;
+IdModule  = passive-smd:0603(1608m);
+EndCmp
+
+BeginCmp
+TimeStamp = /530E2B0B;
+Reference = C2;
+ValeurCmp = 24pF;
+IdModule  = passive-smd:0603(1608m);
+EndCmp
+
+BeginCmp
+TimeStamp = /5310D0FE;
+Reference = C3;
+ValeurCmp = 24pF;
+IdModule  = passive-smd:0603(1608m);
+EndCmp
+
+BeginCmp
+TimeStamp = /530E2DFB;
+Reference = C4;
+ValeurCmp = 0.1uF;
+IdModule  = passive-smd:0603(1608m);
+EndCmp
+
+BeginCmp
+TimeStamp = /530E2E0F;
+Reference = C5;
+ValeurCmp = 0.1uF;
+IdModule  = passive-smd:0603(1608m);
+EndCmp
+
+BeginCmp
+TimeStamp = /530E2C15;
+Reference = C6;
+ValeurCmp = 0.1uF;
+IdModule  = passive-smd:0603(1608m);
+EndCmp
+
+BeginCmp
+TimeStamp = /530E44C1;
+Reference = C7;
+ValeurCmp = 10uF;
+IdModule  = passive-smd:1206(3216m);
+EndCmp
+
+BeginCmp
+TimeStamp = /530E44E9;
+Reference = C8;
+ValeurCmp = 22uF;
+IdModule  = passive-smd:1206(3216m);
+EndCmp
+
+BeginCmp
+TimeStamp = /530E333B;
+Reference = C9;
+ValeurCmp = 0.1uF;
+IdModule  = passive-smd:0603(1608m);
+EndCmp
+
+BeginCmp
+TimeStamp = /530E7A3A;
+Reference = C10;
+ValeurCmp = 0.1uF;
+IdModule  = passive-smd:0603(1608m);
+EndCmp
+
+BeginCmp
+TimeStamp = /530E98C1;
+Reference = C11;
+ValeurCmp = 0.1uF;
+IdModule  = passive-smd:0603(1608m);
+EndCmp
+
+BeginCmp
+TimeStamp = /530E2A6B;
+Reference = IC1;
+ValeurCmp = ATMEGA328P;
+IdModule  = qfp:TQFP32_P0.8mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /530E4152;
+Reference = IC2;
+ValeurCmp = LM1117;
+IdModule  = sot:SOT223;
+EndCmp
+
+BeginCmp
+TimeStamp = /530E80A0;
+Reference = IC3;
+ValeurCmp = TLC5973;
+IdModule  = soic:SOIC8;
+EndCmp
+
+BeginCmp
+TimeStamp = /530E9AB0;
+Reference = J1;
+ValeurCmp = 5V_OUT;
+IdModule  = sip:SIP2;
+EndCmp
+
+BeginCmp
+TimeStamp = /530E7787;
+Reference = J2;
+ValeurCmp = LED_CARD_BOTTOM;
+IdModule  = sip:SIP5;
+EndCmp
+
+BeginCmp
+TimeStamp = /5310F1E0;
+Reference = LED1;
+ValeurCmp = CREE-CLV6A-FKB;
+IdModule  = led:PLCC6-SM-RGB-LED;
+EndCmp
+
+BeginCmp
+TimeStamp = /5310FB04;
+Reference = LED2;
+ValeurCmp = CREE-CLV6A-FKB;
+IdModule  = led:PLCC6-SM-RGB-LED;
+EndCmp
+
+BeginCmp
+TimeStamp = /5310FF26;
+Reference = LED3;
+ValeurCmp = HEART;
+IdModule  = led:0603(1608m)-SM-LED;
+EndCmp
+
+BeginCmp
+TimeStamp = /53110110;
+Reference = LED4;
+ValeurCmp = PWR;
+IdModule  = led:0603(1608m)-SM-LED;
+EndCmp
+
+BeginCmp
+TimeStamp = /530E35EB;
+Reference = P1;
+ValeurCmp = 7-12V_IN;
+IdModule  = sip:SIP2;
+EndCmp
+
+BeginCmp
+TimeStamp = /530E2A7F;
+Reference = P2;
+ValeurCmp = AVR_ISP;
+IdModule  = connect-thru:2x3-ARRAY_P100mil;
+EndCmp
+
+BeginCmp
+TimeStamp = /530E2A93;
+Reference = P3;
+ValeurCmp = SERIAL;
+IdModule  = sip:SIP6;
+EndCmp
+
+BeginCmp
+TimeStamp = /530E7494;
+Reference = P4;
+ValeurCmp = LEDSTACK;
+IdModule  = sip:SIP5;
+EndCmp
+
+BeginCmp
+TimeStamp = /530E7712;
+Reference = P5;
+ValeurCmp = LEDSTACK;
+IdModule  = sip:SIP5;
+EndCmp
+
+BeginCmp
+TimeStamp = /530E775C;
+Reference = P6;
+ValeurCmp = LEDSTACK;
+IdModule  = sip:SIP5;
+EndCmp
+
+BeginCmp
+TimeStamp = /530E7CCD;
+Reference = P7;
+ValeurCmp = LED_CARD_TOP;
+IdModule  = sip:SIP5;
+EndCmp
+
+BeginCmp
+TimeStamp = /530E6B36;
+Reference = R1;
+ValeurCmp = 10kΩ;
+IdModule  = passive-smd:0603(1608m);
+EndCmp
+
+BeginCmp
+TimeStamp = /530E6B4A;
+Reference = R2;
+ValeurCmp = 10kΩ;
+IdModule  = passive-smd:0603(1608m);
+EndCmp
+
+BeginCmp
+TimeStamp = /530E6B5E;
+Reference = R3;
+ValeurCmp = 10kΩ;
+IdModule  = passive-smd:0603(1608m);
+EndCmp
+
+BeginCmp
+TimeStamp = /530E80D0;
+Reference = R4;
+ValeurCmp = 2kΩ;
+IdModule  = passive-smd:0603(1608m);
+EndCmp
+
+BeginCmp
+TimeStamp = /530E84F7;
+Reference = R5;
+ValeurCmp = 1kΩ;
+IdModule  = passive-smd:0603(1608m);
+EndCmp
+
+BeginCmp
+TimeStamp = /5310FE43;
+Reference = R6;
+ValeurCmp = 1kΩ;
+IdModule  = passive-smd:0603(1608m);
+EndCmp
+
+BeginCmp
+TimeStamp = /531100E8;
+Reference = R7;
+ValeurCmp = 1kΩ;
+IdModule  = passive-smd:0603(1608m);
+EndCmp
+
+BeginCmp
+TimeStamp = /530EA63D;
+Reference = S1;
+ValeurCmp = TOP;
+IdModule  = switch:CK-JS102011SAQN_sm-spdt-switch;
+EndCmp
+
+BeginCmp
+TimeStamp = /530E2AA7;
+Reference = Y1;
+ValeurCmp = 14.7456MHz;
+IdModule  = crystal:HC49_sm;
+EndCmp
+
+EndListe

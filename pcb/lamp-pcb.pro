@@ -1,4 +1,4 @@
-update=Wed 26 Feb 2014 06:17:56 PM CST
+update=Fri 28 Feb 2014 02:33:20 PM CST
 version=1
 last_client=kicad
 [cvpcb]
@@ -74,5 +74,6 @@ LibName16=standard
 LibName17=stmicro-mcu
 LibName18=ti-ic
 LibName19=uln-ic
+LibName20=led
 [general]
 version=1
