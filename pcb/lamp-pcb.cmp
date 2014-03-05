@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2014-02-03 BZR 4657)-product date = Fri 28 Feb 2014 03:05:37 PM CST
+Cmp-Mod V01 Created by CvPcb (2014-02-03 BZR 4657)-product date = Wed 05 Mar 2014 10:16:55 AM CST
 
 BeginCmp
 TimeStamp = /530E2DE7;
@@ -186,6 +186,13 @@ BeginCmp
 TimeStamp = /530E7CCD;
 Reference = P7;
 ValeurCmp = LED_CARD_TOP;
+IdModule  = sip:SIP5;
+EndCmp
+
+BeginCmp
+TimeStamp = /53174F6A;
+Reference = P8;
+ValeurCmp = SER_SHORT;
 IdModule  = sip:SIP5;
 EndCmp
 
