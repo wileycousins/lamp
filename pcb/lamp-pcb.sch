@@ -42,6 +42,11 @@ F 0 "IC1" H 2650 3400 60  0000 C CNN
 F 1 "ATMEGA328P" H 3700 1050 60  0000 C CNN
 F 2 "" H 3350 2250 60  0000 C CNN
 F 3 "" H 3350 2250 60  0000 C CNN
+F 4 "Atmel" H 3350 2250 60  0001 C CNN "Manufacturer"
+F 5 "ATMEGA328P-AU" H 3350 2250 60  0001 C CNN "Manufacturer Part"
+F 6 "Digikey" H 3350 2250 60  0001 C CNN "Distributor"
+F 7 "ATMEGA328P-AU-ND" H 3350 2250 60  0001 C CNN "Distributor Part"
+F 8 "http://www.digikey.com/product-detail/en/ATMEGA328P-AU/ATMEGA328P-AU-ND/1832260" H 3350 2250 60  0001 C CNN "Distributor Link"
 	1    3350 2250
 	1    0    0    -1  
 $EndComp
@@ -91,7 +96,7 @@ F 0 "C2" H 1350 2550 60  0000 C CNN
 F 1 "24pF" H 1600 2550 60  0000 C CNN
 F 2 "" H 1500 2400 60  0001 C CNN
 F 3 "" H 1500 2400 60  0001 C CNN
-F 4 "Samsung Electro-Mechanics America, Inc" H 1500 2400 60  0001 C CNN "Manufacturer"
+F 4 "Samsung" H 1500 2400 60  0001 C CNN "Manufacturer"
 F 5 "CL10C240JB8NCNC" H 1500 2400 60  0001 C CNN "Manuf. Part"
 F 6 "Digikey" H 1500 2400 60  0001 C CNN "Distributor"
 F 7 "1276-2242-1-ND" H 1500 2400 60  0001 C CNN "Distrib. Part"
