@@ -179,17 +179,18 @@ void senseStacks(uint8_t *size) {
     while (ADCSRA & (1<<ADSC));
     uint8_t read = ADCH;
     // translate it into stack size
-    // relation is N = (2560/(256-ADC))-10
     size[i] = 0;
-    uint8_t prev;
-    int8_t next;
-    do {
-      prev = read - adcToStackSize[size[i]];
-      next = adcToStackSize[size[i]+1] - read;
-      if ( next < 0 || prev > next) {
-        size[i]++;
-      }
-    } while (next < 0);
+    if (read > adcToStackSize[MAX_STACK_SIZE]) {
+      size[i]++;
+      uint8_t prev;
+      int8_t next;
+      do {
+        prev = adcToStackSize[size[i]] - read;
+        next = read - adcToStackSize[size[i]+1];
+        if ( next < 0 || prev > next) {
+          size[i]++;
+        }
+      } while (next < 0);
   }
 }
 

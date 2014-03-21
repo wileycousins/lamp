@@ -23,10 +23,10 @@ volatile uint8_t bitIndex;
 // array of values tranlating ADC readings to stack size
 // cap it at 20 cards because that seems reasonable
 // calculated with 8-bit ADC, 10k sense resistor on hub, 1k sense resitor on cards
-// relation: N = (2560/(256-ADC))-10
-#define MAX_STACK_SIZE 20
+// relation: ADC = (ADCmax+1)(1-(N/(10+N)))
+#define MAX_STACK_SIZE 10
 uint8_t adcToStackSize[MAX_STACK_SIZE+1] = {
-  0, 23, 42, 59, 73, 85, 96, 105, 113, 121, 128, 134, 139, 144, 149, 153, 157, 161, 164
+  0, 232, 213, 196, 182, 170, 160, 150, 142, 134, 128
 };
 
 // function prototypes
