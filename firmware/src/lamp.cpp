@@ -10,6 +10,9 @@
 #include <avr/interrupt.h>
 #include <util/delay.h>
 
+// pin definitions
+#include "pindefs.h"
+
 // application includes
 #include "lamp.h"
 
@@ -125,4 +128,24 @@ void set(uint16_t red, uint16_t grn, uint16_t blu, uint8_t *d) {
   d[3] = (grn >> 4);
   d[4] = (((grn<<4) & 0xF0) | (blu >> 8));
   d[5] = (blu & 0xFF);
+}
+
+// initialize analog inputs to sense stack sizes
+void initStackSense(void) {
+
+}
+
+// initialize unused pins to inputs with internal pullups activated
+void initUnusedPins(void) {
+  // portb unused pins
+  DDRB &= ~PORTB_UNUSED_MASK;
+  PORTB |= PORTB_UNUSED_MASK;
+
+  // portc unused pins
+  DDRC &= ~PORTC_UNUSED_MASK;
+  PORTC |= PORTC_UNUSED_MASK;
+
+  // portd unused pins
+  DDRD &= ~PORTD_UNUSED_MASK;
+  PORTD |= PORTD_UNUSED_MASK;
 }
