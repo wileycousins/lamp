@@ -62,24 +62,35 @@ int main(void) {
 
   // color blending and shit
   // start with just a little red
-  uint16_t red = 0xFFF;
-  uint16_t grn = 0xFFF;
-  uint16_t blu = 0xFFF;
-
-  // set that color
-  set(red, grn, blu, ledData);
+  uint16_t red = 4000;
+  uint16_t grn = 0x0;
+  uint16_t blu = 0x0;
 
   // enable global interrupts
   sei();
 
-  // send the data
-  startTimer();
-
   // don't stop believing
   for (;;) {
+    if (!blu && red) {
+      red -= 50;
+      grn += 50;
+    }
+    else if (!red && grn) {
+      grn -= 50;
+      blu += 50;
+    }
+    else if (!grn && blu) {
+      blu -= 50;
+      red += 50;
+    }
+
+    // set that color and send the data
+    set(red, grn, blu, ledData);
+    startTimer();
+
     // BLINK THAT LED LIKE IT'S YOUR JOB
-    PINB |= (1<<1);
-    _delay_ms(250);
+    //PINB |= (1<<1);
+    _delay_ms(100);
   }
   // hold on to that feeling
   return 42;
