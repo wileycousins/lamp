@@ -1343,4 +1343,5 @@ Wire Wire Line
 NoConn ~ 4350 1700
 Text Label 3500 5350 2    60   ~ 0
 LED_GND
+NoConn ~ 4350 1800
 $EndSCHEMATC
