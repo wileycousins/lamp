@@ -8,8 +8,8 @@
 #ifndef LAMP_PINDEFS_H
 #define LAMP_PINDEFS_H
 
-// 
-
+// led stacks
+#define NUM_STACKS  3
 
 // unused pins
 #define PORTB_UNUSED_MASK  ( (1<<2) | (1<<0) )

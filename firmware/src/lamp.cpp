@@ -60,6 +60,13 @@ int main(void) {
   DDRD |= (1<<2);
   PORTD &= ~(1<<2);
 
+  // init all other pins to inputs with pullups
+  initUnusedPins();
+
+  // find out how many led cards are in each stack
+  uint8_t stackSize[NUM_STACKS];
+  senseStacks(stackSize);
+
   // intialize the led data timer
   initTimer();
 
@@ -130,9 +137,41 @@ void set(uint16_t red, uint16_t grn, uint16_t blu, uint8_t *d) {
   d[5] = (blu & 0xFF);
 }
 
-// initialize analog inputs to sense stack sizes
-void initStackSense(void) {
+// initialize analog inputs and sense stack sizes
+void senseStacks(uint8_t *size) {
+  // analog inputs on D2, D3, D4, so diable digital input on these pins
+  DIDR0 = ( (1<<ADC4D) | (1<<ADC3D) | (1<<ADC2D) );
+  // reference voltage is AVcc, external capacitor on AREF
+  // left adjust result because we only need 8 bits
+  // set first read to 1.1V reference voltage (MUX3..0 = 0xE)
+  ADMUX = ( (1<<ADLAR) | (1<<REFS0) | (0xE) );
+  // divide sysclock by 128 to set fadc to ~100kHz
+  // enable the ADC and start a conversion to warm everything up
+  ADCSRA = ( (1<<ADEN) | (1<<ADSC) | (1<<ADPS2) | (1<<ADPS1) | (1<<ADPS0) );
+  // wait for that conversion to complete
+  while (ADCSRA & (1<<ADSC));
 
+  // read the stack sizes
+  for (uint8_t i=0; i<NUM_STACKS; i++) {
+    // set ADC input to correct input
+    ADMUX = ((ADMUX & ~0xF) | (2+i));
+    // take the reading
+    ADCSRA |= (1<<ADEN);
+    while (ADCSRA & (1<<ADSC));
+    uint8_t read = ADCH;
+    // translate it into stack size
+    // relation is N = (2560/(256-ADC))-10
+    size[i] = 0;
+    uint8_t prev;
+    int8_t next;
+    do {
+      prev = read - adcToStackSize[size[i]];
+      next = adcToStackSize[size[i]+1] - read;
+      if ( next < 0 || prev > next) {
+        size[i]++;
+      }
+    } while (next < 0);
+  }
 }
 
 // initialize unused pins to inputs with internal pullups activated
