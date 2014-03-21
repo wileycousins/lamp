@@ -6,6 +6,7 @@
 // description: application file for the lamp
 
 // avr includes
+#include <stdlib.h>
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>
@@ -63,9 +64,15 @@ int main(void) {
   // init all other pins to inputs with pullups
   initUnusedPins();
 
-  // find out how many led cards are in each stack
+  // find out how many led cards are in each stack, and create data arrays for each
+  uint8_t *stack[NUM_STACKS];
   uint8_t stackSize[NUM_STACKS];
   senseStacks(stackSize);
+  for (uint8_t i=0; i<NUM_STACKS; i++) {
+    if (stackSize[i] > 0) {
+      stack[i] = initDataArray(stackSize[i]);
+    }
+  }
 
   // intialize the led data timer
   initTimer();
@@ -95,11 +102,12 @@ int main(void) {
     }
 
     // set that color and send the data
-    set(red, grn, blu, ledData);
+    //set(red, grn, blu, ledData);
+    set(red, grn, blu, 0, stack[0]);
     startTimer();
 
     // BLINK THAT LED LIKE IT'S YOUR JOB
-    //PINB |= (1<<1);
+    PINB |= (1<<1);
     _delay_ms(100);
   }
   // hold on to that feeling
@@ -129,6 +137,17 @@ void stopTimer(void) {
 }
 
 void set(uint16_t red, uint16_t grn, uint16_t blu, uint8_t *d) {
+  d[0] = 0x3A;
+  d[1] = (0xA0 | (red >> 8));
+  d[2] = (red & 0xFF);
+  d[3] = (grn >> 4);
+  d[4] = (((grn<<4) & 0xF0) | (blu >> 8));
+  d[5] = (blu & 0xFF);
+}
+
+// set led color of a certain led in a certain stack
+void set(uint16_t red, uint16_t grn, uint16_t blu, uint8_t led, uint8_t *data) {
+  uint8_t *d = data + 6*led;
   d[0] = 0x3A;
   d[1] = (0xA0 | (red >> 8));
   d[2] = (red & 0xFF);
@@ -172,6 +191,12 @@ void senseStacks(uint8_t *size) {
       }
     } while (next < 0);
   }
+}
+
+uint8_t *initDataArray(uint8_t stackSize) {
+  stackSize *= 6;
+  // calloc malloc's and initializes elements to 0
+  return (uint8_t *)(calloc(stackSize, sizeof(uint8_t)));
 }
 
 // initialize unused pins to inputs with internal pullups activated

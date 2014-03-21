@@ -40,7 +40,11 @@ void startTimer(void);
 void stopTimer(void);
 // set led color
 void set(uint16_t red, uint16_t grn, uint16_t blu, uint8_t *data);
+// set led color of a certain led in a certain stack
+void set(uint16_t red, uint16_t grn, uint16_t blu, uint8_t led, uint8_t *data);
 // sense led car stack size
 void senseStacks(uint8_t *size);
+// allocate and initialize to 0 an array for led data depnding on stack size
+uint8_t *initDataArray(uint8_t n);
 
 #endif
