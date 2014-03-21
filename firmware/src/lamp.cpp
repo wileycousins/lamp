@@ -175,7 +175,7 @@ void senseStacks(uint8_t *size) {
     // set ADC input to correct input
     ADMUX = ((ADMUX & ~0xF) | (2+i));
     // take the reading
-    ADCSRA |= (1<<ADEN);
+    ADCSRA |= (1<<ADSC);
     while (ADCSRA & (1<<ADSC));
     uint8_t read = ADCH;
     // translate it into stack size
