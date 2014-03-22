@@ -14,6 +14,7 @@
 #include <stdint.h>
 
 // global objects
+uint8_t currentStack;
 uint8_t *currentStackData;
 uint8_t currentStackSize;
 volatile uint8_t cardCount;

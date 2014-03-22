@@ -19,17 +19,17 @@
 
 // led serial ISR
 ISR(TIMER0_COMPA_vect) {
-  if (!wait) {
+  if (currentStackSize && !wait) {
     // 1 wire serial
     // pulse the data line once to signal data
-    PORTD |= (1<<2);
-    PORTD &= ~(1<<2);
+    PORTD |= (1<<(2+currentStack));
+    PORTD &= ~(1<<(2+currentStack));
 
     // if data is a one, pulse again to signal a 1
     // no pulse is a 0
     if (currentStackData[byteIndex] & bitIndex) {
-      PORTD |= (1<<2);
-      PORTD &= ~(1<<2);
+      PORTD |= (1<<(2+currentStack));
+      PORTD &= ~(1<<(2+currentStack));
     }
 
     // increment counters
@@ -56,6 +56,9 @@ ISR(TIMER0_COMPA_vect) {
       }
     }
   }
+  else if (currentStackSize == 0) {
+    stopTimer();
+  }
   // stop waiting if it's been long enough
   else if (++waitCount > LED_WAIT_COUNT) {
    wait = false;
@@ -75,8 +78,10 @@ int main(void) {
   PORTB |= (1<<1);
 
   // set stack 0 serial data to output and pull it low
-  DDRD |= (1<<2);
-  PORTD &= ~(1<<2);
+  for (uint8_t i=0; i<NUM_STACKS; i++) {
+    DDRD |= (1<<(2+i));
+    PORTD &= ~(1<<(2+i));
+  }
 
   // init all other pins to inputs with pullups
   initUnusedPins();
@@ -100,6 +105,8 @@ int main(void) {
   //uint16_t grn = 0x0;
   //uint16_t blu = 0x0;
 
+
+  // stack 0 starts at red
   if (stackSize[0] >= 1) {
     set(500, 0, 0, 0, stack[0]);
   }
@@ -110,11 +117,37 @@ int main(void) {
     set(0, 0, 500, 2, stack[0]);
   }
 
+  // stack 1 starts at green
+  if (stackSize[1] >= 1) {
+    set(250, 250, 0, 0, stack[1]);
+  }
+  if (stackSize[1] >= 2) {
+    set(0, 250, 250, 1, stack[1]);
+  }
+  if (stackSize[1] >= 3) {
+    set(250, 0, 250, 2, stack[1]);
+  }
+
+
+  // stack 2 starts at blue
+  if (stackSize[2] >= 1) {
+    set(300, 100, 100, 0, stack[2]);
+  }
+  if (stackSize[2] >= 2) {
+    set(100, 300, 100, 1, stack[2]);
+  }
+  if (stackSize[2] >= 3) {
+    set(100, 100, 300, 2, stack[2]);
+  }
+
+
+
   // enable global interrupts
   sei();
 
   if (stackSize[0]) {
     // for testing, set ledData to stack0 data
+    currentStack = 0;
     currentStackData = stack[0];
     currentStackSize = stackSize[0];
     startTimer();
@@ -136,6 +169,13 @@ int main(void) {
       red += 50;
     }
     */
+    // if timer is not currently going
+    if (!TIMSK0) {
+      currentStack = (currentStack < 2) ? (currentStack+1) : 0;
+      currentStackData = stack[currentStack];
+      currentStackSize = stackSize[currentStack];
+      startTimer();
+    }
 
     // set that color and send the data
     //set(red, grn, blu, ledData);
