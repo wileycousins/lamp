@@ -108,36 +108,27 @@ int main(void) {
 
   // stack 0 starts at red
   if (stackSize[0] >= 1) {
-    set(500, 0, 0, 0, stack[0]);
+    set(4000, 0, 0, 0, stack[0]);
   }
   if (stackSize[0] >= 2) {
-    set(0, 500, 0, 1, stack[0]);
-  }
-  if (stackSize[0] >= 3) {
-    set(0, 0, 500, 2, stack[0]);
+    set(2000, 2000, 0, 1, stack[0]);
   }
 
   // stack 1 starts at green
   if (stackSize[1] >= 1) {
-    set(250, 250, 0, 0, stack[1]);
+    set(0, 4000, 0, 0, stack[1]);
   }
   if (stackSize[1] >= 2) {
-    set(0, 250, 250, 1, stack[1]);
-  }
-  if (stackSize[1] >= 3) {
-    set(250, 0, 250, 2, stack[1]);
+    set(0, 2000, 2000, 1, stack[1]);
   }
 
 
   // stack 2 starts at blue
   if (stackSize[2] >= 1) {
-    set(300, 100, 100, 0, stack[2]);
+    set(0, 0, 4000, 0, stack[2]);
   }
   if (stackSize[2] >= 2) {
-    set(100, 300, 100, 1, stack[2]);
-  }
-  if (stackSize[2] >= 3) {
-    set(100, 100, 300, 2, stack[2]);
+    set(2000, 0, 2000, 1, stack[2]);
   }
 
 
