@@ -8,16 +8,19 @@
 #ifndef LAMP_H
 #define LAMP_H
 
+#define LED_WAIT_COUNT  4
+
 // only inlcudes necessary for the header to work
 #include <stdint.h>
 
 // global objects
-// gonna be using one LED card on stack 0 today
-// package = 48 bits = 6 bytes
-uint8_t ledData[6];
-volatile uint8_t bitCount;
+uint8_t *currentStackData;
+uint8_t currentStackSize;
+volatile uint8_t cardCount;
 volatile uint8_t byteIndex;
 volatile uint8_t bitIndex;
+volatile bool wait;
+volatile uint8_t waitCount;
 
 // led stack stuff
 // array of values tranlating ADC readings to stack size

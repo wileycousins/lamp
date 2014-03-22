@@ -19,32 +19,49 @@
 
 // led serial ISR
 ISR(TIMER0_COMPA_vect) {
-  // 1 wire serial
-  // pulse the data line once to signal data
-  PORTD |= (1<<2);
-  PORTD &= ~(1<<2);
-
-  // if data is a one, pulse again to signal a 1
-  // no pulse is a 0
-  if (ledData[byteIndex] & bitIndex) {
+  //if (!wait) {
+    // 1 wire serial
+    // pulse the data line once to signal data
     PORTD |= (1<<2);
     PORTD &= ~(1<<2);
-  }
 
-  // increment the counters
-  bitCount++;
-  if (bitCount < 48) {
-    if (bitIndex > 1) {
-      bitIndex >>= 1;
+    // if data is a one, pulse again to signal a 1
+    // no pulse is a 0
+    if (currentStackData[byteIndex] & bitIndex) {
+      PORTD |= (1<<2);
+      PORTD &= ~(1<<2);
     }
-    else {
-      bitIndex = (1<<7);
-      byteIndex++;
+
+    // increment the counters
+    if (byteIndex < 6 || bitIndex > 1) {
+      if (bitIndex > 1) {
+        bitIndex >>= 1;
+      }
+      else {
+        bitIndex = (1<<7);
+        byteIndex++;
+      }
     }
-  }
-  else {
-    stopTimer();
-  }
+    //else {
+    //  cardCount++;
+    //  // more cards to program
+    //  if (cardCount < currentStackSize) {
+    //    wait = true;
+    //    waitCount = 0;
+    //    currentStackData += 6;
+    //  }
+      // no more cards to program
+      else {
+        stopTimer();
+      }
+    // }
+  //}
+  //// stop waiting if it's been long enough
+  //else if (++waitCount > LED_WAIT_COUNT) {
+  //  wait = false;
+  //  byteIndex = 0;
+  //  bitIndex = (1<<7);
+  //}
 }
 
 // main method
@@ -79,15 +96,33 @@ int main(void) {
 
   // color blending and shit
   // start with just a little red
-  uint16_t red = 4000;
-  uint16_t grn = 0x0;
-  uint16_t blu = 0x0;
+  //uint16_t red = 1000;
+  //uint16_t grn = 0x0;
+  //uint16_t blu = 0x0;
+
+  //if (stackSize[0] >= 1) {
+    set(500, 0, 0, 0, stack[0]);
+  //}
+  //if (stackSize[0] >= 2) {
+  //  set(0, 500, 0, 1, stack[0]);
+  //}
+  //if (stackSize[0] >= 3) {
+  //  set(0, 0, 500, 2, stack[0]);
+  //}
 
   // enable global interrupts
   sei();
 
+  //if (stackSize[0]) {
+    // for testing, set ledData to stack0 data
+    currentStackData = stack[0];
+    currentStackSize = stackSize[0];
+    startTimer();
+  //}
+
   // don't stop believing
   for (;;) {
+    /*
     if (!blu && red) {
       red -= 50;
       grn += 50;
@@ -100,11 +135,12 @@ int main(void) {
       blu -= 50;
       red += 50;
     }
+    */
 
     // set that color and send the data
     //set(red, grn, blu, ledData);
-    set(red, grn, blu, 0, stack[0]);
-    startTimer();
+    //set(red, grn, blu, 0, stack[0]);
+    //startTimer();
 
     // BLINK THAT LED LIKE IT'S YOUR JOB
     PINB |= (1<<1);
@@ -125,9 +161,11 @@ void initTimer(void) {
 
 void startTimer(void) {
   // reset the data indices
-  bitCount = 0;
+  cardCount = 0;
   byteIndex = 0;
   bitIndex = (1<<7);
+  // reset the wait flag
+  wait = false;
   // enable the interrupt
   TIMSK0 = (1<<OCIE0A);
 }
@@ -191,6 +229,7 @@ void senseStacks(uint8_t *size) {
           size[i]++;
         }
       } while (next < 0);
+    }
   }
 }
 

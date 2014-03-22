@@ -1,3 +1,7 @@
+#include <avr/interrupt.h>
+
+#define LED_WAIT_COUNT  4
+
 // led stacks
 #define NUM_STACKS  3
 #define MAX_STACK_SIZE 10
@@ -5,10 +9,19 @@ uint8_t adcToStackSize[MAX_STACK_SIZE+1] = {
   0, 232, 213, 196, 182, 170, 160, 150, 142, 134, 128
 };
 
+// global objects
+uint8_t *currentStackData;
+uint8_t currentStackSize;
+volatile uint8_t cardCount;
+volatile uint8_t byteIndex;
+volatile uint8_t bitIndex;
+volatile bool wait;
+volatile uint8_t waitCount;
+
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   
-  Serial.println("beginning test");
+  Serial.println("strt");
   
   // find out how many led cards are in each stack, and create data arrays for each
   uint8_t *stack[NUM_STACKS];
@@ -20,35 +33,38 @@ void setup() {
     }
   }
 
-  // print stack sizes
-  Serial.print("Stack 0 size: "); Serial.println(stackSize[0]);
-  Serial.print("Stack 1 size: "); Serial.println(stackSize[1]);
-  Serial.print("Stack 2 size: "); Serial.println(stackSize[2]);
-  
-  // start with just a little red
-  uint16_t red = 4000;
-  uint16_t grn = 0x0;
-  uint16_t blu = 0x0;
+  // intialize the led data timer
+  initTimer();
 
-  // set that color and send the data
-  set(red, grn, blu, 0, stack[0]);
+  // print stack sizes
+  //Serial.print("Stack 0 size: "); Serial.println(stackSize[0]);
+  //Serial.print("Stack 1 size: "); Serial.println(stackSize[1]);
+  //Serial.print("Stack 2 size: "); Serial.println(stackSize[2]);
   
+
+  if (stackSize[0] >= 1) {
+    set(500, 0, 0, 0, stack[0]);
+  }
+  if (stackSize[0] >= 2) {
+    set(0, 500, 0, 1, stack[0]);
+  }
+  if (stackSize[0] >= 3) {
+    set(0, 0, 500, 2, stack[0]);
+  }
+
+  if (stackSize[0]) {
+    // for testing, set ledData to stack0 data
+    currentStackData = stack[0];
+    currentStackSize = stackSize[0];
+    startTimer();
+  }
+
   // print stack data
-  Serial.print("stack 0 data: ");
-  for (uint8_t i=0; i<6*stackSize[0]; i++) {
-    Serial.print(stack[0][i]); Serial.print(" ");
-  }
-  Serial.println();
-  Serial.print("stack 1 data: ");
-  for (uint8_t i=0; i<6*stackSize[1]; i++) {
-    Serial.print(stack[1][i]); Serial.print(" ");
-  }
-  Serial.println();
-    Serial.print("stack 2 data: ");
-  for (uint8_t i=0; i<6*stackSize[2]; i++) {
-    Serial.print(stack[2][i]); Serial.print(" ");
-  }
-  Serial.println();
+  //Serial.print("current stack data: ");
+  //for (uint8_t i=0; i<6*currentStackSize; i++) {
+    //Serial.print(currentStackData[i]); Serial.print(" ");
+  //}
+  //Serial.println();
 }
 
 void loop() {
@@ -85,10 +101,10 @@ void senseStacks(uint8_t *size) {
     
     // ARDUINO
     //uint8_t read = (uint8_t)(analogRead(2+i) >> 2);
-    Serial.print("reading for stack ");
-    Serial.print(i); 
-    Serial.print(" is ");
-    Serial.println(read);
+    //Serial.print("reading for stack ");
+    //Serial.print(i); 
+    //Serial.print(" is ");
+    //Serial.println(read);
     // END ARDUINO
     
     // translate it into stack size
@@ -125,3 +141,80 @@ void set(uint16_t red, uint16_t grn, uint16_t blu, uint8_t led, uint8_t *data) {
   d[4] = (((grn<<4) & 0xF0) | (blu >> 8));
   d[5] = (blu & 0xFF);
 }
+
+void initTimer(void) {
+  // use 8 bit timer 0
+  // looking for f = 230.4 kHz
+  // set to CTC mode with prescaler at 64 and top at 1 
+  TCCR0A = (1<<WGM01);
+  TCCR0B = ( (1<CS02) | (1<<CS00) );
+  OCR0A = 255;
+}
+
+void startTimer(void) {
+  // reset the data indices
+  cardCount = 0;
+  byteIndex = 0;
+  bitIndex = (1<<7);
+  // reset the wait flag
+  wait = false;
+  // enable the interrupt
+  TIMSK0 = (1<<OCIE0A);
+}
+
+void stopTimer(void) {
+  TIMSK0 = 0;
+}
+
+// led serial ISR
+ISR(TIMER0_COMPA_vect) {
+  if (!wait) {
+    // 1 wire serial
+    // pulse the data line once to signal data
+    //PORTD |= (1<<2);
+    //PORTD &= ~(1<<2);
+
+    // if data is a one, pulse again to signal a 1
+    // no pulse is a 0
+    if (currentStackData[byteIndex] & bitIndex) {
+      //PORTD |= (1<<2);
+      //PORTD &= ~(1<<2);
+      //Serial.print('1');
+    }
+    else {
+      //Serial.print('0');
+    }
+
+    // increment the counters
+    if (byteIndex < 6 || bitIndex > 1) {
+      if (bitIndex > 1) {
+        bitIndex >>= 1;
+      }
+      else {
+        bitIndex = (1<<7);
+        byteIndex++;
+      }
+    }
+    else {
+      Serial.println();
+      Serial.print("ct"); Serial.println(cardCount);
+      cardCount++;
+      // more cards to program
+      if (cardCount < currentStackSize) {
+        wait = true;
+        waitCount = 0;
+        currentStackData += 6;
+      }
+      // no more cards to program
+      else {
+        stopTimer();
+        Serial.println("dt");
+      }
+    }
+  }
+  else if (++waitCount > LED_WAIT_COUNT) {
+    Serial.println("wd");
+    wait = false;
+  }
+}
+
