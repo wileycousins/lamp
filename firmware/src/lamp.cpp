@@ -32,14 +32,15 @@ ISR(TIMER0_COMPA_vect) {
       PORTD &= ~(1<<2);
     }
 
-    // increment the counters
-    if (byteIndex < 6 || bitIndex > 1) {
-      if (bitIndex > 1) {
-        bitIndex >>= 1;
-      }
-      else {
+    // increment counters
+    bitIndex >>= 1;
+    if (bitIndex == 0) {
+      if (byteIndex < 5) {
         bitIndex = (1<<7);
         byteIndex++;
+      }
+      else {
+        stopTimer();
       }
     }
     //else {
@@ -51,9 +52,9 @@ ISR(TIMER0_COMPA_vect) {
     //    currentStackData += 6;
     //  }
       // no more cards to program
-      else {
-        stopTimer();
-      }
+      //else {
+      //  stopTimer();
+      //}
     // }
   //}
   //// stop waiting if it's been long enough
