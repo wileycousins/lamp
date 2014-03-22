@@ -19,7 +19,7 @@
 
 // led serial ISR
 ISR(TIMER0_COMPA_vect) {
-  //if (!wait) {
+  if (!wait) {
     // 1 wire serial
     // pulse the data line once to signal data
     PORTD |= (1<<2);
@@ -34,35 +34,34 @@ ISR(TIMER0_COMPA_vect) {
 
     // increment counters
     bitIndex >>= 1;
+    // if bit index is at zero, then it's time for a new byte
     if (bitIndex == 0) {
       if (byteIndex < 5) {
         bitIndex = (1<<7);
         byteIndex++;
       }
+      // if we get here we've done all the bytes in a card
       else {
-        stopTimer();
+        cardCount++;
+        // more cards to program
+        if (cardCount < currentStackSize) {
+          wait = true;
+          waitCount = 0;
+          currentStackData += 6;
+        }
+        // no more cards to program
+        else {
+          stopTimer();
+        }
       }
     }
-    //else {
-    //  cardCount++;
-    //  // more cards to program
-    //  if (cardCount < currentStackSize) {
-    //    wait = true;
-    //    waitCount = 0;
-    //    currentStackData += 6;
-    //  }
-      // no more cards to program
-      //else {
-      //  stopTimer();
-      //}
-    // }
-  //}
-  //// stop waiting if it's been long enough
-  //else if (++waitCount > LED_WAIT_COUNT) {
-  //  wait = false;
-  //  byteIndex = 0;
-  //  bitIndex = (1<<7);
-  //}
+  }
+  // stop waiting if it's been long enough
+  else if (++waitCount > LED_WAIT_COUNT) {
+   wait = false;
+   byteIndex = 0;
+   bitIndex = (1<<7);
+  }
 }
 
 // main method
@@ -101,25 +100,25 @@ int main(void) {
   //uint16_t grn = 0x0;
   //uint16_t blu = 0x0;
 
-  //if (stackSize[0] >= 1) {
+  if (stackSize[0] >= 1) {
     set(500, 0, 0, 0, stack[0]);
-  //}
-  //if (stackSize[0] >= 2) {
-  //  set(0, 500, 0, 1, stack[0]);
-  //}
-  //if (stackSize[0] >= 3) {
-  //  set(0, 0, 500, 2, stack[0]);
-  //}
+  }
+  if (stackSize[0] >= 2) {
+    set(0, 500, 0, 1, stack[0]);
+  }
+  if (stackSize[0] >= 3) {
+    set(0, 0, 500, 2, stack[0]);
+  }
 
   // enable global interrupts
   sei();
 
-  //if (stackSize[0]) {
+  if (stackSize[0]) {
     // for testing, set ledData to stack0 data
     currentStackData = stack[0];
     currentStackSize = stackSize[0];
     startTimer();
-  //}
+  }
 
   // don't stop believing
   for (;;) {
