@@ -69,7 +69,7 @@ ISR(TIMER0_COMPA_vect) {
 
 // main method
 int main(void) {
-  // diable global interrupts
+  // disable global interrupts
   cli();
 
   // set the heartbeat LED as an output and turn it off
@@ -100,12 +100,13 @@ int main(void) {
   initTimer();
 
   // color blending and shit
-  // start with just a little red
-  //uint16_t red = 1000;
-  //uint16_t grn = 0x0;
-  //uint16_t blu = 0x0;
+  // start with just  red
+  uint16_t red = 4000;
+  uint16_t grn = 0x0;
+  uint16_t blu = 0x0;
 
 
+  /*
   // stack 0 starts at red
   if (stackSize[0] >= 1) {
     set(4000, 0, 0, 0, stack[0]);
@@ -130,52 +131,64 @@ int main(void) {
   if (stackSize[2] >= 2) {
     set(2000, 0, 2000, 1, stack[2]);
   }
-
+  */
 
 
   // enable global interrupts
   sei();
 
-  if (stackSize[0]) {
+  if (stackSize[2]) {
     // for testing, set ledData to stack0 data
-    currentStack = 0;
-    currentStackData = stack[0];
-    currentStackSize = stackSize[0];
+    currentStack = 2;
+    currentStackData = stack[2];
+    currentStackSize = stackSize[2];
     startTimer();
   }
 
   // don't stop believing
+  uint8_t loop = 0;
   for (;;) {
-    /*
-    if (!blu && red) {
-      red -= 50;
-      grn += 50;
-    }
-    else if (!red && grn) {
-      grn -= 50;
-      blu += 50;
-    }
-    else if (!grn && blu) {
-      blu -= 50;
-      red += 50;
-    }
-    */
+    loop++;
+    
+
+    
     // if timer is not currently going
-    if (!TIMSK0) {
-      currentStack = (currentStack < 2) ? (currentStack+1) : 0;
-      currentStackData = stack[currentStack];
-      currentStackSize = stackSize[currentStack];
+    //if (!TIMSK0) {
+    //  currentStack = (currentStack < 2) ? (currentStack+1) : 0;
+    //  currentStackData = stack[currentStack];
+    //  currentStackSize = stackSize[currentStack];
+    //  startTimer();
+    //}
+
+
+
+    if (loop > 10) {
+      if (!blu && red) {
+        red -= 10;
+        grn += 10;
+      }
+      else if (!red && grn) {
+        grn -= 10;
+        blu += 10;
+      }
+      else if (!grn && blu) {
+        blu -= 10;
+        red += 10;
+      }
+
+      // set that color and send the data
+      set(red, grn, blu, 0, stack[2]);
+      set(red, grn, blu, 1, stack[2]);
+      set(red, grn, blu, 2, stack[2]);
+
+
       startTimer();
+
+      loop = 0;
+      // BLINK THAT LED LIKE IT'S YOUR JOB
+      PINB |= (1<<1);
     }
-
-    // set that color and send the data
-    //set(red, grn, blu, ledData);
-    //set(red, grn, blu, 0, stack[0]);
-    //startTimer();
-
-    // BLINK THAT LED LIKE IT'S YOUR JOB
-    PINB |= (1<<1);
-    _delay_ms(100);
+    _delay_ms(10);
   }
   // hold on to that feeling
   return 42;
