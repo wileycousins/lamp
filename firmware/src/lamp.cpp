@@ -177,9 +177,9 @@ int main(void) {
       }
 
       // set that color and send the data
-      set(red, grn, blu, 0, stack[2]);
-      set(red, grn, blu, 1, stack[2]);
-      set(red, grn, blu, 2, stack[2]);
+      set(red, grn, blu, 0, currentStackData);
+      set(red, grn, blu, 1, currentStackData);
+      set(red, grn, blu, 2, currentStackData);
 
 
       startTimer();
