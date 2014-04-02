@@ -11,7 +11,7 @@ module.exports = (user, next) ->
 
   twitter.verifyCredentials (data) ->
     console.log "Twitter Auth Verified!"
-    #console.log data
+    console.log data
     if !data || data?.error
       return next data, false
     next false, twitter

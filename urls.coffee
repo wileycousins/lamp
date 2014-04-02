@@ -37,7 +37,8 @@ module.exports = (app) ->
     res.render "email.jade", res.args
 
   app.get "/twitter", (req, res) ->
-    res.render "twitter.jade", res.args
+    req.user.streamTweets()
+    res.render "profile.jade", res.args
 
   app.get "/api/users", routes.users.api.list
   app.get "/api/users/:id", routes.users.api.show

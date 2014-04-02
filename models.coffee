@@ -1,5 +1,6 @@
 _ = require "underscore"
 mongoose = require("mongoose")
+https = require("https")
 
 Schema = mongoose.Schema
 Mixed = Schema.Types.Mixed
@@ -8,6 +9,9 @@ UserSchema = new Schema
   provider: String
   profiles: Mixed
   auth_keys: Mixed
+  imp_url:
+    type: String
+    default: "https://agent.electricimp.com/3RWsFhdTP9P-?"
   name: String
   email: String
   image: String
@@ -47,12 +51,19 @@ UserSchema.method 'streamTweets', ->
       return console.log "error making twitter client"
     console.log "got my twitter client"
     streamer = require("./lib/twitter_streamer")
-    streamer.start twitter, user.newTweet
+    streamer.start twitter, user
 
 UserSchema.method 'newTweet', (tweet)->
-  console.log tweet
+  req = https.get "#{@.imp_url}color=B7C22C", (res) ->
+    bodyChunks = []
+    res.on("data", (chunk) ->
+      bodyChunks.push chunk
+    ).on "end", ->
+      body = Buffer.concat(bodyChunks)
+  req.on "error", (e) ->
+    console.log "ERROR: " + e.message
 
-TweetSchema = new Schema(
+TweetSchema = new Schema
   created_at: Date
   tweet_id:
     type: Number
@@ -62,27 +73,21 @@ TweetSchema = new Schema(
 
   text: String
   user:
-    id: Number
-    name: String
-    image: String
-    screen_name: String
+    type: Schema.ObjectId
+    ref: 'User'
 
   tags: [String]
 ,
   capped:
     size: 536870912
     autoIndexId: true
-)
-TweetSchema.statics.build = (twitter_obj) ->
-  self = new this(twitter_obj)
+ 
+TweetSchema.static 'build', (twitter_obj) ->
+  self = new @(twitter_obj)
   self.tweet_id = twitter_obj.id
-  self.user =
-    id: twitter_obj.user.id
-    name: twitter_obj.user.name
-    image: twitter_obj.user.profile_image_url
-    screen_name: twitter_obj.user.screen_name
+  self.user = twitter_obj.user
 
-  self.tags = _.pluck(twitter_obj.entities.hashtags, "text")
+  #self.tags = _.pluck(twitter_obj.entities.hashtags, "text")
   self
 
 TweetSchema.statics.topFiveTags = (done) ->

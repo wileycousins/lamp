@@ -79,6 +79,10 @@ app.configure ->
 
 require("./urls")(app)
 
+io = socketIo.listen server
+
+require('./sockets') io
+
 server.listen app.get("port"), ->
   console.log "Express server listening on port " + app.get("port")
 

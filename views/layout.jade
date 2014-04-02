@@ -31,7 +31,7 @@ html
             a(href='/email')
               p email
           li
-            a(href='/auth/twitter')
+            a(href='/twitter')
               p twitter
           li
             if me
@@ -46,3 +46,8 @@ html
                   img.hidden(src='/images/login-gray.png')
     .container
       block content
+  if me
+    :coffeescript
+      @a = @a || {}
+      @a.me = {}
+      @a.me.id = '#{me.id}'
