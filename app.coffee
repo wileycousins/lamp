@@ -29,23 +29,20 @@ connectAssets = require("connect-assets")
 models = require("./models")
 User = models.User
 jadeBrowser = require("jade-browser")
+MongoStore = require('connect-mongo')(express)
+sessionStore = new MongoStore({ url: config.mongodb })
+
 passport.serializeUser (user, done) ->
-  done null, user.uid
-  return
+  done null, user.id
 
-passport.deserializeUser (uid, done) ->
-  User.findOne
-    uid: uid
-  , (err, user) ->
+passport.deserializeUser (id, done) ->
+  User.findById id, (err, user) ->
     done err, user
-    return
-
-  return
 
 passport.use new TwitterStrategy
   consumerKey: config.twitter.CONSUMER_KEY
   consumerSecret: config.twitter.CONSUMER_SECRET
-  callbackURL: "http://" + config.url + "/auth/twitter/callback"
+  callbackURL: config.url + "/auth/twitter/callback"
 , (token, tokenSecret, profile, done) ->
   User.findOne
     uid: profile.id
@@ -87,9 +84,9 @@ app.configure ->
   app.use express.bodyParser()
   app.use express.methodOverride()
   app.use express.cookieParser(config.sessionSecret)
-  app.use express.session(secret: "shhhh")
-  #app.use passport.initialize()
-  #app.use passport.session()
+  app.use express.session store: sessionStore
+  app.use passport.initialize()
+  app.use passport.session()
   app.use app.router
   app.use stylus.middleware
         src: path.join(__dirname,'assets')
@@ -98,7 +95,7 @@ app.configure ->
   app.use express.static path.join __dirname, "public"  
   app.use express.errorHandler()  if config.useErrorHandler
 
-#require("./urls")(app)
+require("./urls")(app)
 
 server.listen app.get("port"), ->
   console.log "Express server listening on port " + app.get("port")

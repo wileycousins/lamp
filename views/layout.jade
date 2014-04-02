@@ -1,0 +1,48 @@
+!!!
+html
+  head
+    title Wiley Cousins Lamp
+    !=css('index')
+    link(rel='icon', type='image/x-icon', href='/images/fav.png')
+    meta(name="viewport",content="width=device-width, initial-scale=1.0")
+    meta(name='description', content='Wiley Cousins notifier Lamp')
+    meta(name='author', content='Wiley Cousins')
+    //-script(type='text/javascript', src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
+    //-script(type='text/javascript', src='//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js')
+    script(type="text/javascript", src="//js.stripe.com/v2/")
+    script(type='text/javascript')
+      Stripe.setPublishableKey('#{stripe_js}')
+    !=js('client')
+  body
+    nav.navbar.nav.navbar-default(role="navigation")
+      .navbar-header
+        a.navbar-brand(href='/')
+          .near.nav-link
+            p home
+            span.glyphicon.glyphicon-home
+        button.navbar-toggle(data-toggle="collapse",data-target="#navbar-collapse")
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+      #navbar-collapse.collapse.navbar-collapse
+        ul.nav.navbar-nav
+          li
+            a(href='/email')
+              p email
+          li
+            a(href='/twitter')
+              p twitter
+          li
+            if me
+              a(href='/profile')
+                .me.nav-link
+                  p=me.name
+                  img.hidden(src='/images/me-gray.png')
+            else
+              a(href='/login')
+                .login.nav-link
+                  p login
+                  img.hidden(src='/images/login-gray.png')
+    .container
+      block content
