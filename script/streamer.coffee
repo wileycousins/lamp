@@ -6,7 +6,7 @@ https = require("https")
 #seacher
 console.log "starting streamer..."
 streamer.start (tweet) ->
-  console.log "tweet"
+  console.log tweet
   req = https.get "https://agent.electricimp.com/3RWsFhdTP9P-?color=B7C22C", (res) ->
 
     #console.log('STATUS: ' + res.statusCode);
