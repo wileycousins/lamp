@@ -39,25 +39,7 @@ passport.deserializeUser (id, done) ->
   User.findById id, (err, user) ->
     done err, user
 
-passport.use new TwitterStrategy
-  consumerKey: config.twitter.CONSUMER_KEY
-  consumerSecret: config.twitter.CONSUMER_SECRET
-  callbackURL: config.url + "/auth/twitter/callback"
-, (token, tokenSecret, profile, done) ->
-  User.findOne
-    uid: profile.id
-  , (err, user) ->
-    if user
-      done null, user
-    else
-      user = new User()
-      user.provider = "twitter"
-      user.uid = profile.id
-      user.name = profile.displayName
-      user.image = profile._json.profile_image_url
-      user.save (err) ->
-        throw err  if err
-        done null, user
+passport.use new TwitterStrategy config.twitter, User.authTwitter
 
 # connect the database
 mongoose.connect config.mongodb

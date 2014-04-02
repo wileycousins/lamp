@@ -9,8 +9,11 @@ exports.url = process.env.SITE_URL || "http://127.0.0.1:3000"
 exports.stripe = process.env.STRIPE || 'sk_test_n06Ogoe7k2fAfGwEsLohPmZV'
 exports.stripe_js = process.env.STRIPE_JS || "pk_test_DzlAwMEWAF4t32q7ioR5Z0sK"
 exports.twitter =
-  CONSUMER_KEY: process.env.TWITTER_CONSUMER_KEY
-  CONSUMER_SECRET: process.env.TWITTER_CONSUMER_SECRET
+  consumerKey: process.env.TWITTER_CONSUMER_KEY
+  consumerSecret: process.env.TWITTER_CONSUMER_SECRET
+  callbackURL: "#{exports.url}/auth/twitter/callback"
+
+exports.twitter_access =
   ACCESS_KEY: process.env.TWITTER_ACCESS_KEY
   ACCESS_SECRET: process.env.TWITTER_ACCESS_SECRET
 

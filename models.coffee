@@ -2,15 +2,56 @@ _ = require "underscore"
 mongoose = require("mongoose")
 
 Schema = mongoose.Schema
+Mixed = Schema.Types.Mixed
 
 UserSchema = new Schema
   provider: String
-  uid: String
+  profiles: Mixed
+  auth_keys: Mixed
   name: String
+  email: String
   image: String
   created:
     type: Date
     default: Date.now
+
+UserSchema.static 'authTwitter', (token, secret, profile, next) ->
+  User.findOne("profiles.twitter.id": profile.id).exec (err, user) ->
+    return callback(err) if err
+    isNew = false
+    if !user
+      user = new User(name: profile.displayName)
+      isNew = true
+      #user.email = if profile.emails.length > 0 then profile.emails[0].value
+      user.name = profile.displayName
+      user.image = profile._json.profile_image_url
+    user.profiles = user.profiles or {}
+    user.profiles.twitter = profile
+    user.auth_keys= user.auth_keys or {}
+    user.auth_keys['twitter'] =
+      key: token
+      secret: secret
+    user.markModified "profiles"
+    user.markModified "auth_keys"
+    user.save (err, user) ->
+      return callback(err)  if err
+      #if isNew
+        #mailer.newUser user
+      user.streamTweets()
+      next null, user
+
+UserSchema.method 'streamTweets', ->
+  user = @
+  require('./lib/twitter_client') user, (err, twitter) ->
+    if err
+      return console.log "error making twitter client"
+    console.log "got my twitter client"
+    streamer = require("./lib/twitter_streamer")
+    streamer.start twitter, user.newTweet
+
+UserSchema.method 'newTweet', (tweet)->
+  console.log tweet
+
 TweetSchema = new Schema(
   created_at: Date
   tweet_id:
@@ -153,5 +194,5 @@ TweetSchema.statics.tagLeaderboard = (tag, done) ->
   , done
   return
 
-exports.Tweet = mongoose.model "Tweet", TweetSchema
-exports.User = mongoose.model "User", UserSchema
+Tweet = exports.Tweet = mongoose.model "Tweet", TweetSchema
+User = exports.User = mongoose.model "User", UserSchema
