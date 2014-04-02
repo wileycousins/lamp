@@ -12,5 +12,6 @@ $(window).ready ->
     socket.emit "tweets", a.me
 
   socket.on "tweet", (msg) ->
-    $("#tweets").append(msg)
+    tweet = $(jade.templates["tweet.jade"] msg )
+    $("#tweets").append(tweet)
 

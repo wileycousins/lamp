@@ -87,7 +87,7 @@ TweetSchema.static 'build', (twitter_obj) ->
   self.tweet_id = twitter_obj.id
   self.user = twitter_obj.user
 
-  #self.tags = _.pluck(twitter_obj.entities.hashtags, "text")
+  self.tags = _.pluck(twitter_obj.entities.hashtags, "text")
   self
 
 TweetSchema.statics.topFiveTags = (done) ->

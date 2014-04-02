@@ -26,6 +26,7 @@ mongoose = require("mongoose")
 socketIo = require("socket.io")
 connectAssets = require("connect-assets")
 #sockets = require("./sockets")
+jade_browser= require 'jade-browser'
 models = require("./models")
 User = models.User
 jadeBrowser = require("jade-browser")
@@ -76,6 +77,10 @@ app.configure ->
   app.use express.static path.join __dirname, "assets"  
   app.use express.static path.join __dirname, "public"  
   app.use express.errorHandler()  if config.useErrorHandler
+
+  app.use jade_browser "/js/templates.js", "**", 
+    root: path.join __dirname, "views"
+    noCache: true
 
 require("./urls")(app)
 
