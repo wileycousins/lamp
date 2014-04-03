@@ -18,7 +18,8 @@ $(window).ready ->
 
   socket.on "connection", (msg) ->
     console.log "connected: #{msg}"
-    socket.emit "tweets", a.me
+    if a.me?
+      socket.emit "tweets", a.me
 
   socket.on "tweet", (msg) ->
     tweet = $(jade.templates["tweet.jade"] msg )
