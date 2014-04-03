@@ -23,6 +23,14 @@ module.exports = (io) ->
         user.streamTweets()
         socket.emit "user", user
 
+    socket.on "removeTag", (user, tag) ->
+      console.log "\n\n\nREMOVE: #{tag}"
+      User.findByIdAndUpdate user.id, $pull: twitter_tags: tag, (err, user) ->
+        console.log err if err
+        console.log user.tweet_track
+        user.streamTweets()
+        socket.emit "user", user
+
 
     socket.on "tweets", (user) ->
       stream = Tweet.find( user:user.id ).tailable().limit(10).stream()

@@ -22,10 +22,14 @@ $(window).ready ->
       taghtml = $(jade.templates["tweet_tag.jade"] tag:tag )
       $("#tweet-tags").append taghtml
 
-
-
   $("#add-twitter-tag").click ->
     tag = $("#new-twitter-tag").val()
     $("#new-twitter-tag").val ''
     socket.emit "addTag", a.me, tag
+
+  $(".remove-twitter-tag").click ->
+    tag = $($(@).parent('p'))
+    console.log tag
+    socket.emit "removeTag", a.me, tag.text()
+    $(tag).remove()
 
