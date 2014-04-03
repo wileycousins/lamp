@@ -1,4 +1,4 @@
-// reflow
+// lamp
 // Copyright 2014 by Wiley Cousins, LLC.
 // shared under the terms of the MIT License
 //
