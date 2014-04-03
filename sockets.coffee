@@ -16,9 +16,15 @@ module.exports = (io) ->
   io.sockets.on "connection", (socket) ->
     socket.emit "connection", "yummyPizza"
 
+    socket.on "addTag", (user, tag) ->
+      User.findByIdAndUpdate user.id, $addToSet: twitter_tags: tag, (err, user) ->
+        console.log err if err
+        console.log user.tweet_track
+        user.streamTweets()
+        socket.emit "user", user
+
+
     socket.on "tweets", (user) ->
-      console.log "tweets for:"
-      console.log user
       stream = Tweet.find( user:user.id ).tailable().limit(10).stream()
       stream.on "error", (err) ->
         console.error err

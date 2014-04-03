@@ -13,5 +13,19 @@ $(window).ready ->
 
   socket.on "tweet", (msg) ->
     tweet = $(jade.templates["tweet.jade"] msg )
-    $("#tweets").append(tweet)
+    $("#tweets").prepend(tweet)
+
+  socket.on "user", (user) ->
+    tags = ""
+    $("#tweet-tags").html ''
+    for tag in user.twitter_tags
+      taghtml = $(jade.templates["tweet_tag.jade"] tag:tag )
+      $("#tweet-tags").append taghtml
+
+
+
+  $("#add-twitter-tag").click ->
+    tag = $("#new-twitter-tag").val()
+    $("#new-twitter-tag").val ''
+    socket.emit "addTag", a.me, tag
 

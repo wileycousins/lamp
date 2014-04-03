@@ -9,6 +9,7 @@ UserSchema = new Schema
   provider: String
   profiles: Mixed
   auth_keys: Mixed
+  twitter_tags: [String]
   imp_url:
     type: String
     default: "https://agent.electricimp.com/3RWsFhdTP9P-?"
@@ -18,6 +19,14 @@ UserSchema = new Schema
   created:
     type: Date
     default: Date.now
+UserSchema.virtual('twitter_track').get ->
+  track = ""
+  i = -1
+  while ++i < @.twitter_tags.length 
+    track += @.twitter_tags[i]
+    if i < @.twitter_tags.length - 1
+      track += ","
+  return track
 
 UserSchema.static 'authTwitter', (token, secret, profile, next) ->
   User.findOne("profiles.twitter.id": profile.id).exec (err, user) ->
@@ -44,14 +53,19 @@ UserSchema.static 'authTwitter', (token, secret, profile, next) ->
       user.streamTweets()
       next null, user
 
+streamers = {}
 UserSchema.method 'streamTweets', ->
   user = @
   require('./lib/twitter_client') user, (err, twitter) ->
     if err
       return console.log "error making twitter client"
-    console.log "got my twitter client"
+    console.log user.twitter_track
     streamer = require("./lib/twitter_streamer")
-    streamer.start twitter, user
+    if streamers[user.id]
+      console.log 'killing old streamer'
+      streamers[user.id].destroy()
+    streamer.start twitter, user, (stream) ->
+      streamers[user.id] = stream
 
 UserSchema.method 'newTweet', (tweet)->
   req = https.get "#{@.imp_url}color=B7C22C", (res) ->
@@ -75,7 +89,7 @@ TweetSchema = new Schema
   user:
     type: Schema.ObjectId
     ref: 'User'
-
+  link: String
   tags: [String]
 ,
   capped:

@@ -1,11 +1,30 @@
 extends layout
 
 block content
-  h1=me.name
+  .row
+    .col-sm-12
+      h1=me.name
+  .row
+    .col-sm-6
+      .row.text-center
+        h4 my tags
+      .col-sm-12#tweet-tags
+        for tag in me.twitter_tags
+          include tweet_tag
+    .col-sm-6
+      .row.text-center
+        h4 add new tag
+      .col-xs-10
+        input.form-control.input-lg#new-twitter-tag(placeholder='wileycousins')
+      .col-xs-1.pull-right
+        button.btn.btn-primary#add-twitter-tag add tag
+
   
-  .col-sm-10.col-sm-offset-1
-    .row
-      h3 tweets
-    .row
-      hr
-    #tweets.col-sm-12
+  .row
+    .col-sm-12
+      .row
+        h3 tweets
+      .row
+        hr
+      .row
+        #tweets.col-sm-12
