@@ -2,9 +2,9 @@
 config          = require '../config'
 models          = require '../models'
 User            = models.User
-PurchasedThing  = models.PurchasedThing
 _               = require 'underscore'
 stripe          = require('stripe')(config.stripe)
+
 exports.show = (req, res) ->
   if req.user
     req.params = req.params || {}
@@ -14,6 +14,7 @@ exports.show = (req, res) ->
         return res.render "error.jade", error: err
       res.args['me'] = user
       res.args['title'] = 'profile'
+      res.args['providers'] = []
       res.render "profile.jade", res.args
   else
     res.redirect "/"

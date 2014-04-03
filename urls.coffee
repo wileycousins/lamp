@@ -42,7 +42,7 @@ module.exports = (app) ->
   app.get "/twitter", (req, res) ->
     if req.user
       req.user.streamTweets()
-      res.render "profile.jade", res.args
+      res.render "twitter.jade", res.args
     else
       res.redirect '/'
 
