@@ -17,7 +17,7 @@ exports.facebookCallback = passport.authenticate "facebook",
 
 exports.logout = (req, res) ->
   req.logout()
-  res.redirect "/about"
+  res.redirect "/"
 
 exports.success = (req, res) ->
   req.session = req.session || {}

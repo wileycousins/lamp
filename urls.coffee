@@ -34,11 +34,17 @@ module.exports = (app) ->
     res.render "index.jade", res.args
 
   app.get "/email", (req, res) ->
-    res.render "email.jade", res.args
+    if req.user
+      res.render "email.jade", res.args
+    else
+      res.redirect '/'
 
   app.get "/twitter", (req, res) ->
-    req.user.streamTweets()
-    res.render "profile.jade", res.args
+    if req.user
+      req.user.streamTweets()
+      res.render "profile.jade", res.args
+    else
+      res.redirect '/'
 
   app.get "/api/users", routes.users.api.list
   app.get "/api/users/:id", routes.users.api.show

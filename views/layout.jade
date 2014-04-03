@@ -32,17 +32,20 @@ html
           li
             a(href='/twitter')
               p twitter
-          li
-            if me
+          if me
+            li
               a(href='/profile')
                 .me.nav-link
                   p=me.name
-                  img.hidden(src='/images/me-gray.png')
-            else
+            li
+              a(href='/logout')
+                .logout.nav-link
+                  p logout
+          else
+            li
               a(href='/login')
                 .login.nav-link
                   p login
-                  img.hidden(src='/images/login-gray.png')
     .container
       block content
   if me
