@@ -5,8 +5,14 @@ https = require("https")
 Schema = mongoose.Schema
 Mixed = Schema.Types.Mixed
 
+ProviderSchema = new Schema
+  name: String
+
 UserSchema = new Schema
-  provider: String
+  providers: [
+    type: Schema.ObjectId
+    ref: 'Provider'
+  ]
   profiles: Mixed
   auth_keys: Mixed
   twitter_tags: [String]
@@ -50,12 +56,23 @@ UserSchema.static 'authTwitter', (token, secret, profile, next) ->
       secret: secret
     user.markModified "profiles"
     user.markModified "auth_keys"
-    user.save (err, user) ->
+    Provider.findOne name:"twitter", (err, twitter) ->
       return callback(err)  if err
-      #if isNew
-        #mailer.newUser user
-      user.streamTweets()
-      next null, user
+      addProvider = (user, twitter) ->
+        user.providers.addToSet twitter
+        console.log user.providers
+        user.save (err, user) ->
+          return callback(err)  if err
+          #if isNew
+            #mailer.newUser user
+          user.streamTweets()
+          next null, user
+      if !twitter
+        twitter = new Provider name: 'twitter'
+        twitter.save (err, twitter) ->
+          addProvider user, twitter
+      else
+        addProvider user, twitter
 
 streamers = {}
 UserSchema.method 'streamTweets', ->
@@ -218,3 +235,4 @@ TweetSchema.statics.tagLeaderboard = (tag, done) ->
 
 Tweet = exports.Tweet = mongoose.model "Tweet", TweetSchema
 User = exports.User = mongoose.model "User", UserSchema
+Provider = exports.Provider = mongoose.model "Provider", ProviderSchema

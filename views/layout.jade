@@ -26,13 +26,11 @@ html
           span.icon-bar
       #navbar-collapse.collapse.navbar-collapse
         ul.nav.navbar-nav
-          li
-            a(href='/email')
-              p email
-          li
-            a(href='/twitter')
-              p twitter
           if me
+            for provider in me.providers
+              li
+                a(href='/#{provider.name}')
+                  p=provider.name
             li
               a(href='/profile')
                 .me.nav-link

@@ -2,6 +2,7 @@
 config          = require '../config'
 models          = require '../models'
 User            = models.User
+Provider        = models.Provider
 _               = require 'underscore'
 stripe          = require('stripe')(config.stripe)
 
@@ -14,8 +15,11 @@ exports.show = (req, res) ->
         return res.render "error.jade", error: err
       res.args['me'] = user
       res.args['title'] = 'profile'
-      res.args['providers'] = []
-      res.render "profile.jade", res.args
+      Provider.find name: $not: $in: _.pluck(user.providers, "name") , (err, providers) ->
+        if err
+          return res.render "error.jade", error: err
+        res.args['providers'] = providers
+        res.render "profile.jade", res.args
   else
     res.redirect "/"
 
@@ -107,14 +111,17 @@ exports.buy_thing = (req, res) ->
 
 exports.api =
   list: (req, res, next) ->
-    User.find().exec (err, users)->
-      if err
-        return res.send err
-      res.jsonData = users
-      next()
+    User.find()
+      .populate 'providers'
+      .exec (err, users)->
+        if err
+          return res.send err
+        res.jsonData = users
+        next()
 
   show: (req, res, next) ->
     User.findById(req.params.id)
+      .populate 'providers'
       .exec (err, user)->
         if err
           return res.send err
