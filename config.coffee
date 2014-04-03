@@ -12,6 +12,13 @@ exports.twitter =
   consumerKey: process.env.TWITTER_CONSUMER_KEY
   consumerSecret: process.env.TWITTER_CONSUMER_SECRET
   callbackURL: "#{exports.url}/auth/twitter/callback"
+  passReqToCallback: true
+
+exports.google=
+  clientID: process.env.GOOGLE_CLIENT_ID
+  clientSecret: process.env.GOOGLE_CLIENT_SECRET
+  callbackURL: "#{exports.url}/auth/google/callback"
+  passReqToCallback: true
 
 exports.twitter_access =
   ACCESS_KEY: process.env.TWITTER_ACCESS_KEY

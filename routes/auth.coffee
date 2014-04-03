@@ -8,6 +8,16 @@ exports.twitterCallback = passport.authenticate "twitter",
   failureRedirect: "/auth/failure"
   failureFlash: true
 
+exports.google = passport.authenticate "google", scope: [
+    'https://www.googleapis.com/auth/userinfo.profile',
+    'https://www.googleapis.com/auth/userinfo.email'
+  ]
+
+exports.googleCallback = passport.authenticate "google",
+  successRedirect: "/auth/success"
+  failureRedirect: "/auth/failure"
+  failureFlash: true
+
 exports.facebook = passport.authenticate "facebook", scope: [ 'email' ]
 
 exports.facebookCallback = passport.authenticate "facebook",

@@ -21,6 +21,7 @@ http = require("http")
 path = require("path")
 passport = require("passport")
 TwitterStrategy = require("passport-twitter").Strategy
+GoogleStrategy = require("passport-google-oauth").OAuth2Strategy
 io = require("socket.io")
 mongoose = require("mongoose")
 socketIo = require("socket.io")
@@ -32,7 +33,6 @@ User = models.User
 jadeBrowser = require("jade-browser")
 MongoStore = require('connect-mongo')(express)
 sessionStore = new MongoStore({ url: config.mongodb })
-
 passport.serializeUser (user, done) ->
   done null, user.id
 
@@ -41,6 +41,8 @@ passport.deserializeUser (id, done) ->
     done err, user
 
 passport.use new TwitterStrategy config.twitter, User.authTwitter
+passport.use new GoogleStrategy config.google , User.authGoogle
+
 
 # connect the database
 mongoose.connect config.mongodb

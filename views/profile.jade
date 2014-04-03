@@ -16,5 +16,6 @@ block content
         h4 add new provider
       .col-xs-10
         for provider in providers
-          li=provider.name
+          a(href='/auth/#{provider.name}')
+            li=provider.name
 

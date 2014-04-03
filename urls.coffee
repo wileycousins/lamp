@@ -58,6 +58,10 @@ module.exports = (app) ->
     app.get "/auth/twitter", routes.auth.twitter
     app.get "/auth/twitter/callback", routes.auth.twitterCallback
 
+  if config.google
+    app.get "/auth/google", routes.auth.google
+    app.get "/auth/google/callback", routes.auth.googleCallback
+
   if config.facebook
     app.get "/auth/facebook", routes.auth.facebook
     app.get "/auth/facebook/callback", routes.auth.facebookCallback

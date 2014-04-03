@@ -38,10 +38,48 @@ UserSchema.virtual('twitter_track').get ->
       track += ","
   return track
 
-UserSchema.static 'authTwitter', (token, secret, profile, next) ->
+UserSchema.static 'authGoogle', (req, token, secret, profile, next) ->
+  console.log 'authing google'
+  User.findOne("profiles.google.id": profile.id).exec (err, user) ->
+    return callback(err) if err
+    isNew = false
+    if req.user
+      user = req.user
+    if !user
+      user = new User(name: profile.displayName)
+      isNew = true
+      #user.email = if profile.emails.length > 0 then profile.emails[0].value
+      user.name = profile.displayName
+      user.email = profile.emails[0] if profile.emails.length > 0
+      user.image = profile._json.profile_image_url
+    user.profiles = user.profiles or {}
+    user.profiles.google = profile
+    user.auth_keys= user.auth_keys or {}
+    user.auth_keys['google'] =
+      key: token
+      secret: secret
+    user.markModified "profiles"
+    user.markModified "auth_keys"
+    Provider.findOne name:"google", (err, google) ->
+      return callback(err)  if err
+      addProvider = (user, google) ->
+        user.providers.addToSet google
+        user.save (err, user) ->
+          return callback(err)  if err
+          next null, user
+      if !google
+        google = new Provider name: 'google'
+        google.save (err, google) ->
+          addProvider user, google
+      else
+        addProvider user, google
+
+UserSchema.static 'authTwitter', (req, token, secret, profile, next) ->
   User.findOne("profiles.twitter.id": profile.id).exec (err, user) ->
     return callback(err) if err
     isNew = false
+    if req.user
+      user = req.user
     if !user
       user = new User(name: profile.displayName)
       isNew = true
@@ -60,7 +98,6 @@ UserSchema.static 'authTwitter', (token, secret, profile, next) ->
       return callback(err)  if err
       addProvider = (user, twitter) ->
         user.providers.addToSet twitter
-        console.log user.providers
         user.save (err, user) ->
           return callback(err)  if err
           #if isNew
