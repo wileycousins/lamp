@@ -19,6 +19,10 @@ UserSchema = new Schema
   created:
     type: Date
     default: Date.now
+,
+  toObject: virtuals: true
+  toJSON: virtuals: true
+
 UserSchema.virtual('twitter_track').get ->
   track = ""
   i = -1
@@ -59,7 +63,6 @@ UserSchema.method 'streamTweets', ->
   require('./lib/twitter_client') user, (err, twitter) ->
     if err
       return console.log "error making twitter client"
-    console.log user.twitter_track
     streamer = require("./lib/twitter_streamer")
     if streamers[user.id]
       console.log 'killing old streamer'

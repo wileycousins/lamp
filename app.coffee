@@ -85,6 +85,7 @@ app.configure ->
 require("./urls")(app)
 
 io = socketIo.listen server
+io.set 'log level', 1
 
 require('./sockets') io
 

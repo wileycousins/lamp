@@ -22,5 +22,6 @@ module.exports =
 
         streamer.on "error", (err) ->
           console.log "ERROR ON STREAMER: #{err}"
+
         next streamer
 
