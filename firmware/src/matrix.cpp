@@ -10,6 +10,11 @@
 #include <stdlib.h>
 #include "matrix.h"
 
+// convenience
+#define RED 0
+#define GRN 1
+#define BLU 2
+
 // constructor saves the stack sizes and calls the allocate function
 Matrix::Matrix(uint8_t* sizes) {
   for (uint8_t i; i<MATRIX_NUM_STACKS; i++) {
@@ -34,4 +39,12 @@ void Matrix::allocateMatrix(void) {
       }
     }
   }
+}
+
+// set an individual card
+void Matrix::set(uint8_t *rgb, uint8_t s, uint8_t lvl) {
+  m[s][lvl][RED] = rgb[RED];
+  m[s][lvl][GRN] = rgb[GRN];
+  m[s][lvl][BLU] = rgb[BLU];
+  
 }
