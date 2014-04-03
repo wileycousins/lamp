@@ -30,7 +30,7 @@
     "socket.io"             : "*",
     "socket.io-client"      : "*",
     "underscore"            : "*",
-    "foreman"               : "*",
+    "forever"               : "*",
     "supervisor"            : "*"
   },
   "author": "wileycousins",

@@ -1,0 +1,6 @@
+#!/bin/bash
+git push
+ssh wileycousins.webfactional.com << EOF
+  cd ~/github/clockblock
+  ./updateFromLive
+EOF
