@@ -119,7 +119,7 @@ UserSchema.method 'stopTweetStream', ->
   user = @
   console.log streamers
   if streamers.twitter?[user.id]
-    #console.log 'killing old streamer'
+    console.log 'killing old streamer'
     streamers['twitter'][user.id].destroy()
 
 UserSchema.method 'streamTweets', ->
