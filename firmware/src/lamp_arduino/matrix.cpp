@@ -41,6 +41,13 @@ void Matrix::allocateMatrix(void) {
   }
 }
 
+// get an individual card
+void Matrix::get(uint16_t *rgb, uint8_t s, uint8_t c) {
+  rgb[RED] = m[s][c][RED];
+  rgb[GRN] = m[s][c][GRN];
+  rgb[BLU] = m[s][c][BLU]; 
+}
+
 // set an individual card
 void Matrix::set(uint16_t *rgb, uint8_t s, uint8_t c) {
   m[s][c][RED] = rgb[RED];
@@ -50,20 +57,23 @@ void Matrix::set(uint16_t *rgb, uint8_t s, uint8_t c) {
 
 // set all LEDs
 void Matrix::set(uint16_t *rgb) {
-
+  for (uint8_t stack=0; stack<MATRIX_NUM_STACKS; stack++) {
+    setStack(rgb, stack);
+  }
 }
 
 // set a whole stack
 void Matrix::setStack(uint16_t *rgb, uint8_t stack) {
-  for (uint8_t card=0; card<stackSize; card++) {
-    m[stack][card][RED] = rgb[RED];
-    m[stack][card][GRN] = rgb[GRN];
-    m[stack][card][BLU] = rgb[BLU];
+  for (uint8_t card=0; card<stackSize[stack]; card++) {
+    set(rgb, stack, card);
   }
-  m[stack]
 }
 
-// set all cards at a certain level
-void Matrix::setLevel(uint16_t *rgb, uint8_t level) {
-  
+// set all cards at a certain level in all stacks
+void Matrix::setLevel(uint16_t *rgb, uint8_t card) {
+  for (uint8_t statck=0; stack<MATRIX_NUM_STACKS; stack++) {
+    if (stackSize[stack] > card) {
+      set(rgb, stack, card);
+    }
+  }
 }

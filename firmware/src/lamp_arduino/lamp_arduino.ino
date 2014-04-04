@@ -4,6 +4,9 @@
 #include <avr/interrupt.h>
 #include <util/delay.h>
 
+// application includes
+//#include "../matrix.h"
+
 // led stacks
 #define NUM_STACKS  3
 #define LED_WAIT_COUNT  4
@@ -71,34 +74,6 @@ int main(void) {
   uint8_t dr = 0;
   uint8_t dg = 0;
   uint8_t db = 0;
-  
-
-  /*
-  // stack 0 starts at red
-  if (stackSize[0] >= 1) {
-    set(4000, 0, 0, 0, stack[0]);
-  }
-  if (stackSize[0] >= 2) {
-    set(2000, 2000, 0, 1, stack[0]);
-  }
-
-  // stack 1 starts at green
-  if (stackSize[1] >= 1) {
-    set(0, 4000, 0, 0, stack[1]);
-  }
-  if (stackSize[1] >= 2) {
-    set(0, 2000, 2000, 1, stack[1]);
-  }
-
-
-  // stack 2 starts at blue
-  if (stackSize[2] >= 1) {
-    set(0, 0, 4000, 0, stack[2]);
-  }
-  if (stackSize[2] >= 2) {
-    set(2000, 0, 2000, 1, stack[2]);
-  }
-  */
 
 
   // enable global interrupts

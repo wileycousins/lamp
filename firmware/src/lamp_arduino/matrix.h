@@ -24,20 +24,23 @@ public:
   
   // series of set methods
   // with just an rgb array as the param, it sets all LEDs
-  set(uint16_t *rgb);
+  void set(uint16_t *rgb);
   // with an rgb value, a stack, and a level, it'll set an individual card
-  set(uint8_t *rgb, uint8_t s, uint8_t lvl);
+  void set(uint8_t *rgb, uint8_t s, uint8_t c);
   // separate methods for setting whole stacks or levels
-  setStack(uint16_t *rgb, uint8_t s);
-  setLevel(uint16_t *rgb, uint8_t lvl);
+  void setStack(uint16_t *rgb, uint8_t s);
+  void setLevel(uint16_t *rgb, uint8_t c);
   
+  // get the information of a card
+  void get(uint16_t *rgb, uint8_t s, uint8_t c);
+
 
 private:
   // where the magic happens (TRIPLE POINTER WHAT UP)
   // three dimensional array that is allocated in the matrix constructor
   // first dimension is the stacks
   // second dimension is the cards in the stacks
-  // third dimension is the rgb value of each card
+  // third dimension is the rgb values of each card
   uint16_t ***m;
   // place to hold stack sizes
   uint8_t stackSize[MATRIX_NUM_STACKS];
