@@ -16,13 +16,17 @@ module.exports = (io) ->
     socket.emit "connection", "yummyPizza"
 
     socket.on "disconnect", (msg) ->
-      console.log "disconnet"
       user = socket['user']
+      console.log "disconnet: #{user?.id}"
       User.findById user?.id, (err, user) ->
         return console.log err if err
         return "" if !user
         console.log "stop tweets for #{user.name}"
         user.stopTweetStream()
+      stream = socket['stream']
+      if stream?
+        console.log 'killing mongoose stream'
+        stream.destroy()
 
     socket.on "addTag", (user, tag) ->
       if user?
@@ -44,12 +48,13 @@ module.exports = (io) ->
     socket.on "tweets", (user) ->
       if user?
         socket['user'] = user
-        stream = Tweet.find( user:user.id ).tailable().limit(10).stream()
+        socket['stream'] = stream = Tweet.find( user:user.id ).tailable().limit(10).stream()
+
         stream.on "error", (err) ->
           console.error err
-          return
 
         stream.on "data", (doc) ->
-          io.sockets.emit "tweet", doc
-          return
+          socket.emit "tweet", doc
 
+        stream.on "close", (err) ->
+          console.log 'closed mongoose stream'

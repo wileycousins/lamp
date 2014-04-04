@@ -115,12 +115,16 @@ UserSchema.static 'authTwitter', (req, token, secret, profile, next) ->
         addProvider user, twitter
 
 streamers = {}
+clients = {}
 UserSchema.method 'stopTweetStream', ->
   user = @
-  console.log streamers
   if streamers.twitter?[user.id]
     console.log 'killing old streamer'
     streamers['twitter'][user.id].destroy()
+    delete streamers['twitter'][user.id]
+  if clients.twitter?[user.id]
+    console.log 'killing old client'
+    delete clients['twitter'][user.id]
 
 UserSchema.method 'streamTweets', ->
   user = @
@@ -129,6 +133,8 @@ UserSchema.method 'streamTweets', ->
       return console.log "error making twitter client"
     streamer = require("./lib/twitter_streamer")
     streamers['twitter'] = streamers['twitter'] || {}
+    clients['twitter'] = clients['twitter'] || {}
+    clients['twitter'][user.id] = twitter
     user.stopTweetStream()
     streamer.start twitter, user, (stream) ->
       streamers['twitter'][user.id] = stream
