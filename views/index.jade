@@ -1,4 +1,7 @@
 extends layout
 
 block content
-  h1 please login to get started
+  if !me
+    h1 please login to get started
+  else
+    h1 go to a page to get lamp notifications for that thing
