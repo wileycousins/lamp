@@ -4,5 +4,4 @@ cp -rf ~/github/lamp/* ~/webapps/lamp/
 cd ~/webapps/lamp/
 npm install
 source .env
-pm2 restart $PWD/app.coffee --name lamp -e ~/.pm2/logs/lamp-err.log -o ~/.pm2/logs/lamp-out.log
-#./bin/start
+pm2 restart $PWD/app.coffee --name lamp -e /home/wileycousins/.pm2/logs/lamp-err.log -o /home/wileycousins/pm2/logs/lamp-out.log
