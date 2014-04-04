@@ -5,7 +5,8 @@
 #include <util/delay.h>
 
 // application includes
-#include "matrix.h"
+//#include "matrix.h"
+#include "effects.h"
 
 // led stacks
 #define NUM_STACKS  3

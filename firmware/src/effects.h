@@ -11,10 +11,20 @@
 #include <stdint.h>
 #include "matrix.h"
 
+#define EFFECT_DEFAULT  0
+#define EFFECT_HOLD     1
+#define EFFECT_SWIRL    2
+#define EFFECT_BLEND    3
+#define N_EFFECTS       4
+
 class Effects {
 public:
   // Bob the builder
-  Effects(void);
+  Effects(Matrix *m);
+
+  // refresh the effect
+  // should be called periodically
+  refresh(void);
 
   // actual effects that are available to the public
   // set the default color and brightness
@@ -22,10 +32,16 @@ public:
   setDefault(uint8_t brite);
   setDefault(uint8_t *rgb, uint8_t brite);
 
-  // swirl around the 
-
+  // set the current effect 
+  setEffect(uint8_t effect);
+  // get the current effect
+  getEffect(uint8_t effect);
 
 private:
+  // current effect mode
+  bool def;
+  bool newMode;
+  uint8_t mode;
   // default color
   uint8_t defaultColor[3];
   // brightness (1-16)
@@ -40,7 +56,15 @@ private:
   uint16_t tenBitValue(uint8_t eightBitValue, unit8_t b);
 
   // stack strucure and data
-  Matrix leds;
+  Matrix *leds;
+
+  // stuff for effects to use
+  uint16_t limit;
+  uint16_t counter;
+
+  // HEY LOOK EFFECTS ALL THE EFFECTS OH MY GOD PLEASE SAVE US EFFECTS
+  void setHold(uint8_t *params, uint8_t nParams);
+  void refreshHold(void);
 };
 
 #endif
