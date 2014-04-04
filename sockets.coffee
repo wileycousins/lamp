@@ -12,9 +12,17 @@ module.exports = (io) ->
 
   io.configure "development", ->
   
-  # whatever!!!
   io.sockets.on "connection", (socket) ->
     socket.emit "connection", "yummyPizza"
+
+    socket.on "disconnect", (msg) ->
+      console.log "disconnet"
+      user = socket['user']
+      User.findById user?.id, (err, user) ->
+        return console.log err if err
+        return "" if !user
+        console.log "stop tweets for #{user.name}"
+        user.stopTweetStream()
 
     socket.on "addTag", (user, tag) ->
       if user?
@@ -35,6 +43,7 @@ module.exports = (io) ->
 
     socket.on "tweets", (user) ->
       if user?
+        socket['user'] = user
         stream = Tweet.find( user:user.id ).tailable().limit(10).stream()
         stream.on "error", (err) ->
           console.error err
@@ -44,4 +53,3 @@ module.exports = (io) ->
           io.sockets.emit "tweet", doc
           return
 
-  return

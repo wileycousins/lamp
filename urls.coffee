@@ -24,7 +24,7 @@ module.exports = (app) ->
       me: req.user
       stripe_js: config.stripe_js
     if res.args.me
-      User.findById(res.args.me._id).populate('addresses').exec (err, user) ->
+      User.findById(res.args.me._id).populate('providers').exec (err, user) ->
         res.args.me = user
         next()
     else
@@ -43,6 +43,13 @@ module.exports = (app) ->
     if req.user
       req.user.streamTweets()
       res.render "twitter.jade", res.args
+    else
+      res.redirect '/'
+
+  app.get "/google", (req, res) ->
+    if req.user
+      req.user.streamEmails()
+      res.render "google.jade", res.args
     else
       res.redirect '/'
 

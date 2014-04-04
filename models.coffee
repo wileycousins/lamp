@@ -1,6 +1,7 @@
 _ = require "underscore"
 mongoose = require("mongoose")
 https = require("https")
+config = require './config'
 
 Schema = mongoose.Schema
 Mixed = Schema.Types.Mixed
@@ -39,7 +40,7 @@ UserSchema.virtual('twitter_track').get ->
   return track
 
 UserSchema.static 'authGoogle', (req, token, secret, profile, next) ->
-  console.log 'authing google'
+  console.log req.body
   User.findOne("profiles.google.id": profile.id).exec (err, user) ->
     return callback(err) if err
     isNew = false
@@ -50,14 +51,16 @@ UserSchema.static 'authGoogle', (req, token, secret, profile, next) ->
       isNew = true
       #user.email = if profile.emails.length > 0 then profile.emails[0].value
       user.name = profile.displayName
-      user.email = profile.emails[0] if profile.emails.length > 0
       user.image = profile._json.profile_image_url
     user.profiles = user.profiles or {}
+    user.email = profile.emails[0].value if profile.emails.length > 0
     user.profiles.google = profile
     user.auth_keys= user.auth_keys or {}
     user.auth_keys['google'] =
       key: token
       secret: secret
+      refreshToken: req.query.code
+    user.getGoogleAccessToken()
     user.markModified "profiles"
     user.markModified "auth_keys"
     Provider.findOne name:"google", (err, google) ->
@@ -112,20 +115,26 @@ UserSchema.static 'authTwitter', (req, token, secret, profile, next) ->
         addProvider user, twitter
 
 streamers = {}
+UserSchema.method 'stopTweetStream', ->
+  user = @
+  console.log streamers
+  if streamers.twitter?[user.id]
+    #console.log 'killing old streamer'
+    streamers['twitter'][user.id].destroy()
+
 UserSchema.method 'streamTweets', ->
   user = @
   require('./lib/twitter_client') user, (err, twitter) ->
     if err
       return console.log "error making twitter client"
     streamer = require("./lib/twitter_streamer")
-    if streamers[user.id]
-      console.log 'killing old streamer'
-      streamers[user.id].destroy()
+    streamers['twitter'] = streamers['twitter'] || {}
+    user.stopTweetStream()
     streamer.start twitter, user, (stream) ->
-      streamers[user.id] = stream
+      streamers['twitter'][user.id] = stream
 
 UserSchema.method 'newTweet', (tweet)->
-  req = https.get "#{@.imp_url}color=B7C22C", (res) ->
+  req = https.get "#{@.imp_url}color=0000ff", (res) ->
     bodyChunks = []
     res.on("data", (chunk) ->
       bodyChunks.push chunk
@@ -133,6 +142,64 @@ UserSchema.method 'newTweet', (tweet)->
       body = Buffer.concat(bodyChunks)
   req.on "error", (e) ->
     console.log "ERROR: " + e.message
+
+UserSchema.method 'newEmail', (messages)->
+  if messages?.unseen > 0
+    req = https.get "#{@.imp_url}color=ff0000", (res) ->
+      bodyChunks = []
+      res.on("data", (chunk) ->
+        bodyChunks.push chunk
+      ).on "end", ->
+        body = Buffer.concat(bodyChunks)
+    req.on "error", (e) ->
+      console.log "ERROR: " + e.message
+
+UserSchema.method 'getGoogleAccessToken', ->
+  querystring = require('querystring')
+  user = @
+  data = querystring.stringify
+    client_id:"#{config.google.clientID}"
+    client_secret:"#{config.google.clientSecret}"
+    code:"#{user.auth_keys.google.refreshToken}"
+    grant_type:"authorization_code"
+
+  console.log data
+
+  options =
+    hostname: "accounts.google.com"
+    path: "/o/oauth2/token"
+    method: "POST"
+    headers:
+      'Content-Type': 'application/x-www-form-urlencoded'
+      'Content-Length': Buffer.byteLength(data)
+
+  req = https.request(options, (res) ->
+    console.log "statusCode: ", res.statusCode
+    console.log "headers: ", res.headers
+    res.on "data", (d) ->
+      process.stdout.write d
+  )
+  req.write data
+  req.end()
+  req.on "error", (e) ->
+    console.error e
+
+UserSchema.method 'streamEmails', ->
+  console.log 'lets stream some emails'
+  user = @
+  #user.getGoogleAccessToken()
+  #return
+  require('./lib/mail_client') user, (err, imap) ->
+    if err
+      return console.log "error making mail streamer client"
+    console.log 'got my imap client'
+    streamer = require("./lib/mail_streamer")
+    streamers['mail'] = streamers['mail'] || {}
+    streamers['mail'][user.id] = imap
+    if streamers[user.id]
+      console.log 'killing old streamer'
+      streamers['mail'][user.id].end()
+    streamer.start imap, 10*60, user
 
 TweetSchema = new Schema
   created_at: Date

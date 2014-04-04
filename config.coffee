@@ -16,6 +16,7 @@ exports.twitter =
 
 exports.google=
   clientID: process.env.GOOGLE_CLIENT_ID
+  clientEmail: process.env.GOOGLE_CLIENT_EMAIL
   clientSecret: process.env.GOOGLE_CLIENT_SECRET
   callbackURL: "#{exports.url}/auth/google/callback"
   passReqToCallback: true
