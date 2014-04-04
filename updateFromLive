@@ -3,8 +3,6 @@ git pull
 cp -rf ~/github/lamp/* ~/webapps/lamp/
 cd ~/webapps/lamp/
 npm install
-rm ~/.forever/lamp.log
 source .env
-forever stop $PWD/app.coffee
-forever -l ./lamp.log start -c coffee $PWD/app.coffee
+pm2 reload $PWD/app.coffee --name lamp
 #./bin/start

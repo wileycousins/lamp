@@ -31,7 +31,7 @@
     "socket.io"             : "*",
     "socket.io-client"      : "*",
     "underscore"            : "*",
-    "forever"               : "*",
+    "pm2"                   : "*",
     "supervisor"            : "*"
   },
   "author": "wileycousins",
