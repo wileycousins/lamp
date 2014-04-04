@@ -2,5 +2,6 @@
 git push
 ssh wileycousins@wileycousins.webfactional.com << EOF
   cd ~/github/lamp
+  git pull
   ./updateFromLive
 EOF
