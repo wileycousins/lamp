@@ -5,7 +5,7 @@
 #include <util/delay.h>
 
 // application includes
-//#include "../matrix.h"
+#include "matrix.h"
 
 // led stacks
 #define NUM_STACKS  3
@@ -45,7 +45,7 @@ int main(void) {
   DDRB |= (1<<1);
   PORTB |= (1<<1);
 
-  // set stack 0 serial data to output and pull it low
+  // set stack serial data pins to output and pull them low
   for (uint8_t i=0; i<NUM_STACKS; i++) {
     DDRD |= (1<<(2+i));
     PORTD &= ~(1<<(2+i));
@@ -55,12 +55,15 @@ int main(void) {
   initUnusedPins();
 
   // find out how many led cards are in each stack, and create data arrays for each
-  uint8_t *stack[NUM_STACKS];
+  uint8_t *stackData[NUM_STACKS];
   uint8_t stackSize[NUM_STACKS];
   senseStacks(stackSize);
+  // allocate the LED matrix
+  Matrix leds(stackSize);
+
   for (uint8_t i=0; i<NUM_STACKS; i++) {
     if (stackSize[i] > 0) {
-      stack[i] = initDataArray(stackSize[i]);
+      stackData[i] = initDataArray(stackSize[i]);
     }
   }
 
@@ -68,12 +71,12 @@ int main(void) {
   initTimer();
 
   // color blending and shit
-  uint16_t red = 0;
-  uint16_t grn = 0;
-  uint16_t blu = 0;
-  uint8_t dr = 0;
-  uint8_t dg = 0;
-  uint8_t db = 0;
+  // uint16_t red = 0;
+  // uint16_t grn = 0;
+  // uint16_t blu = 0;
+  // uint8_t dr = 0;
+  // uint8_t dg = 0;
+  // uint8_t db = 0;
 
 
   // enable global interrupts
@@ -82,136 +85,144 @@ int main(void) {
   if (stackSize[0]) {
     // for testing, set ledData to stack0 data
     currentStack = 0;
-    currentStackData = stack[0];
+    currentStackData = stackData[0];
     currentStackSize = stackSize[0];
-    startTimer();
+    //startTimer();
   }
 
-  uint8_t loopCounter = 0;
-  uint8_t shiftCounter = 12;
+  // all red for test
+  uint16_t rgb[3] = {1000, 0, 0};
+  leds.set(rgb);
+
+  for (uint8_t s=0; s<MATRIX_NUM_STACKS; s++) {
+    leds.get(rgb, s, 0);
+    set(rgb[0], rgb[1], rgb[2], 0, stackData[s]);
+  }
+
+  // color
+  // uint16_t color[3] = {0, 0, 0};
+  // uint8_t diff[3] = {0, 0, 0};
+
+  // uint8_t loopCounter = 0;
+  // uint8_t shiftCounter = 12;
   // don't stop believing
   for (;;) {
-    // leds
-    uint16_t led0[3] = {4000, 4000, 4000};
-    uint16_t led1[3] = {4000, 4000, 4000};
-    uint16_t led2[3] = {4000, 4000, 4000};
+    // // leds
+    // //uint16_t led0[3] = {4000, 4000, 4000};
+    // //uint16_t led1[3] = {4000, 4000, 4000};
+    // //uint16_t led2[3] = {4000, 4000, 4000};
     
     // if timer is not currently going, send data to next stack
     if (!TIMSK0) {
       currentStack = (currentStack < 2) ? (currentStack+1) : 0;
-      currentStackData = stack[currentStack];
+      currentStackData = stackData[currentStack];
       currentStackSize = stackSize[currentStack];
       startTimer();
     }
 
-    // get color data from serial
-    if (Serial.available() >= 3) {
-      red = Serial.read();
-      grn = Serial.read();
-      blu = Serial.read();
-      // clear out the buffer just in case
-      while (Serial.available()) {
-        Serial.read();
-      }
+    // // get color data from serial
+    // if (Serial.available() >= 3) {
+    //   color[0] = Serial.read();
+    //   color[1] = Serial.read();
+    //   color[2] = Serial.read();
+    //   // clear out the buffer just in case
+    //   while (Serial.available()) {
+    //     Serial.read();
+    //   }
       
-      // get the differences (1 / 4th)
-      dr = (uint8_t)(red);
-      dg = (uint8_t)(grn);
-      db = (uint8_t)(blu);
+    //   // get the differences (1 / 4th)
+    //   diff[0] = (uint8_t)(color[0]);
+    //   diff[1] = (uint8_t)(color[1]);
+    //   diff[2] = (uint8_t)(color[2]);
       
-      // shift numbers to 10 bit
-      red <<= 2;
-      grn <<= 2;
-      blu <<= 2;
+    //   // shift numbers to 10 bit
+    //   color[0] <<= 2;
+    //   color[1] <<= 2;
+    //   color[2] <<= 2;
       
-      // initialize the leds
-      shiftCounter = 0;
+    //   // initialize the leds
+    //   shiftCounter = 0;
       
-      led0[0] = red;
-      led0[1] = 0;
-      led0[2] = 0;
-      
-      led1[0] = 0;
-      led1[1] = grn;
-      led1[2] = 0;
-      
-      led2[0] = 0;
-      led2[1] = 0;
-      led2[2] = blu;
-    }
-    
-    // ever ten loops, recalculate the color
-    if (++loopCounter > 10) {
-      loopCounter = 0;
-      
-      // calculate new colors
-      if (shiftCounter < 4) {
-        led0[0] = red - (shiftCounter * dr);
-        led0[1] = 0;
-        led0[2] = shiftCounter * db;
-        
-        led1[0] = shiftCounter * dr;
-        led1[1] = grn - (shiftCounter * dg);
-        led1[2] = 0;
-        
-        led2[0] = 0;
-        led2[1] = shiftCounter * dg;
-        led2[2] = blu - (shiftCounter * db);
-      }
-      else if (shiftCounter < 8) {
-        led1[0] = red - ((shiftCounter-4) * dr);
-        led1[1] = 0;
-        led1[2] = (shiftCounter-4) * db;
-        
-        led2[0] = (shiftCounter-4) * dr;
-        led2[1] = grn - ((shiftCounter-4) * dg);
-        led2[2] = 0;
-        
-        led0[0] = 0;
-        led0[1] = (shiftCounter-4) * dg;
-        led0[2] = blu - ((shiftCounter-4) * db);
-      }
-      else if (shiftCounter < 12) {
-        led2[0] = red - ((shiftCounter-8) * dr);
-        led2[1] = 0;
-        led2[2] = (shiftCounter-8) * db;
-        
-        led0[0] = (shiftCounter-8) * dr;
-        led0[1] = grn - ((shiftCounter-8) * dg);
-        led0[2] = 0;
-        
-        led1[0] = 0;
-        led1[1] = (shiftCounter-8) * dg;
-        led1[2] = blu - ((shiftCounter-8) * db);
-      }
-      else {
-        led0[0] = 4000;
-        led0[1] = 4000;
-        led0[2] = 4000;
-      
-        led1[0] = 4000;
-        led1[1] = 4000;
-        led1[2] = 4000;
-      
-        led2[0] = 4000;
-        led2[1] = 4000;
-        led2[2] = 4000;
-      }
-      
-      // increment counter if necessary
-      if (shiftCounter < 12) {
-        shiftCounter++;
-      }
-      
-      // set the data
-      set(led0[0], led0[1], led0[2], 0, stack[0]);
-      set(led1[0], led1[1], led1[2], 0, stack[1]);
-      set(led2[0], led2[1], led2[2], 0, stack[2]);
+    //   uint16_t card0[3] = {color[0], 0, 0};
+    //   uint16_t card1[3] = {0, color[1], 0};
+    //   uint16_t card2[3] = {0, 0, color[2]};
 
-      // BLINK THAT LED LIKE IT'S YOUR JOB
-      //Serial.println("BLINK");
-      PINB |= (1<<1);
-    }
+    //   leds.set(card0, 0, 0);
+    //   leds.set(card1, 1, 0);
+    //   leds.set(card2, 2, 0);
+    // }
+    
+    // // ever ten loops, recalculate the color
+    // if (++loopCounter > 10) {
+    //   loopCounter = 0;
+      
+    //   // calculate new colors
+    //   if (shiftCounter < 4) {
+    //     card0[0] = red - (shiftCounter * dr);
+    //     card0[1] = 0;
+    //     card0[2] = shiftCounter * db;
+        
+    //     card1[0] = shiftCounter * dr;
+    //     card1[1] = grn - (shiftCounter * dg);
+    //     card1[2] = 0;
+        
+    //     card2[0] = 0;
+    //     card2[1] = shiftCounter * dg;
+    //     card2[2] = blu - (shiftCounter * db);
+    //   }
+    //   else if (shiftCounter < 8) {
+    //     card1[0] = red - ((shiftCounter-4) * dr);
+    //     card1[1] = 0;
+    //     card1[2] = (shiftCounter-4) * db;
+        
+    //     card2[0] = (shiftCounter-4) * dr;
+    //     card2[1] = grn - ((shiftCounter-4) * dg);
+    //     card2[2] = 0;
+        
+    //     card0[0] = 0;
+    //     card0[1] = (shiftCounter-4) * dg;
+    //     card0[2] = blu - ((shiftCounter-4) * db);
+    //   }
+    //   else if (shiftCounter < 12) {
+    //     card2[0] = red - ((shiftCounter-8) * dr);
+    //     card2[1] = 0;
+    //     card2[2] = (shiftCounter-8) * db;
+        
+    //     card0[0] = (shiftCounter-8) * dr;
+    //     card0[1] = grn - ((shiftCounter-8) * dg);
+    //     card0[2] = 0;
+        
+    //     card1[0] = 0;
+    //     card1[1] = (shiftCounter-8) * dg;
+    //     card1[2] = blu - ((shiftCounter-8) * db);
+    //   }
+    //   else {
+    //     led0[0] = 4000;
+    //     led0[1] = 4000;
+    //     led0[2] = 4000;
+      
+    //     led1[0] = 4000;
+    //     led1[1] = 4000;
+    //     led1[2] = 4000;
+      
+    //     led2[0] = 4000;
+    //     led2[1] = 4000;
+    //     led2[2] = 4000;
+    //   }
+      
+    //   // increment counter if necessary
+    //   if (shiftCounter < 12) {
+    //     shiftCounter++;
+    //   }
+      
+    //   // set the data
+    //   set(led0[0], led0[1], led0[2], 0, stack[0]);
+    //   set(led1[0], led1[1], led1[2], 0, stack[1]);
+    //   set(led2[0], led2[1], led2[2], 0, stack[2]);
+
+      // // BLINK THAT LED LIKE IT'S YOUR JOB
+      // PINB |= (1<<1);
+    // }
     // slight delay
     _delay_ms(10);
   }

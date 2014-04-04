@@ -26,7 +26,7 @@ public:
   // with just an rgb array as the param, it sets all LEDs
   void set(uint16_t *rgb);
   // with an rgb value, a stack, and a level, it'll set an individual card
-  void set(uint8_t *rgb, uint8_t s, uint8_t c);
+  void set(uint16_t *rgb, uint8_t s, uint8_t c);
   // separate methods for setting whole stacks or levels
   void setStack(uint16_t *rgb, uint8_t s);
   void setLevel(uint16_t *rgb, uint8_t c);
