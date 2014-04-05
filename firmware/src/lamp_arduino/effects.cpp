@@ -29,7 +29,9 @@ void Effects::refresh(void) {
     refreshSwirl();
     break;
 
-    // case EFFECT_BLEND: refreshBlend(); break;
+    case EFFECT_RAINBOW:
+    refreshRainbow();
+    break;
   }
 }
 
@@ -55,12 +57,12 @@ void Effects::setEffect(uint8_t effect, uint8_t *rgb, uint8_t t, uint8_t b) {
     refreshSwirl();
     break;
 
-    // // blend effect
-    // case EFFECT_BLEND:
-    // mode = EFFECT_BLEND;
-    // startBlend(params, nParams);
-    // refreshBlend(); 
-    // break;
+    // rainbow
+    case EFFECT_RAINBOW:
+    mode = EFFECT_RAINBOW;
+    startRainbow(t, b);
+    refreshRainbow(); 
+    break;
 
     // default effect
     default:
@@ -192,4 +194,55 @@ void Effects::refreshSwirl(void) {
     leds->setStack(leds->get(0, 0, BLU)-limit, 0, BLU);
     leds->setStack(leds->get(0, 0, RED)+limit, 0, RED);
   }
+}
+
+void Effects::startRainbow(uint8_t t, uint8_t br) {
+  limit = t;
+  uint16_t rgb[3];
+  rgb[0] = tenBitValue(255, br);
+  rgb[1] = 0;
+  rgb[2] = 0;
+  leds->set(rgb);
+}
+
+void Effects::refreshRainbow(void) {
+  int16_t rgb[3];
+  rgb[0] = leds->get(0, 0, RED);
+  rgb[1] = leds->get(0, 0, GRN);
+  rgb[2] = leds->get(0, 0, BLU);
+
+
+  if ((rgb[0]>0) && (rgb[2]<=0)) {
+    rgb[0] -= limit;
+    rgb[1] += limit;
+  }
+  else if ((rgb[1]>0) && (rgb[0]<=0)) {
+    rgb[1] -= limit;
+    rgb[2] += limit;
+  }
+  else if ((rgb[2]>0) && (rgb[1]<=0)) {
+    rgb[2] -= limit;
+    rgb[0] += limit;
+  }
+
+  uint16_t colors[3];
+  if (rgb[0] >= 0) {
+    colors[0] = (uint16_t)(rgb[0]);
+  }
+  else {
+    colors[0] = 0;
+  }
+  if (rgb[1] >= 0) {
+    colors[1] = (uint16_t)(rgb[1]);
+  }
+  else {
+    colors[1] = 0;
+  }
+  if (rgb[2] >= 0) {
+    colors[2] = (uint16_t)(rgb[2]);
+  }
+  else {
+    colors[2] = 0;
+  }
+  leds->set(colors);
 }

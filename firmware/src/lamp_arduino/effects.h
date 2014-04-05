@@ -14,7 +14,7 @@
 #define EFFECT_DEFAULT  0
 #define EFFECT_HOLD     1
 #define EFFECT_SWIRL    2
-#define EFFECT_BLEND    3
+#define EFFECT_RAINBOW  3
 #define N_EFFECTS       4
 
 class Effects {
@@ -74,6 +74,9 @@ private:
   void startSwirl(uint8_t *rgb, uint8_t t, uint8_t br);
   void refreshSwirl(void);
 
+  // rainbow - great for demo
+  void startRainbow(uint8_t t, uint8_t br);
+  void refreshRainbow(void);
 };
 
 #endif

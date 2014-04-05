@@ -79,7 +79,7 @@ int main(void) {
   // allocate the LED matrix
   Matrix leds(stackSize);
   // create an effects object
-  Effects fx(&leds, def, 2);
+  Effects fx(&leds, def, 11);
 
 
   // tell it to go green for about a second
@@ -87,9 +87,11 @@ int main(void) {
   //fx.setEffect(EFFECT_HOLD, holdParams, 5);
 
   // tell it to do a quick swirl
-  uint8_t swirlParams[3] = {255, 255, 255};
-  fx.setEffect(EFFECT_SWIRL, swirlParams, 20);
+  //uint8_t swirlParams[3] = {255, 255, 255};
+  //fx.setEffect(EFFECT_SWIRL, swirlParams, 20);
 
+  // do a super slow blend
+  fx.setEffect(EFFECT_RAINBOW, (uint8_t*)NULL, 1);
 
   for (uint8_t s=0; s<MATRIX_NUM_STACKS; s++) {
     for (uint8_t c=0; c<stackSize[s]; c++) {
@@ -98,9 +100,18 @@ int main(void) {
     }
   }
 
+  // enable global interrupts
+  sei();
+
   // don't stop believing
   uint8_t loopCounter = 0;
   for (;;) {
+    
+    // check for serial communication
+    //if (Serial.available() > ) {
+
+    //}
+
     // if timer is not currently going, send data to next stack
     if (!TIMSK0) {
       currentStack = (currentStack < 2) ? (currentStack+1) : 0;
@@ -109,8 +120,8 @@ int main(void) {
       startTimer();
     }
 
-    // every three loops, recalculate the color
-    if (++loopCounter > 3) {
+    // every five loops, recalculate the color
+    if (++loopCounter > 5) {
       // BLINK THAT LED LIKE IT'S YOUR JOB
       beatHeart();
 
