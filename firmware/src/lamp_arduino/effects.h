@@ -20,22 +20,22 @@
 class Effects {
 public:
   // Bob the builder
-  Effects(Matrix *m);
+  Effects(Matrix *m, uint8_t *rgb, uint8_t br);
 
   // refresh the effect
   // should be called periodically
-  refresh(void);
+  void refresh(void);
 
   // actual effects that are available to the public
   // set the default color and brightness
-  setDefault(uint8_t *rgb);
-  setDefault(uint8_t brite);
-  setDefault(uint8_t *rgb, uint8_t brite);
+  void setDefault(uint8_t *rgb);
+  void setDefault(uint8_t bright);
+  void setDefault(uint8_t *rgb, uint8_t bright);
 
   // set the current effect 
-  setEffect(uint8_t effect);
+  void setEffect(uint8_t effect, uint8_t *params, uint8_t nParams);
   // get the current effect
-  getEffect(uint8_t effect);
+  uint8_t getEffect(void);
 
 private:
   // current effect mode
@@ -53,7 +53,7 @@ private:
   // use default brightness
   uint16_t tenBitValue(uint8_t eightBitValue);
   // use a different birghtness
-  uint16_t tenBitValue(uint8_t eightBitValue, unit8_t b);
+  uint16_t tenBitValue(uint8_t eightBitValue, uint8_t b);
 
   // stack strucure and data
   Matrix *leds;
@@ -63,7 +63,7 @@ private:
   uint16_t counter;
 
   // HEY LOOK EFFECTS ALL THE EFFECTS OH MY GOD PLEASE SAVE US EFFECTS
-  void setHold(uint8_t *params, uint8_t nParams);
+  void startHold(uint8_t *params, uint8_t nParams);
   void refreshHold(void);
 };
 

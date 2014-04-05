@@ -5,7 +5,7 @@
 #include <util/delay.h>
 
 // application includes
-//#include "matrix.h"
+#include "matrix.h"
 #include "effects.h"
 
 // led stacks
@@ -62,6 +62,7 @@ int main(void) {
   // allocate the LED matrix
   Matrix leds(stackSize);
 
+
   for (uint8_t i=0; i<NUM_STACKS; i++) {
     if (stackSize[i] > 0) {
       stackData[i] = initDataArray(stackSize[i]);
@@ -92,19 +93,28 @@ int main(void) {
   }
 
   // all red for test
-  uint16_t rgb[3] = {1000, 0, 0};
-  leds.set(rgb);
+  uint8_t def[3] = {255, 0, 0};
+  uint16_t rgb[3];
 
-  for (uint8_t s=0; s<MATRIX_NUM_STACKS; s++) {
-    leds.get(rgb, s, 0);
-    set(rgb[0], rgb[1], rgb[2], 0, stackData[s]);
-  }
+  // get the effects stuff ready
+  // this should set the matrix to all red
+  Effects fx(&leds, def, 2);
 
+  // tell it to go green for about a second
+  uint8_t holdParams[4] = {0, 255, 0, 5};
+  fx.setEffect(EFFECT_HOLD, holdParams, 4);
   // color
   // uint16_t color[3] = {0, 0, 0};
   // uint8_t diff[3] = {0, 0, 0};
 
-  // uint8_t loopCounter = 0;
+  for (uint8_t s=0; s<MATRIX_NUM_STACKS; s++) {
+    for (uint8_t c=0; c<stackSize[s]; c++) {
+      leds.get(rgb, s, c);
+      set(rgb[0], rgb[1], rgb[2], c, stackData[s]);
+    }
+  }
+
+  uint8_t loopCounter = 0;
   // uint8_t shiftCounter = 12;
   // don't stop believing
   for (;;) {
@@ -153,10 +163,17 @@ int main(void) {
     //   leds.set(card2, 2, 0);
     // }
     
-    // // ever ten loops, recalculate the color
-    // if (++loopCounter > 10) {
-    //   loopCounter = 0;
+    // every ten loops, recalculate the color
+    if (++loopCounter > 10) {
+      loopCounter = 0;
+      fx.refresh();
       
+      for (uint8_t s=0; s<MATRIX_NUM_STACKS; s++) {
+        for (uint8_t c=0; c<stackSize[s]; c++) {
+          leds.get(rgb, s, c);
+          set(rgb[0], rgb[1], rgb[2], c, stackData[s]);
+        }
+      }
     //   // calculate new colors
     //   if (shiftCounter < 4) {
     //     card0[0] = red - (shiftCounter * dr);
@@ -221,9 +238,9 @@ int main(void) {
     //   set(led1[0], led1[1], led1[2], 0, stack[1]);
     //   set(led2[0], led2[1], led2[2], 0, stack[2]);
 
-      // // BLINK THAT LED LIKE IT'S YOUR JOB
-      // PINB |= (1<<1);
-    // }
+    // BLINK THAT LED LIKE IT'S YOUR JOB
+      PINB |= (1<<1);
+    }
     // slight delay
     _delay_ms(10);
   }
