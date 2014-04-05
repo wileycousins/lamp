@@ -101,15 +101,17 @@ int main(void) {
   Effects fx(&leds, def, 2);
 
   // tell it to go green for about a second
-  uint8_t holdParams[4] = {0, 255, 0, 5};
-  fx.setEffect(EFFECT_HOLD, holdParams, 4);
-  // color
-  // uint16_t color[3] = {0, 0, 0};
-  // uint8_t diff[3] = {0, 0, 0};
+  //uint8_t holdParams[3] = {0, 255, 0};
+  //fx.setEffect(EFFECT_HOLD, holdParams, 5);
+
+  // tell it to do a quick swirl
+  uint8_t swirlParams[3] = {255, 255, 255};
+  fx.setEffect(EFFECT_SWIRL, swirlParams, 20);
+
 
   for (uint8_t s=0; s<MATRIX_NUM_STACKS; s++) {
     for (uint8_t c=0; c<stackSize[s]; c++) {
-      leds.get(rgb, s, c);
+      leds.get(s, c, rgb);
       set(rgb[0], rgb[1], rgb[2], c, stackData[s]);
     }
   }
@@ -164,13 +166,13 @@ int main(void) {
     // }
     
     // every ten loops, recalculate the color
-    if (++loopCounter > 10) {
+    if (++loopCounter > 3) {
       loopCounter = 0;
       fx.refresh();
       
       for (uint8_t s=0; s<MATRIX_NUM_STACKS; s++) {
         for (uint8_t c=0; c<stackSize[s]; c++) {
-          leds.get(rgb, s, c);
+          leds.get(s, c, rgb);
           set(rgb[0], rgb[1], rgb[2], c, stackData[s]);
         }
       }

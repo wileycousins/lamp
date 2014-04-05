@@ -10,11 +10,6 @@
 #include <stdlib.h>
 #include "matrix.h"
 
-// convenience
-#define RED 0
-#define GRN 1
-#define BLU 2
-
 // constructor saves the stack sizes and calls the allocate function
 Matrix::Matrix(uint8_t* sizes) {
   for (uint8_t i=0; i<MATRIX_NUM_STACKS; i++) {
@@ -42,10 +37,15 @@ void Matrix::allocateMatrix(void) {
 }
 
 // get an individual card
-void Matrix::get(uint16_t *rgb, uint8_t s, uint8_t c) {
+void Matrix::get(uint8_t s, uint8_t c, uint16_t *rgb) {
   rgb[RED] = m[s][c][RED];
   rgb[GRN] = m[s][c][GRN];
   rgb[BLU] = m[s][c][BLU]; 
+}
+
+// this returns a signed int for a good reason, i promise
+int16_t Matrix::get(uint8_t s, uint8_t c, uint8_t color) {
+  return (int16_t)(m[s][c][color]);
 }
 
 // set an individual card
@@ -53,6 +53,14 @@ void Matrix::set(uint16_t *rgb, uint8_t s, uint8_t c) {
   m[s][c][RED] = rgb[RED];
   m[s][c][GRN] = rgb[GRN];
   m[s][c][BLU] = rgb[BLU]; 
+}
+
+// set an individual color on an individual card
+void Matrix::set(int16_t value, uint8_t s, uint8_t c, uint8_t color) {
+  if (value < 0) {
+    value = 0;
+  }
+  m[s][c][color] = value;
 }
 
 // set all LEDs
@@ -69,6 +77,16 @@ void Matrix::setStack(uint16_t *rgb, uint8_t stack) {
   }
 }
 
+// set a specific color of the whole stack
+void Matrix::setStack(int16_t value, uint8_t stack, uint8_t color) {
+  if (value < 0) {
+    value = 0;
+  }
+  for (uint8_t card=0; card<stackSize[stack]; card++) {
+    set(value, stack, card, color);
+  }
+}
+
 // set all cards at a certain level in all stacks
 void Matrix::setLevel(uint16_t *rgb, uint8_t card) {
   for (uint8_t stack=0; stack<MATRIX_NUM_STACKS; stack++) {
@@ -76,4 +94,22 @@ void Matrix::setLevel(uint16_t *rgb, uint8_t card) {
       set(rgb, stack, card);
     }
   }
+}
+
+// set a specific color at a certain level in all stacks
+void Matrix::setLevel(int16_t value, uint8_t card, uint8_t color) {
+  if (value < 0) {
+    value = 0;
+  }
+  for (uint8_t stack=0; stack<MATRIX_NUM_STACKS; stack++) {
+    if (stackSize[stack] > card) {
+      set(value, stack, card, color);
+    }
+  }
+}
+
+// empty out the matrix
+void Matrix::clear(void) {
+  uint16_t zero[3] = {0, 0, 0};
+  set(zero);
 }

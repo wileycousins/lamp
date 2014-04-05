@@ -25,28 +25,35 @@ void Effects::refresh(void) {
     refreshHold();
     break;
 
-    // case EFFECT_SWIRL: refreshSwirl(); break;
+    case EFFECT_SWIRL:
+    refreshSwirl();
+    break;
 
     // case EFFECT_BLEND: refreshBlend(); break;
   }
 }
 
 // set the current effect 
-void Effects::setEffect(uint8_t effect, uint8_t *params, uint8_t nParams) {
+// use default brightness
+void Effects::setEffect(uint8_t effect, uint8_t *rgb, uint8_t t) {
+  setEffect(effect, rgb, t, defaultBrightness);
+}
+// use explicit brightness
+void Effects::setEffect(uint8_t effect, uint8_t *rgb, uint8_t t, uint8_t b) {
   switch (effect) {
     // hold effect
     case EFFECT_HOLD:
     mode = EFFECT_HOLD;
-    startHold(params, nParams);
+    startHold(rgb, t, b);
     refreshHold();
     break;
 
-    // // swirl effect
-    // case EFFECT_SWIRL:
-    // mode = EFFECT_SWIRL;
-    // startSwirl(params, nParams);
-    // refreshSwirl();
-    // break;
+    // swirl effect
+    case EFFECT_SWIRL:
+    mode = EFFECT_SWIRL;
+    startSwirl(rgb, t, b);
+    refreshSwirl();
+    break;
 
     // // blend effect
     // case EFFECT_BLEND:
@@ -107,23 +114,15 @@ void Effects::setDefault(uint8_t *rgb, uint8_t bright) {
 
 // HEY LOOK EFFECTS ALL THE EFFECTS OH MY GOD PLEASE SAVE US EFFECTS
 // HOLD EFFECT
-// 4 parameters: R, G, B, time
-// 5 parameters: R, G, B, brightness, time
-void Effects::startHold(uint8_t *params, uint8_t nParams) {
+void Effects::startHold(uint8_t *rgb, uint8_t t, uint8_t brightness) {
   counter = 0;
   uint16_t c[3];
-  if (nParams == 5) {
-    limit = (uint16_t)(params[4]) << 4;
-    c[0] = tenBitValue(params[0], params[3]);
-    c[1] = tenBitValue(params[1], params[3]);
-    c[2] = tenBitValue(params[2], params[3]);    
-  }
-  else if (nParams == 4) {
-    limit = (uint16_t)(params[3]) << 4;
-    c[0] = tenBitValue(params[0]);
-    c[1] = tenBitValue(params[1]);
-    c[2] = tenBitValue(params[2]);
-  }
+  limit = (uint16_t)(t) << 4;
+  
+  c[0] = tenBitValue(rgb[0], brightness);
+  c[1] = tenBitValue(rgb[1], brightness);
+  c[2] = tenBitValue(rgb[2], brightness);    
+
   leds->set(c);
 }
 
@@ -132,5 +131,65 @@ void Effects::refreshHold(void) {
     if (++counter > limit) {
       setEffect(EFFECT_DEFAULT, (uint8_t*)NULL, 0);
     }
+  }
+}
+
+// swirl - like a flushing toilet, but with colors
+void Effects::startSwirl(uint8_t *rgb, uint8_t t, uint8_t br) {
+  counter = 0;
+  limit = t;
+  fxFlag = false;
+  // zero out all the LEDs
+  leds->clear();
+  // set each stack to one of the colors
+  for (uint8_t s=0; s<MATRIX_NUM_STACKS; s++) {
+    leds->setStack(tenBitValue(rgb[s], br), s, RED+s);
+  }
+}
+
+void Effects::refreshSwirl(void) {
+  // if stack 0 has red and not blue, then we're in the first part of the swirl
+  if (leds->get(0, 0, RED) && !leds->get(0, 0, BLU)) {
+    // if fx flag has been thrown, the effect is over
+    if (!fxFlag) {
+      // stack 0
+      leds->setStack(leds->get(0, 0, RED)-limit, 0, RED);
+      leds->setStack(leds->get(0, 0, GRN)+limit, 0, GRN);
+      // stack 1
+      leds->setStack(leds->get(1, 0, GRN)-limit, 1, GRN);
+      leds->setStack(leds->get(1, 0, BLU)+limit, 1, BLU);
+      // stack 2
+      leds->setStack(leds->get(2, 0, BLU)-limit, 2, BLU);
+      leds->setStack(leds->get(2, 0, RED)+limit, 2, RED);
+    }
+    else {
+      // return to default
+      setEffect(EFFECT_DEFAULT, (uint8_t*)NULL, 0);
+    }
+  }
+  // if stack 2 has red and not blue, then we're in the second part
+  else if (leds->get(2, 0, RED) && !leds->get(2, 0, BLU)) {
+    // stack 2
+    leds->setStack(leds->get(2, 0, RED)-limit, 2, RED);
+    leds->setStack(leds->get(2, 0, GRN)+limit, 2, GRN);
+    // stack 0
+    leds->setStack(leds->get(0, 0, GRN)-limit, 0, GRN);
+    leds->setStack(leds->get(0, 0, BLU)+limit, 0, BLU);
+    // stack 1
+    leds->setStack(leds->get(1, 0, BLU)-limit, 1, BLU);
+    leds->setStack(leds->get(1, 0, RED)+limit, 1, RED);
+  }
+  // if stack 1 has red and not blue, then we're in the third part
+  else if (leds->get(1, 0, RED) && !leds->get(1, 0, BLU)) {
+    fxFlag = true;
+    // stack 1
+    leds->setStack(leds->get(1, 0, RED)-limit, 1, RED);
+    leds->setStack(leds->get(1, 0, GRN)+limit, 1, GRN);
+    // stack 2
+    leds->setStack(leds->get(2, 0, GRN)-limit, 2, GRN);
+    leds->setStack(leds->get(2, 0, BLU)+limit, 2, BLU);
+    // stack 0
+    leds->setStack(leds->get(0, 0, BLU)-limit, 0, BLU);
+    leds->setStack(leds->get(0, 0, RED)+limit, 0, RED);
   }
 }

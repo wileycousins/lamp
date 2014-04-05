@@ -33,7 +33,8 @@ public:
   void setDefault(uint8_t *rgb, uint8_t bright);
 
   // set the current effect 
-  void setEffect(uint8_t effect, uint8_t *params, uint8_t nParams);
+  void setEffect(uint8_t effect, uint8_t *rgb, uint8_t time);
+  void setEffect(uint8_t effect, uint8_t *rgb, uint8_t time, uint8_t bright);
   // get the current effect
   uint8_t getEffect(void);
 
@@ -59,12 +60,20 @@ private:
   Matrix *leds;
 
   // stuff for effects to use
+  bool fxFlag;
   uint16_t limit;
   uint16_t counter;
 
   // HEY LOOK EFFECTS ALL THE EFFECTS OH MY GOD PLEASE SAVE US EFFECTS
-  void startHold(uint8_t *params, uint8_t nParams);
+  
+  // hold - holds a color for a certain time (0 = forever) then drops back to the default
+  void startHold(uint8_t *rgb, uint8_t t, uint8_t br);
   void refreshHold(void);
+
+  // swirl - like a flushing toilet, but with colors
+  void startSwirl(uint8_t *rgb, uint8_t t, uint8_t br);
+  void refreshSwirl(void);
+
 };
 
 #endif

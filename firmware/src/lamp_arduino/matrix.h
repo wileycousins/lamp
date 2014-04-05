@@ -16,6 +16,11 @@
 // number of led stacks in the lamp
 #define MATRIX_NUM_STACKS 3
 
+// convenience
+#define RED (uint8_t)(0)
+#define GRN (uint8_t)(1)
+#define BLU (uint8_t)(2)
+
 class Matrix {
 public:
   // constructor
@@ -27,12 +32,20 @@ public:
   void set(uint16_t *rgb);
   // with an rgb value, a stack, and a level, it'll set an individual card
   void set(uint16_t *rgb, uint8_t s, uint8_t c);
+  // or you can set a specific color in a card in a stack
+  void set(int16_t value, uint8_t s, uint8_t c, uint8_t color);
   // separate methods for setting whole stacks or levels
   void setStack(uint16_t *rgb, uint8_t s);
+  void setStack(int16_t value, uint8_t s, uint8_t color);
   void setLevel(uint16_t *rgb, uint8_t c);
+  void setLevel(int16_t value, uint8_t c, uint8_t color);
   
+  // clear the whole matrix
+  void clear(void);
+
   // get the information of a card
-  void get(uint16_t *rgb, uint8_t s, uint8_t c);
+  void get(uint8_t s, uint8_t c, uint16_t *rgb);
+  int16_t get(uint8_t s, uint8_t c, uint8_t color);
 
 
 private:
