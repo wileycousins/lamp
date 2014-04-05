@@ -55,50 +55,32 @@ int main(void) {
   // init all other pins to inputs with pullups
   initUnusedPins();
 
-  // find out how many led cards are in each stack, and create data arrays for each
+  // create properly sized data arrays for the LED drivers
   uint8_t *stackData[NUM_STACKS];
   uint8_t stackSize[NUM_STACKS];
   senseStacks(stackSize);
-  // allocate the LED matrix
-  Matrix leds(stackSize);
-
-
   for (uint8_t i=0; i<NUM_STACKS; i++) {
     if (stackSize[i] > 0) {
       stackData[i] = initDataArray(stackSize[i]);
     }
   }
-
-  // intialize the led data timer
+  // intialize the led data timer and start at stack 0
   initTimer();
-
-  // color blending and shit
-  // uint16_t red = 0;
-  // uint16_t grn = 0;
-  // uint16_t blu = 0;
-  // uint8_t dr = 0;
-  // uint8_t dg = 0;
-  // uint8_t db = 0;
-
-
-  // enable global interrupts
-  sei();
-
-  if (stackSize[0]) {
-    // for testing, set ledData to stack0 data
-    currentStack = 0;
-    currentStackData = stackData[0];
-    currentStackSize = stackSize[0];
-    //startTimer();
-  }
-
-  // all red for test
-  uint8_t def[3] = {255, 0, 0};
+  currentStack = 0;
+  currentStackData = stackData[0];
+  currentStackSize = stackSize[0];
+  // array to hold card colors before transfering to driver data arrays
   uint16_t rgb[3];
 
+
   // get the effects stuff ready
-  // this should set the matrix to all red
+  // set all LEDs to white by default
+  uint8_t def[3] = {255, 255, 255};
+  // allocate the LED matrix
+  Matrix leds(stackSize);
+  // create an effects object
   Effects fx(&leds, def, 2);
+
 
   // tell it to go green for about a second
   //uint8_t holdParams[3] = {0, 255, 0};
@@ -116,15 +98,9 @@ int main(void) {
     }
   }
 
-  uint8_t loopCounter = 0;
-  // uint8_t shiftCounter = 12;
   // don't stop believing
+  uint8_t loopCounter = 0;
   for (;;) {
-    // // leds
-    // //uint16_t led0[3] = {4000, 4000, 4000};
-    // //uint16_t led1[3] = {4000, 4000, 4000};
-    // //uint16_t led2[3] = {4000, 4000, 4000};
-    
     // if timer is not currently going, send data to next stack
     if (!TIMSK0) {
       currentStack = (currentStack < 2) ? (currentStack+1) : 0;
@@ -133,116 +109,24 @@ int main(void) {
       startTimer();
     }
 
-    // // get color data from serial
-    // if (Serial.available() >= 3) {
-    //   color[0] = Serial.read();
-    //   color[1] = Serial.read();
-    //   color[2] = Serial.read();
-    //   // clear out the buffer just in case
-    //   while (Serial.available()) {
-    //     Serial.read();
-    //   }
-      
-    //   // get the differences (1 / 4th)
-    //   diff[0] = (uint8_t)(color[0]);
-    //   diff[1] = (uint8_t)(color[1]);
-    //   diff[2] = (uint8_t)(color[2]);
-      
-    //   // shift numbers to 10 bit
-    //   color[0] <<= 2;
-    //   color[1] <<= 2;
-    //   color[2] <<= 2;
-      
-    //   // initialize the leds
-    //   shiftCounter = 0;
-      
-    //   uint16_t card0[3] = {color[0], 0, 0};
-    //   uint16_t card1[3] = {0, color[1], 0};
-    //   uint16_t card2[3] = {0, 0, color[2]};
-
-    //   leds.set(card0, 0, 0);
-    //   leds.set(card1, 1, 0);
-    //   leds.set(card2, 2, 0);
-    // }
-    
-    // every ten loops, recalculate the color
+    // every three loops, recalculate the color
     if (++loopCounter > 3) {
+      // BLINK THAT LED LIKE IT'S YOUR JOB
+      beatHeart();
+
+      // refresh the effect
       loopCounter = 0;
       fx.refresh();
       
+      // send the matrix data to the LED drivers
       for (uint8_t s=0; s<MATRIX_NUM_STACKS; s++) {
         for (uint8_t c=0; c<stackSize[s]; c++) {
           leds.get(s, c, rgb);
           set(rgb[0], rgb[1], rgb[2], c, stackData[s]);
         }
       }
-    //   // calculate new colors
-    //   if (shiftCounter < 4) {
-    //     card0[0] = red - (shiftCounter * dr);
-    //     card0[1] = 0;
-    //     card0[2] = shiftCounter * db;
-        
-    //     card1[0] = shiftCounter * dr;
-    //     card1[1] = grn - (shiftCounter * dg);
-    //     card1[2] = 0;
-        
-    //     card2[0] = 0;
-    //     card2[1] = shiftCounter * dg;
-    //     card2[2] = blu - (shiftCounter * db);
-    //   }
-    //   else if (shiftCounter < 8) {
-    //     card1[0] = red - ((shiftCounter-4) * dr);
-    //     card1[1] = 0;
-    //     card1[2] = (shiftCounter-4) * db;
-        
-    //     card2[0] = (shiftCounter-4) * dr;
-    //     card2[1] = grn - ((shiftCounter-4) * dg);
-    //     card2[2] = 0;
-        
-    //     card0[0] = 0;
-    //     card0[1] = (shiftCounter-4) * dg;
-    //     card0[2] = blu - ((shiftCounter-4) * db);
-    //   }
-    //   else if (shiftCounter < 12) {
-    //     card2[0] = red - ((shiftCounter-8) * dr);
-    //     card2[1] = 0;
-    //     card2[2] = (shiftCounter-8) * db;
-        
-    //     card0[0] = (shiftCounter-8) * dr;
-    //     card0[1] = grn - ((shiftCounter-8) * dg);
-    //     card0[2] = 0;
-        
-    //     card1[0] = 0;
-    //     card1[1] = (shiftCounter-8) * dg;
-    //     card1[2] = blu - ((shiftCounter-8) * db);
-    //   }
-    //   else {
-    //     led0[0] = 4000;
-    //     led0[1] = 4000;
-    //     led0[2] = 4000;
-      
-    //     led1[0] = 4000;
-    //     led1[1] = 4000;
-    //     led1[2] = 4000;
-      
-    //     led2[0] = 4000;
-    //     led2[1] = 4000;
-    //     led2[2] = 4000;
-    //   }
-      
-    //   // increment counter if necessary
-    //   if (shiftCounter < 12) {
-    //     shiftCounter++;
-    //   }
-      
-    //   // set the data
-    //   set(led0[0], led0[1], led0[2], 0, stack[0]);
-    //   set(led1[0], led1[1], led1[2], 0, stack[1]);
-    //   set(led2[0], led2[1], led2[2], 0, stack[2]);
-
-    // BLINK THAT LED LIKE IT'S YOUR JOB
-      PINB |= (1<<1);
     }
+
     // slight delay
     _delay_ms(10);
   }
@@ -352,6 +236,10 @@ void initUnusedPins(void) {
   // portd unused pins
   DDRD &= ~PORTD_UNUSED_MASK;
   PORTD |= PORTD_UNUSED_MASK;
+}
+
+void beatHeart(void) {
+  PINB |= (1<<1);
 }
 
 // led serial ISR
