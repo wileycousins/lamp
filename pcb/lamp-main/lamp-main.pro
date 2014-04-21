@@ -1,4 +1,4 @@
-update=Thu 13 Mar 2014 06:08:24 PM CDT
+update=Wed 16 Apr 2014 04:14:32 PM CDT
 version=1
 last_client=kicad
 [cvpcb]
@@ -48,7 +48,7 @@ version=1
 PageLayoutDescrFile=
 SubpartIdSeparator=0
 SubpartFirstId=65
-LibDir=../../kicad-lib/components
+LibDir=../../../kicad-lib/components
 NetFmtName=
 RptD_X=0
 RptD_Y=100

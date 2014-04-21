@@ -19,7 +19,6 @@ LIBS:stmicro-mcu
 LIBS:ti-ic
 LIBS:uln-ic
 LIBS:led
-LIBS:lamp-pcb-cache
 EELAYER 24 0
 EELAYER END
 $Descr A 11000 8500
