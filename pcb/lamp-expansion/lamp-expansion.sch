@@ -52,12 +52,16 @@ $EndComp
 $Comp
 L LM1117 IC?
 U 1 1 5355A893
-P 1850 3750
-F 0 "IC?" H 1650 4150 60  0000 C CNN
-F 1 "LM1117" H 1750 4050 60  0000 C CNN
-F 2 "" H 1550 4050 60  0001 C CNN
-F 3 "" H 1650 4150 60  0001 C CNN
-	1    1850 3750
+P 3300 3650
+F 0 "IC?" H 3100 4000 60  0000 C CNN
+F 1 "LM1117_3.3" H 3300 3900 60  0000 C CNN
+F 2 "" H 3000 3950 60  0001 C CNN
+F 3 "" H 3100 4050 60  0001 C CNN
+F 4 "Diodes Incorporated" H 3300 3650 60  0001 C CNN "Manufacturer"
+F 5 "AP1117IE33G-13" H 3300 3650 60  0001 C CNN "Manuf. Part"
+F 6 "Digikey" H 3300 3650 60  0001 C CNN "Distributor"
+F 7 "AP1117IE33G-13DICT-ND" H 3300 3650 60  0001 C CNN "Distrib. Part"
+	1    3300 3650
 	1    0    0    -1  
 $EndComp
 Text Notes 1100 1300 0    80   ~ 0
@@ -106,12 +110,8 @@ F 3 "" H 1650 2550 60  0000 C CNN
 	1    1650 2550
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	1650 2250 1550 2250
 Text Label 2950 1850 2    60   ~ 0
 V_USB
-Wire Wire Line
-	1550 1850 1750 1850
 $Comp
 L R R?
 U 1 1 5355A973
@@ -156,16 +156,6 @@ F 3 "" H 2100 2250 60  0001 C CNN
 	1    2100 2250
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	1550 2050 2200 2050
-Wire Wire Line
-	2200 1950 1550 1950
-Wire Wire Line
-	1850 2150 1850 1950
-Connection ~ 1850 1950
-Wire Wire Line
-	2100 2150 2100 2050
-Connection ~ 2100 2050
 $Comp
 L C C?
 U 1 1 5355AC06
@@ -177,19 +167,6 @@ F 3 "" H 1650 1650 60  0001 C CNN
 	1    1650 1650
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	1650 1850 1650 1750
-Connection ~ 1650 1850
-Wire Wire Line
-	1650 2250 1650 2550
-Wire Wire Line
-	2100 2350 2100 2450
-Wire Wire Line
-	2100 2450 1650 2450
-Connection ~ 1650 2450
-Wire Wire Line
-	1850 2350 1850 2450
-Connection ~ 1850 2450
 $Comp
 L GND #PWR?
 U 1 1 5355ACC7
@@ -201,16 +178,18 @@ F 3 "" H 1650 1450 60  0000 C CNN
 	1    1650 1450
 	-1   0    0    1   
 $EndComp
-Wire Wire Line
-	1650 1450 1650 1550
 $Comp
 L C_POL C?
 U 1 1 5355ACED
 P 2150 1650
 F 0 "C?" V 2150 1800 60  0000 C CNN
-F 1 "4.7uF" V 2050 1800 60  0000 C CNN
+F 1 "10uF" V 2050 1800 60  0000 C CNN
 F 2 "" H 2150 1650 60  0001 C CNN
 F 3 "" H 2150 1650 60  0001 C CNN
+F 4 "TMK316F106ZL-T" H 2150 1650 60  0001 C CNN "Manufacturer"
+F 5 "Taiyo Yuden" H 2150 1650 60  0001 C CNN "Manuf. Part"
+F 6 "Digikey" H 2150 1650 60  0001 C CNN "Distributor"
+F 7 "587-1353-1-ND" H 2150 1650 60  0001 C CNN "Distrib. Part"
 	1    2150 1650
 	0    1    1    0   
 $EndComp
@@ -225,8 +204,6 @@ F 3 "" H 2150 1450 60  0000 C CNN
 	1    2150 1450
 	-1   0    0    1   
 $EndComp
-Wire Wire Line
-	2150 1550 2150 1450
 $Comp
 L C C?
 U 1 1 5355AD9A
@@ -242,9 +219,6 @@ Text Label 2950 1950 2    60   ~ 0
 USB_DM
 Text Label 2950 2050 2    60   ~ 0
 USB_DP
-Wire Wire Line
-	2150 1750 2150 1850
-Connection ~ 2150 1850
 $Comp
 L GND #PWR?
 U 1 1 5355AE5A
@@ -256,36 +230,12 @@ F 3 "" H 2550 1450 60  0000 C CNN
 	1    2550 1450
 	-1   0    0    1   
 $EndComp
-Wire Wire Line
-	2550 1450 2550 1550
-Wire Wire Line
-	2950 2050 2500 2050
-Wire Wire Line
-	2950 1950 2500 1950
-Wire Wire Line
-	2050 1850 2950 1850
-Wire Wire Line
-	2550 1850 2550 1750
-Connection ~ 2550 1850
 Text Label 3650 2550 0    60   ~ 0
 USB_DM
 Text Label 3650 2650 0    60   ~ 0
 USB_DP
-Wire Wire Line
-	3650 2650 4100 2650
-Wire Wire Line
-	4100 2550 3650 2550
-Wire Wire Line
-	4100 1950 4000 1950
-Wire Wire Line
-	4000 1950 4000 1650
-Wire Wire Line
-	4000 1650 4100 1650
-Connection ~ 4000 1850
 Text Label 3650 2050 0    60   ~ 0
 V_USB
-Wire Wire Line
-	3650 2050 4100 2050
 $Comp
 L C C?
 U 1 1 5355A856
@@ -297,10 +247,6 @@ F 3 "" H 4000 2150 60  0001 C CNN
 	1    4000 2150
 	0    1    1    0   
 $EndComp
-Connection ~ 4000 2050
-Wire Wire Line
-	4100 2250 4000 2250
-Connection ~ 4000 2250
 $Comp
 L C C?
 U 1 1 5355A8EC
@@ -312,13 +258,6 @@ F 3 "" H 3500 2150 60  0001 C CNN
 	1    3500 2150
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	4100 2350 3500 2350
-Wire Wire Line
-	3500 2250 3500 2450
-Wire Wire Line
-	4000 2250 4000 2350
-Connection ~ 4000 2350
 $Comp
 L GND #PWR?
 U 1 1 5355A979
@@ -330,9 +269,6 @@ F 3 "" H 3500 2450 60  0000 C CNN
 	1    3500 2450
 	1    0    0    -1  
 $EndComp
-Connection ~ 3500 2350
-Wire Wire Line
-	3500 2050 3500 1850
 $Comp
 L LED RX
 U 1 1 5355ACEE
@@ -357,8 +293,6 @@ F 3 "" H 5850 2350 60  0001 C CNN
 $EndComp
 Text Label 3650 1850 0    60   ~ 0
 V_FTDI
-Wire Wire Line
-	3500 1850 4000 1850
 Text Label 6450 2450 2    60   ~ 0
 V_FTDI
 $Comp
@@ -385,6 +319,325 @@ F 3 "" H 5350 2450 60  0001 C CNN
 $EndComp
 NoConn ~ 5100 2550
 NoConn ~ 5100 2250
+$Comp
+L GND #PWR?
+U 1 1 5355B0D1
+P 5200 2050
+F 0 "#PWR?" H 5200 2050 30  0001 C CNN
+F 1 "GND" H 5200 1980 30  0001 C CNN
+F 2 "" H 5200 2050 60  0000 C CNN
+F 3 "" H 5200 2050 60  0000 C CNN
+	1    5200 2050
+	0    -1   -1   0   
+$EndComp
+Text Label 5650 1950 2    60   ~ 0
+USB_RTS
+Text Label 5650 1850 2    60   ~ 0
+USB_RX
+Text Label 5650 1750 2    60   ~ 0
+USB_TX
+Text Notes 1150 3250 0    80   ~ 0
+DC input and 3.3V LDO
+$Comp
+L DCIN J?
+U 1 1 5355B2AC
+P 1300 3700
+F 0 "J?" H 1250 3450 60  0000 C CNN
+F 1 "6-15V" H 1300 3350 60  0000 C CNN
+F 2 "" H 1300 3700 60  0000 C CNN
+F 3 "" H 1300 3700 60  0000 C CNN
+	1    1300 3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 5355B2CA
+P 1650 3850
+F 0 "#PWR?" H 1650 3850 30  0001 C CNN
+F 1 "GND" H 1650 3780 30  0001 C CNN
+F 2 "" H 1650 3850 60  0000 C CNN
+F 3 "" H 1650 3850 60  0000 C CNN
+	1    1650 3850
+	1    0    0    -1  
+$EndComp
+$Comp
+L C_POL C?
+U 1 1 5355B388
+P 3850 3750
+F 0 "C?" V 3800 3900 60  0000 C CNN
+F 1 "22uF" V 3900 3950 60  0000 C CNN
+F 2 "" H 3850 3750 60  0001 C CNN
+F 3 "" H 3850 3750 60  0001 C CNN
+	1    3850 3750
+	0    1    1    0   
+$EndComp
+$Comp
+L SCHOTTKY_DUAL-CC D?
+U 1 1 5355B3B6
+P 2750 4000
+F 0 "D?" V 2800 4250 60  0000 C CNN
+F 1 "PMEG2020CPA" V 2700 4500 60  0000 C CNN
+F 2 "" H 2750 4000 60  0000 C CNN
+F 3 "" H 2750 4000 60  0000 C CNN
+F 4 "NXP Semiconductor" H 2750 4000 60  0001 C CNN "Manufacturer"
+F 5 "PMEG2020CPA,115" H 2750 4000 60  0001 C CNN "Manuf. Part"
+F 6 "Digikey" H 2750 4000 60  0001 C CNN "Distributor"
+F 7 "568-6506-1-ND" H 2750 4000 60  0001 C CNN "Distrib. Part"
+	1    2750 4000
+	0    -1   -1   0   
+$EndComp
+Text Label 1900 3650 2    60   ~ 0
+DC_IN
+$Comp
+L GND #PWR?
+U 1 1 5355B5D3
+P 2450 3450
+F 0 "#PWR?" H 2450 3450 30  0001 C CNN
+F 1 "GND" H 2450 3380 30  0001 C CNN
+F 2 "" H 2450 3450 60  0000 C CNN
+F 3 "" H 2450 3450 60  0000 C CNN
+	1    2450 3450
+	-1   0    0    1   
+$EndComp
+$Comp
+L C_POL C?
+U 1 1 5355B5E7
+P 2450 3650
+F 0 "C?" V 2500 3800 60  0000 C CNN
+F 1 "10uF" V 2400 3850 60  0000 C CNN
+F 2 "" H 2450 3650 60  0001 C CNN
+F 3 "" H 2450 3650 60  0001 C CNN
+F 4 "Taiyo Yuden" H 2450 3650 60  0001 C CNN "Manufacturer"
+F 5 "TMK316F106ZL-T" H 2450 3650 60  0001 C CNN "Manuf. Part"
+F 6 "Digikey" H 2450 3650 60  0001 C CNN "Distributor"
+F 7 "587-1353-1-ND" H 2450 3650 60  0001 C CNN "Distrib. Part"
+	1    2450 3650
+	0    -1   -1   0   
+$EndComp
+$Comp
+L VCC #PWR?
+U 1 1 5355B719
+P 2750 3650
+F 0 "#PWR?" H 2750 3750 30  0001 C CNN
+F 1 "VCC" H 2750 3750 30  0000 C CNN
+F 2 "" H 2750 3650 60  0000 C CNN
+F 3 "" H 2750 3650 60  0000 C CNN
+	1    2750 3650
+	0    -1   -1   0   
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 5355B86A
+P 3850 3950
+F 0 "#PWR?" H 3850 3950 30  0001 C CNN
+F 1 "GND" H 3850 3880 30  0001 C CNN
+F 2 "" H 3850 3950 60  0000 C CNN
+F 3 "" H 3850 3950 60  0000 C CNN
+	1    3850 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L VCC #PWR?
+U 1 1 5355B8C1
+P 3850 3550
+F 0 "#PWR?" H 3850 3650 30  0001 C CNN
+F 1 "VCC" H 3850 3650 30  0000 C CNN
+F 2 "" H 3850 3550 60  0000 C CNN
+F 3 "" H 3850 3550 60  0000 C CNN
+	1    3850 3550
+	1    0    0    -1  
+$EndComp
+Text Label 3150 4250 2    60   ~ 0
+V_USB
+Text Label 2350 4250 0    60   ~ 0
+V_DC
+Text Notes 1300 4900 0    80   ~ 0
+lithium polymer battery and charger
+$Comp
+L LIPO BT?
+U 1 1 5355BB28
+P 1400 5650
+F 0 "BT?" V 1350 5450 60  0000 C CNN
+F 1 "LIPO" V 1450 5450 60  0000 C CNN
+F 2 "" H 1400 5650 60  0000 C CNN
+F 3 "" H 1400 5650 60  0000 C CNN
+	1    1400 5650
+	0    1    1    0   
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 5355BB50
+P 1400 5950
+F 0 "#PWR?" H 1400 5950 30  0001 C CNN
+F 1 "GND" H 1400 5880 30  0001 C CNN
+F 2 "" H 1400 5950 60  0000 C CNN
+F 3 "" H 1400 5950 60  0000 C CNN
+	1    1400 5950
+	1    0    0    -1  
+$EndComp
+$Comp
+L LM1117 IC?
+U 1 1 5355BBB1
+P 4100 5600
+F 0 "IC?" H 3850 5300 60  0000 C CNN
+F 1 "LM1117_5.0" H 4050 5200 60  0000 C CNN
+F 2 "" H 3800 5900 60  0001 C CNN
+F 3 "" H 3900 6000 60  0001 C CNN
+F 4 "Diodes Incorporated" H 4100 5600 60  0001 C CNN "Manufacturer"
+F 5 "AZ1117CH-5.0TRG1" H 4100 5600 60  0001 C CNN "Manuf. Part"
+F 6 "Digikey" H 4100 5600 60  0001 C CNN "Distributor"
+F 7 "AZ1117CH-5.0TRG1DICT-ND" H 4100 5600 60  0001 C CNN "Distrib. Part"
+	1    4100 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L C_POL C?
+U 1 1 5355BC42
+P 4650 5700
+F 0 "C?" V 4600 5850 60  0000 C CNN
+F 1 "22uF" V 4700 5900 60  0000 C CNN
+F 2 "" H 4650 5700 60  0001 C CNN
+F 3 "" H 4650 5700 60  0001 C CNN
+	1    4650 5700
+	0    1    1    0   
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 5355BC52
+P 3250 5400
+F 0 "#PWR?" H 3250 5400 30  0001 C CNN
+F 1 "GND" H 3250 5330 30  0001 C CNN
+F 2 "" H 3250 5400 60  0000 C CNN
+F 3 "" H 3250 5400 60  0000 C CNN
+	1    3250 5400
+	-1   0    0    1   
+$EndComp
+$Comp
+L C_POL C?
+U 1 1 5355BC5C
+P 3250 5600
+F 0 "C?" V 3300 5750 60  0000 C CNN
+F 1 "10uF" V 3200 5800 60  0000 C CNN
+F 2 "" H 3250 5600 60  0001 C CNN
+F 3 "" H 3250 5600 60  0001 C CNN
+F 4 "Taiyo Yuden" H 3250 5600 60  0001 C CNN "Manufacturer"
+F 5 "TMK316F106ZL-T" H 3250 5600 60  0001 C CNN "Manuf. Part"
+F 6 "Digikey" H 3250 5600 60  0001 C CNN "Distributor"
+F 7 "587-1353-1-ND" H 3250 5600 60  0001 C CNN "Distrib. Part"
+	1    3250 5600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 5355BC6C
+P 4650 5900
+F 0 "#PWR?" H 4650 5900 30  0001 C CNN
+F 1 "GND" H 4650 5830 30  0001 C CNN
+F 2 "" H 4650 5900 60  0000 C CNN
+F 3 "" H 4650 5900 60  0000 C CNN
+	1    4650 5900
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR?
+U 1 1 5355BCA9
+P 4650 5500
+F 0 "#PWR?" H 4650 5590 20  0001 C CNN
+F 1 "+5V" H 4650 5590 30  0000 C CNN
+F 2 "" H 4650 5500 60  0000 C CNN
+F 3 "" H 4650 5500 60  0000 C CNN
+	1    4650 5500
+	1    0    0    -1  
+$EndComp
+$Comp
+L D_SCHOTTKY D?
+U 1 1 5355BF2A
+P 4150 5250
+F 0 "D?" H 4150 5450 60  0000 C CNN
+F 1 "MSS2P2" H 4200 5350 60  0000 C CNN
+F 2 "" H 3900 5250 60  0001 C CNN
+F 3 "" H 4000 5350 60  0001 C CNN
+F 4 "Vishay" H 4150 5250 60  0001 C CNN "Manufacturer"
+F 5 "MSS2P2-M3/89A" H 4150 5250 60  0001 C CNN "Manuf. Part"
+F 6 "Digikey" H 4150 5250 60  0001 C CNN "Distributor"
+F 7 "MSS2P2-M3/89AGICT-ND" H 4150 5250 60  0001 C CNN "Distrib. Part"
+	1    4150 5250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1650 2250 1550 2250
+Wire Wire Line
+	1550 1850 1750 1850
+Wire Wire Line
+	1550 2050 2200 2050
+Wire Wire Line
+	2200 1950 1550 1950
+Wire Wire Line
+	1850 2150 1850 1950
+Connection ~ 1850 1950
+Wire Wire Line
+	2100 2150 2100 2050
+Connection ~ 2100 2050
+Wire Wire Line
+	1650 1850 1650 1750
+Connection ~ 1650 1850
+Wire Wire Line
+	1650 2250 1650 2550
+Wire Wire Line
+	2100 2350 2100 2450
+Wire Wire Line
+	2100 2450 1650 2450
+Connection ~ 1650 2450
+Wire Wire Line
+	1850 2350 1850 2450
+Connection ~ 1850 2450
+Wire Wire Line
+	1650 1450 1650 1550
+Wire Wire Line
+	2150 1550 2150 1450
+Wire Wire Line
+	2150 1750 2150 1850
+Connection ~ 2150 1850
+Wire Wire Line
+	2550 1450 2550 1550
+Wire Wire Line
+	2950 2050 2500 2050
+Wire Wire Line
+	2950 1950 2500 1950
+Wire Wire Line
+	2050 1850 2950 1850
+Wire Wire Line
+	2550 1850 2550 1750
+Connection ~ 2550 1850
+Wire Wire Line
+	3650 2650 4100 2650
+Wire Wire Line
+	4100 2550 3650 2550
+Wire Wire Line
+	4100 1950 4000 1950
+Wire Wire Line
+	4000 1950 4000 1650
+Wire Wire Line
+	4000 1650 4100 1650
+Connection ~ 4000 1850
+Wire Wire Line
+	3650 2050 4100 2050
+Connection ~ 4000 2050
+Wire Wire Line
+	4100 2250 4000 2250
+Connection ~ 4000 2250
+Wire Wire Line
+	4100 2350 3500 2350
+Wire Wire Line
+	3500 2250 3500 2450
+Wire Wire Line
+	4000 2250 4000 2350
+Connection ~ 4000 2350
+Connection ~ 3500 2350
+Wire Wire Line
+	3500 2050 3500 1850
+Wire Wire Line
+	3500 1850 4000 1850
 Wire Wire Line
 	5200 2350 5100 2350
 Wire Wire Line
@@ -406,29 +659,100 @@ Wire Wire Line
 Wire Wire Line
 	6450 2450 6100 2450
 Connection ~ 6100 2450
-$Comp
-L GND #PWR?
-U 1 1 5355B0D1
-P 5200 2050
-F 0 "#PWR?" H 5200 2050 30  0001 C CNN
-F 1 "GND" H 5200 1980 30  0001 C CNN
-F 2 "" H 5200 2050 60  0000 C CNN
-F 3 "" H 5200 2050 60  0000 C CNN
-	1    5200 2050
-	0    -1   -1   0   
-$EndComp
 Wire Wire Line
 	5200 2050 5100 2050
-Text Label 5650 1950 2    60   ~ 0
-USB_RTS
-Text Label 5650 1850 2    60   ~ 0
-USB_RX
-Text Label 5650 1750 2    60   ~ 0
-USB_TX
 Wire Wire Line
 	5650 1750 5100 1750
 Wire Wire Line
 	5650 1850 5100 1850
 Wire Wire Line
 	5650 1950 5100 1950
+Wire Wire Line
+	1650 3850 1650 3750
+Wire Wire Line
+	1650 3750 1550 3750
+Wire Wire Line
+	1900 3650 1550 3650
+Wire Wire Line
+	2450 3550 2850 3550
+Wire Wire Line
+	2750 3650 2850 3650
+Wire Wire Line
+	2850 3750 2450 3750
+Wire Wire Line
+	2450 3450 2450 3550
+Wire Wire Line
+	3850 3950 3850 3850
+Wire Wire Line
+	3850 3550 3850 3650
+Wire Wire Line
+	3850 3650 3750 3650
+Wire Wire Line
+	2750 3850 2750 3750
+Connection ~ 2750 3750
+Wire Wire Line
+	2350 4250 2700 4250
+Wire Wire Line
+	2700 4250 2700 4150
+Wire Wire Line
+	3150 4250 2800 4250
+Wire Wire Line
+	2800 4250 2800 4150
+Wire Wire Line
+	1400 5950 1400 5850
+Wire Wire Line
+	3250 5500 3650 5500
+Wire Wire Line
+	3550 5600 3650 5600
+Wire Wire Line
+	3650 5700 3250 5700
+Wire Wire Line
+	3250 5400 3250 5500
+Wire Wire Line
+	4650 5900 4650 5800
+Wire Wire Line
+	4650 5500 4650 5600
+Wire Wire Line
+	4650 5600 4550 5600
+$Comp
+L +5V #PWR?
+U 1 1 5355BC97
+P 3550 5600
+F 0 "#PWR?" H 3550 5690 20  0001 C CNN
+F 1 "+5V" H 3550 5690 30  0000 C CNN
+F 2 "" H 3550 5600 60  0000 C CNN
+F 3 "" H 3550 5600 60  0000 C CNN
+	1    3550 5600
+	0    -1   -1   0   
+$EndComp
+Text Label 3600 5250 0    60   ~ 0
+V_USB
+Wire Wire Line
+	3600 5250 4000 5250
+$Comp
+L +5V #PWR?
+U 1 1 5355C1D3
+P 4400 5250
+F 0 "#PWR?" H 4400 5340 20  0001 C CNN
+F 1 "+5V" H 4400 5340 30  0000 C CNN
+F 2 "" H 4400 5250 60  0000 C CNN
+F 3 "" H 4400 5250 60  0000 C CNN
+	1    4400 5250
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4400 5250 4300 5250
+$Comp
+L +BATT #PWR?
+U 1 1 5355C235
+P 1400 5350
+F 0 "#PWR?" H 1400 5300 20  0001 C CNN
+F 1 "+BATT" H 1400 5450 30  0000 C CNN
+F 2 "" H 1400 5350 60  0000 C CNN
+F 3 "" H 1400 5350 60  0000 C CNN
+	1    1400 5350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1400 5350 1400 5450
 $EndSCHEMATC
