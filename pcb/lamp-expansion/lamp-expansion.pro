@@ -1,6 +1,6 @@
-update=Tue 22 Apr 2014 02:14:10 PM CDT
+update=Tue 22 Apr 2014 05:18:36 PM CDT
 version=1
-last_client=eeschema
+last_client=kicad
 [cvpcb]
 version=1
 NetIExt=net
@@ -43,8 +43,6 @@ LibName13=led
 LibName14=dip_sockets
 LibName15=pga_sockets
 LibName16=valves
-[general]
-version=1
 [eeschema]
 version=1
 PageLayoutDescrFile=
@@ -78,3 +76,5 @@ LibName18=ti-ic
 LibName19=uln-ic
 LibName20=led
 LibName21=diode-inc-ic
+[general]
+version=1
