@@ -1054,11 +1054,11 @@ Text Label 1100 6450 0    60   ~ 0
 BUTTON_0
 Text Label 1100 6550 0    60   ~ 0
 BUTTON_1
-Text Label 1250 6650 0    60   ~ 0
+Text Label 1250 6850 0    60   ~ 0
 POT_2
 Text Label 1250 6750 0    60   ~ 0
 POT_1
-Text Label 1250 6850 0    60   ~ 0
+Text Label 1250 6650 0    60   ~ 0
 POT_0
 Wire Wire Line
 	1250 6850 1750 6850
@@ -1081,9 +1081,9 @@ F 3 "" H 2800 6500 60  0001 C CNN
 	1    2850 6700
 	1    0    0    -1  
 $EndComp
-Text Label 2300 6650 0    60   ~ 0
-ADC_C4
 Text Label 2300 6750 0    60   ~ 0
+ADC_C4
+Text Label 2300 6650 0    60   ~ 0
 ADC_C3
 Wire Wire Line
 	2750 6750 2300 6750
