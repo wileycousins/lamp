@@ -140,7 +140,7 @@ UserSchema.method 'streamTweets', ->
       streamers['twitter'][user.id] = stream
 
 UserSchema.method 'newTweet', (tweet)->
-  req = https.get "#{@.imp_url}color=0000ff", (res) ->
+  req = https.get "#{@.imp_url}color=ffffff", (res) ->
     console.log 'sent to lamp'
     bodyChunks = []
     res.on("data", (chunk) ->
