@@ -1,17 +1,17 @@
-Cmp-Mod V01 Created by Cvpcb (2014-04-23 BZR 4818)-product   date = Wed 30 Apr 2014 12:33:13 PM CDT
+Cmp-Mod V01 Created by CvPcb (2014-03-18 BZR 4754)-product date = Wed 30 Apr 2014 10:07:06 PM CDT
 
 BeginCmp
 TimeStamp = /53573213;
 Reference = AE1;
-ValeurCmp = ANTENNA;
-IdModule  = ;
+ValeurCmp = 2500AT44M0400E;
+IdModule  = johanson:JOHANSON-2500AT44M0400_2.4GHz-chip-antenna;
 EndCmp
 
 BeginCmp
 TimeStamp = /5355BB28;
 Reference = BT1;
 ValeurCmp = LIPO;
-IdModule  = ;
+IdModule  = connect-sm:JST-S2B-PH-SM4-TB_right-angle-jack;
 EndCmp
 
 BeginCmp
@@ -144,7 +144,7 @@ BeginCmp
 TimeStamp = /5358626E;
 Reference = C19;
 ValeurCmp = 100uF;
-IdModule  = ;
+IdModule  = capacitor:PANA-D_CHEMI-F_SM-ALUMINUM;
 EndCmp
 
 BeginCmp
@@ -214,49 +214,49 @@ BeginCmp
 TimeStamp = /5356B181;
 Reference = D1;
 ValeurCmp = MSS2P2;
-IdModule  = ;
+IdModule  = diode:MICROSMP;
 EndCmp
 
 BeginCmp
 TimeStamp = /5356B322;
 Reference = D2;
 ValeurCmp = MSS2P2;
-IdModule  = ;
+IdModule  = diode:MICROSMP;
 EndCmp
 
 BeginCmp
 TimeStamp = /5355BF2A;
 Reference = D3;
 ValeurCmp = MSS2P2;
-IdModule  = ;
+IdModule  = diode:MICROSMP;
 EndCmp
 
 BeginCmp
 TimeStamp = /53587C2A;
 Reference = D4;
 ValeurCmp = 3A;
-IdModule  = ;
+IdModule  = diode:DO-214AC;
 EndCmp
 
 BeginCmp
 TimeStamp = /53587A48;
 Reference = D5;
 ValeurCmp = 3A;
-IdModule  = ;
+IdModule  = diode:DO-214AC;
 EndCmp
 
 BeginCmp
 TimeStamp = /5355A8E4;
 Reference = F1;
-ValeurCmp = 500mA;
+ValeurCmp = 2A;
 IdModule  = passive-smd:1206(3216m);
 EndCmp
 
 BeginCmp
 TimeStamp = /53585375;
 Reference = IC1;
-ValeurCmp = 78L50_SOT;
-IdModule  = ;
+ValeurCmp = 78L05_SOT;
+IdModule  = sot:SOT89;
 EndCmp
 
 BeginCmp
@@ -277,7 +277,7 @@ BeginCmp
 TimeStamp = /53581737;
 Reference = IC4;
 ValeurCmp = LM2623_VSSOP;
-IdModule  = ;
+IdModule  = sop:VSSOP8_P0.65mm_W3mm;
 EndCmp
 
 BeginCmp
@@ -330,10 +330,10 @@ IdModule  = connect-sm:MICROUSB_sm;
 EndCmp
 
 BeginCmp
-TimeStamp = /5355B2AC;
+TimeStamp = /53619F5D;
 Reference = J2;
-ValeurCmp = 7-15V;
-IdModule  = ;
+ValeurCmp = DCIN;
+IdModule  = connect-sm:CUI-PJ-002AH-SMT_dc-barrel-jack;
 EndCmp
 
 BeginCmp
@@ -382,49 +382,49 @@ BeginCmp
 TimeStamp = /5357358E;
 Reference = J9;
 ValeurCmp = UF.L;
-IdModule  = ;
+IdModule  = connect-sm:U.FL-COAX;
 EndCmp
 
 BeginCmp
 TimeStamp = /5357083F;
 Reference = J10;
 ValeurCmp = CC-IO;
-IdModule  = ;
+IdModule  = sip:SIP3;
 EndCmp
 
 BeginCmp
-TimeStamp = /535713CB;
+TimeStamp = /5361C257;
 Reference = JP1;
-ValeurCmp = VBAT-DIR-SELECT;
-IdModule  = ;
+ValeurCmp = VBAT-DIR-SEL;
+IdModule  = jumper:SOLDER-JUMPER_2-WAY;
 EndCmp
 
 BeginCmp
-TimeStamp = /53586622;
+TimeStamp = /5361BCCF;
 Reference = JP2;
 ValeurCmp = I-TEST;
-IdModule  = ;
+IdModule  = jumper:SOLDER-JUMPER_1-WAY;
 EndCmp
 
 BeginCmp
-TimeStamp = /535718D0;
+TimeStamp = /5361C056;
 Reference = JP3;
 ValeurCmp = MODE-SEL;
-IdModule  = ;
+IdModule  = jumper:SOLDER-JUMPER_2-WAY;
 EndCmp
 
 BeginCmp
 TimeStamp = /53571425;
 Reference = JP4;
 ValeurCmp = WIFI-LOG-LVL-SEL;
-IdModule  = ;
+IdModule  = jumper:SOLDER-JUMPER_1-WAY;
 EndCmp
 
 BeginCmp
 TimeStamp = /53583590;
 Reference = L1;
 ValeurCmp = 4.7uH;
-IdModule  = ;
+IdModule  = inductor:SM-INDUCTOR_5mmX5mm;
 EndCmp
 
 BeginCmp
@@ -655,21 +655,21 @@ BeginCmp
 TimeStamp = /53589C7F;
 Reference = VR1;
 ValeurCmp = 100kΩ;
-IdModule  = ;
+IdModule  = bourns:BOURNS-PTA4543_slide-pot;
 EndCmp
 
 BeginCmp
 TimeStamp = /5358A177;
 Reference = VR2;
 ValeurCmp = 100kΩ;
-IdModule  = ;
+IdModule  = bourns:BOURNS-PTA4543_slide-pot;
 EndCmp
 
 BeginCmp
 TimeStamp = /5358A1B6;
 Reference = VR3;
 ValeurCmp = 100kΩ;
-IdModule  = ;
+IdModule  = bourns:BOURNS-PTA4543_slide-pot;
 EndCmp
 
 EndListe
