@@ -141,6 +141,7 @@ UserSchema.method 'streamTweets', ->
 
 UserSchema.method 'newTweet', (tweet)->
   req = https.get "#{@.imp_url}color=0000ff", (res) ->
+    console.log 'sent to lamp'
     bodyChunks = []
     res.on("data", (chunk) ->
       bodyChunks.push chunk
@@ -152,7 +153,6 @@ UserSchema.method 'newTweet', (tweet)->
 UserSchema.method 'newEmail', (messages)->
   if messages?.unseen > 0
     req = https.get "#{@.imp_url}color=ff0000", (res) ->
-      console.log 'sent to lamp'
       bodyChunks = []
       res.on("data", (chunk) ->
         bodyChunks.push chunk
