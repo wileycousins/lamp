@@ -18,15 +18,15 @@ module.exports = (io) ->
     socket.on "disconnect", (msg) ->
       user = socket['user']
       console.log "disconnet: #{user?.id}"
-      User.findById user?.id, (err, user) ->
-        return console.log err if err
-        return "" if !user
-        console.log "stop tweets for #{user.name}"
-        user.stopTweetStream()
-      stream = socket['stream']
-      if stream?
-        console.log 'killing mongoose stream'
-        stream.destroy()
+      #User.findById user?.id, (err, user) ->
+        #return console.log err if err
+        #return "" if !user
+        #console.log "stop tweets for #{user.name}"
+        #user.stopTweetStream()
+      #stream = socket['stream']
+      #if stream?
+        #console.log 'killing mongoose stream'
+        #stream.destroy()
 
     socket.on "addTag", (user, tag) ->
       if user?

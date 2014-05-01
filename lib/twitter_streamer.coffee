@@ -4,7 +4,7 @@ Settings = Models.Settings
 
 module.exports =
   start: (twitter, user, next) ->
-    console.log "starting stream"
+    console.log "starting stream: #{user.twitter_track}"
     twitter
       #.stream "statuses/sample", (streamer) ->
       .stream 'statuses/filter', {track:user.twitter_track}, (streamer) ->
@@ -21,6 +21,8 @@ module.exports =
               user.newTweet tweet
 
         streamer.on "error", (err) ->
+          user.stopTweetStream()
+          user.streamTweets()
           console.log "ERROR ON STREAMER: #{err}"
 
         next streamer
