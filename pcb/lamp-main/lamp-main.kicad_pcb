@@ -3,9 +3,9 @@
   (general
     (links 79)
     (no_connects 79)
-    (area 0 0 0 0)
+    (area 115.166627 93.98 202.232686 123.255601)
     (thickness 1.6)
-    (drawings 0)
+    (drawings 3)
     (tracks 0)
     (zones 0)
     (modules 29)
@@ -936,5 +936,9 @@
     (pad 2 smd rect (at 3.25 0) (size 2.5 3) (layers F.Cu F.Paste F.Mask)
       (net 3 "Net-(C2-Pad2)"))
   )
+
+  (gr_line (start 77.47 80.772) (end 104.14 127) (angle 90) (layer Edge.Cuts) (width 0.127))
+  (gr_line (start 50.8 127) (end 77.47 80.772) (angle 90) (layer Edge.Cuts) (width 0.127))
+  (gr_line (start 50.8 127) (end 104.14 127) (angle 90) (layer Edge.Cuts) (width 0.127))
 
 )
