@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2014-03-18 BZR 4754)-product date = Wed 30 Apr 2014 10:07:06 PM CDT
+Cmp-Mod V01 Created by CvPcb (2014-02-03 BZR 4657)-product date = Thu 01 May 2014 11:29:42 PM CDT
 
 BeginCmp
 TimeStamp = /53573213;
@@ -29,10 +29,10 @@ IdModule  = passive-smd:0603(1608m);
 EndCmp
 
 BeginCmp
-TimeStamp = /53585DE2;
+TimeStamp = /53642540;
 Reference = C3;
-ValeurCmp = 0.1uF;
-IdModule  = passive-smd:0603(1608m);
+ValeurCmp = 100uF;
+IdModule  = capacitor:PANA-D_CHEMI-F_SM-ALUMINUM;
 EndCmp
 
 BeginCmp
@@ -64,10 +64,10 @@ IdModule  = passive-smd:1206(3216m);
 EndCmp
 
 BeginCmp
-TimeStamp = /5358596C;
+TimeStamp = /5363F282;
 Reference = C8;
-ValeurCmp = 0.1uF;
-IdModule  = passive-smd:0603(1608m);
+ValeurCmp = 10uF;
+IdModule  = passive-smd:1206(3216m);
 EndCmp
 
 BeginCmp
@@ -113,9 +113,9 @@ IdModule  = passive-smd:0603(1608m);
 EndCmp
 
 BeginCmp
-TimeStamp = /5358353E;
+TimeStamp = /5363155A;
 Reference = C15;
-ValeurCmp = 4.7pF;
+ValeurCmp = 1uF;
 IdModule  = passive-smd:0603(1608m);
 EndCmp
 
@@ -134,10 +134,10 @@ IdModule  = passive-smd:1206(3216m);
 EndCmp
 
 BeginCmp
-TimeStamp = /53583BBE;
+TimeStamp = /536353D9;
 Reference = C18;
-ValeurCmp = 22uF;
-IdModule  = passive-smd:1206(3216m);
+ValeurCmp = 47pF;
+IdModule  = passive-smd:0603(1608m);
 EndCmp
 
 BeginCmp
@@ -211,6 +211,27 @@ IdModule  = passive-smd:0603(1608m);
 EndCmp
 
 BeginCmp
+TimeStamp = /536355D7;
+Reference = C29;
+ValeurCmp = 2.2nF;
+IdModule  = passive-smd:0603(1608m);
+EndCmp
+
+BeginCmp
+TimeStamp = /536391F1;
+Reference = C30;
+ValeurCmp = 0.1uF;
+IdModule  = passive-smd:0603(1608m);
+EndCmp
+
+BeginCmp
+TimeStamp = /5363D1D3;
+Reference = C31;
+ValeurCmp = 10uF;
+IdModule  = passive-smd:1206(3216m);
+EndCmp
+
+BeginCmp
 TimeStamp = /5356B181;
 Reference = D1;
 ValeurCmp = MSS2P2;
@@ -253,10 +274,10 @@ IdModule  = passive-smd:1206(3216m);
 EndCmp
 
 BeginCmp
-TimeStamp = /53585375;
+TimeStamp = /53630C76;
 Reference = IC1;
-ValeurCmp = 78L05_SOT;
-IdModule  = sot:SOT89;
+ValeurCmp = PAM2421;
+IdModule  = sop:SOP8_ep;
 EndCmp
 
 BeginCmp
@@ -271,13 +292,6 @@ TimeStamp = /5356BF95;
 Reference = IC3;
 ValeurCmp = AP2411;
 IdModule  = soic:SOIC8;
-EndCmp
-
-BeginCmp
-TimeStamp = /53581737;
-Reference = IC4;
-ValeurCmp = LM2623_VSSOP;
-IdModule  = sop:VSSOP8_P0.65mm_W3mm;
 EndCmp
 
 BeginCmp
@@ -423,8 +437,8 @@ EndCmp
 BeginCmp
 TimeStamp = /53583590;
 Reference = L1;
-ValeurCmp = 4.7uH;
-IdModule  = inductor:SM-INDUCTOR_5mmX5mm;
+ValeurCmp = 6.8uH;
+IdModule  = inductor:SM-INDUCTOR_6mmX6mm;
 EndCmp
 
 BeginCmp
@@ -493,21 +507,21 @@ EndCmp
 BeginCmp
 TimeStamp = /53583C86;
 Reference = R5;
-ValeurCmp = 91kΩ;
+ValeurCmp = 10kΩ;
 IdModule  = passive-smd:0603(1608m);
 EndCmp
 
 BeginCmp
 TimeStamp = /53583C31;
 Reference = R6;
-ValeurCmp = 430kΩ;
+ValeurCmp = 47kΩ;
 IdModule  = passive-smd:0603(1608m);
 EndCmp
 
 BeginCmp
-TimeStamp = /535835C2;
+TimeStamp = /53635868;
 Reference = R7;
-ValeurCmp = 150kΩ;
+ValeurCmp = 51k;
 IdModule  = passive-smd:0603(1608m);
 EndCmp
 
