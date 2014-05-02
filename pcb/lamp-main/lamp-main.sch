@@ -278,7 +278,7 @@ F 3 "" H 7100 3700 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text Label 6850 3850 0    60   ~ 0
-VIN
+VL
 $Comp
 L GND #PWR09
 U 1 1 530E3694
@@ -454,7 +454,7 @@ F 3 "" H 7500 1200 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text Label 7100 1100 0    60   ~ 0
-VIN
+VL
 $Comp
 L VCC #PWR016
 U 1 1 530E7504
@@ -492,8 +492,6 @@ F 3 "" H 7500 1900 60  0001 C CNN
 	1    7450 2000
 	1    0    0    -1  
 $EndComp
-Text Label 7100 1800 0    60   ~ 0
-VIN
 $Comp
 L VCC #PWR018
 U 1 1 530E7719
@@ -531,8 +529,6 @@ F 3 "" H 7500 2600 60  0001 C CNN
 	1    7450 2700
 	1    0    0    -1  
 $EndComp
-Text Label 7100 2500 0    60   ~ 0
-VIN
 $Comp
 L VCC #PWR020
 U 1 1 530E7763
@@ -588,8 +584,6 @@ Wire Wire Line
 	6900 4450 7050 4450
 Wire Notes Line
 	6500 3500 10000 3500
-Wire Notes Line
-	6500 4800 10000 4800
 Wire Notes Line
 	6500 3500 6500 4800
 Wire Wire Line
@@ -817,7 +811,7 @@ $EndComp
 Wire Wire Line
 	9400 4050 9600 4050
 Wire Notes Line
-	10000 4800 10000 3500
+	10000 3500 10000 4800
 $Comp
 L C C3
 U 1 1 5310D0FE
@@ -834,19 +828,8 @@ F 8 "http://www.digikey.com/product-detail/en/CL10C240JB8NCNC/1276-2242-1-ND/389
 	1    1500 2600
 	1    0    0    -1  
 $EndComp
-$Comp
-L VCC #PWR026
-U 1 1 5310DE0A
-P 6950 4350
-F 0 "#PWR026" H 6950 4450 30  0001 C CNN
-F 1 "VCC" H 6950 4450 30  0000 C CNN
-F 2 "" H 6950 4350 60  0000 C CNN
-F 3 "" H 6950 4350 60  0000 C CNN
-	1    6950 4350
-	0    -1   1    0   
-$EndComp
 Wire Wire Line
-	6950 4350 7050 4350
+	6850 4350 7050 4350
 $Comp
 L R R6
 U 1 1 5310FE43
@@ -1114,4 +1097,29 @@ Wire Wire Line
 	2250 3350 2250 3250
 Wire Wire Line
 	2250 3250 2350 3250
+Text Label 7100 1800 0    60   ~ 0
+VL
+Text Label 7100 2500 0    60   ~ 0
+VL
+Text Label 6850 4350 0    60   ~ 0
+VIN
+$Comp
+L JUMPER_2-PIN JP?
+U 1 1 5363ED03
+P 7100 4900
+F 0 "JP?" H 7100 5000 60  0000 C CNN
+F 1 "VLED-VIN-JUMP" H 7100 4800 60  0000 C CNN
+F 2 "" H 7000 4900 60  0001 C CNN
+F 3 "" H 7100 5000 60  0001 C CNN
+	1    7100 4900
+	1    0    0    -1  
+$EndComp
+Text Label 6750 4900 0    60   ~ 0
+VL
+Text Label 7450 4900 2    60   ~ 0
+VIN
+Wire Wire Line
+	7450 4900 7250 4900
+Wire Wire Line
+	6750 4900 6950 4900
 $EndSCHEMATC
