@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPcb (2014-02-03 BZR 4657)-product date = Thu 01 May 2014 11:29:42 PM CDT
+Cmp-Mod V01 Created by Cvpcb (2014-05-01 BZR 4839)-product   date = Fri 02 May 2014 03:31:45 PM CDT
 
 BeginCmp
 TimeStamp = /53573213;
@@ -85,20 +85,6 @@ IdModule  = passive-smd:0603(1608m);
 EndCmp
 
 BeginCmp
-TimeStamp = /5355AD9A;
-Reference = C11;
-ValeurCmp = 0.1uF;
-IdModule  = passive-smd:0603(1608m);
-EndCmp
-
-BeginCmp
-TimeStamp = /5355B5E7;
-Reference = C12;
-ValeurCmp = 10uF;
-IdModule  = passive-smd:1206(3216m);
-EndCmp
-
-BeginCmp
 TimeStamp = /5355BC5C;
 Reference = C13;
 ValeurCmp = 10uF;
@@ -127,13 +113,6 @@ IdModule  = passive-smd:0603(1608m);
 EndCmp
 
 BeginCmp
-TimeStamp = /535881BE;
-Reference = C17;
-ValeurCmp = 22uF;
-IdModule  = passive-smd:1206(3216m);
-EndCmp
-
-BeginCmp
 TimeStamp = /536353D9;
 Reference = C18;
 ValeurCmp = 47pF;
@@ -155,13 +134,6 @@ IdModule  = passive-smd:1206(3216m);
 EndCmp
 
 BeginCmp
-TimeStamp = /5356DD32;
-Reference = C21;
-ValeurCmp = 1uF;
-IdModule  = passive-smd:0603(1608m);
-EndCmp
-
-BeginCmp
 TimeStamp = /535728CE;
 Reference = C22;
 ValeurCmp = 2.2pF;
@@ -169,23 +141,9 @@ IdModule  = passive-smd:0603(1608m);
 EndCmp
 
 BeginCmp
-TimeStamp = /5356DD8C;
-Reference = C23;
-ValeurCmp = 1uF;
-IdModule  = passive-smd:0603(1608m);
-EndCmp
-
-BeginCmp
 TimeStamp = /53572897;
 Reference = C24;
 ValeurCmp = 10pF;
-IdModule  = passive-smd:0603(1608m);
-EndCmp
-
-BeginCmp
-TimeStamp = /535722B4;
-Reference = C25;
-ValeurCmp = 0.1uF;
 IdModule  = passive-smd:0603(1608m);
 EndCmp
 
@@ -232,23 +190,23 @@ IdModule  = passive-smd:1206(3216m);
 EndCmp
 
 BeginCmp
-TimeStamp = /5356B181;
+TimeStamp = /53646F2B;
 Reference = D1;
-ValeurCmp = MSS2P2;
+ValeurCmp = 3A;
 IdModule  = diode:MICROSMP;
 EndCmp
 
 BeginCmp
 TimeStamp = /5356B322;
 Reference = D2;
-ValeurCmp = MSS2P2;
-IdModule  = diode:MICROSMP;
+ValeurCmp = 2A;
+IdModule  = diode:DO-214AC;
 EndCmp
 
 BeginCmp
-TimeStamp = /5355BF2A;
+TimeStamp = /53653ECD;
 Reference = D3;
-ValeurCmp = MSS2P2;
+ValeurCmp = 3A;
 IdModule  = diode:MICROSMP;
 EndCmp
 
@@ -256,13 +214,13 @@ BeginCmp
 TimeStamp = /53587C2A;
 Reference = D4;
 ValeurCmp = 3A;
-IdModule  = diode:DO-214AC;
+IdModule  = diode:MICROSMP;
 EndCmp
 
 BeginCmp
-TimeStamp = /53587A48;
-Reference = D5;
-ValeurCmp = 3A;
+TimeStamp = /5364E0F9;
+Reference = D6;
+ValeurCmp = 2A;
 IdModule  = diode:DO-214AC;
 EndCmp
 
@@ -290,15 +248,8 @@ EndCmp
 BeginCmp
 TimeStamp = /5356BF95;
 Reference = IC3;
-ValeurCmp = AP2411;
+ValeurCmp = AP2401;
 IdModule  = soic:SOIC8;
-EndCmp
-
-BeginCmp
-TimeStamp = /5355A893;
-Reference = IC5;
-ValeurCmp = LM1117_3.3;
-IdModule  = sot:SOT223;
 EndCmp
 
 BeginCmp
@@ -316,24 +267,10 @@ IdModule  = sop:SSOP16;
 EndCmp
 
 BeginCmp
-TimeStamp = /5356DCA6;
-Reference = IC8;
-ValeurCmp = TLV1117LV28;
-IdModule  = sot:SOT223;
-EndCmp
-
-BeginCmp
 TimeStamp = /5355A86B;
 Reference = IC9;
 ValeurCmp = CC3000;
 IdModule  = texas:CC3000;
-EndCmp
-
-BeginCmp
-TimeStamp = /5357229D;
-Reference = IC10;
-ValeurCmp = 74HC4050;
-IdModule  = sop:TSSOP16;
 EndCmp
 
 BeginCmp
@@ -386,7 +323,7 @@ IdModule  = sip:SIP2;
 EndCmp
 
 BeginCmp
-TimeStamp = /5356D644;
+TimeStamp = /5364A0F3;
 Reference = J8;
 ValeurCmp = AVR_ISP;
 IdModule  = connect-thru:2x3-ARRAY_P100mil;
@@ -407,17 +344,10 @@ IdModule  = sip:SIP3;
 EndCmp
 
 BeginCmp
-TimeStamp = /5361C257;
-Reference = JP1;
-ValeurCmp = VBAT-DIR-SEL;
-IdModule  = jumper:SOLDER-JUMPER_2-WAY;
-EndCmp
-
-BeginCmp
 TimeStamp = /5361BCCF;
 Reference = JP2;
 ValeurCmp = I-TEST;
-IdModule  = jumper:SOLDER-JUMPER_1-WAY;
+IdModule  = sip:SIP2;
 EndCmp
 
 BeginCmp
@@ -425,13 +355,6 @@ TimeStamp = /5361C056;
 Reference = JP3;
 ValeurCmp = MODE-SEL;
 IdModule  = jumper:SOLDER-JUMPER_2-WAY;
-EndCmp
-
-BeginCmp
-TimeStamp = /53571425;
-Reference = JP4;
-ValeurCmp = WIFI-LOG-LVL-SEL;
-IdModule  = jumper:SOLDER-JUMPER_1-WAY;
 EndCmp
 
 BeginCmp
