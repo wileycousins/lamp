@@ -1,0 +1,206 @@
+Cmp-Mod V01 Created by Cvpcb (2014-05-01 BZR 4839)-product   date = Fri 02 May 2014 12:53:13 PM CDT
+
+BeginCmp
+TimeStamp = /530E2DE7;
+Reference = C1;
+ValeurCmp = 0.1uF;
+IdModule  = passive-smd:0603(1608m);
+EndCmp
+
+BeginCmp
+TimeStamp = /530E2B0B;
+Reference = C2;
+ValeurCmp = 24pF;
+IdModule  = passive-smd:0603(1608m);
+EndCmp
+
+BeginCmp
+TimeStamp = /5310D0FE;
+Reference = C3;
+ValeurCmp = 24pF;
+IdModule  = passive-smd:0603(1608m);
+EndCmp
+
+BeginCmp
+TimeStamp = /530E2DFB;
+Reference = C4;
+ValeurCmp = 0.1uF;
+IdModule  = passive-smd:0603(1608m);
+EndCmp
+
+BeginCmp
+TimeStamp = /530E2E0F;
+Reference = C5;
+ValeurCmp = 0.1uF;
+IdModule  = passive-smd:0603(1608m);
+EndCmp
+
+BeginCmp
+TimeStamp = /530E2C15;
+Reference = C6;
+ValeurCmp = 0.1uF;
+IdModule  = passive-smd:0603(1608m);
+EndCmp
+
+BeginCmp
+TimeStamp = /530E44C1;
+Reference = C7;
+ValeurCmp = DNP(10uF);
+IdModule  = passive-smd:1206(3216m);
+EndCmp
+
+BeginCmp
+TimeStamp = /530E44E9;
+Reference = C8;
+ValeurCmp = DNP(22uF);
+IdModule  = passive-smd:1206(3216m);
+EndCmp
+
+BeginCmp
+TimeStamp = /530E333B;
+Reference = C9;
+ValeurCmp = 0.1uF;
+IdModule  = passive-smd:0603(1608m);
+EndCmp
+
+BeginCmp
+TimeStamp = /530E2A6B;
+Reference = IC1;
+ValeurCmp = ATMEGA328P;
+IdModule  = qfp:TQFP32_P0.8mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /530E4152;
+Reference = IC2;
+ValeurCmp = DNP(LM1117_3.3);
+IdModule  = sot:SOT223;
+EndCmp
+
+BeginCmp
+TimeStamp = /5310FF26;
+Reference = LED1;
+ValeurCmp = RED;
+IdModule  = led:0603(1608m)-SM-LED;
+EndCmp
+
+BeginCmp
+TimeStamp = /53110110;
+Reference = LED2;
+ValeurCmp = RED;
+IdModule  = led:0603(1608m)-SM-LED;
+EndCmp
+
+BeginCmp
+TimeStamp = /530E35EB;
+Reference = P1;
+ValeurCmp = VLED_IN;
+IdModule  = sip:SIP2;
+EndCmp
+
+BeginCmp
+TimeStamp = /530E2A7F;
+Reference = P2;
+ValeurCmp = AVR_ISP;
+IdModule  = connect-thru:2x3-ARRAY_P100mil;
+EndCmp
+
+BeginCmp
+TimeStamp = /530E2A93;
+Reference = P3;
+ValeurCmp = SERIAL;
+IdModule  = sip:SIP6;
+EndCmp
+
+BeginCmp
+TimeStamp = /530E7494;
+Reference = P4;
+ValeurCmp = LEDSTACK;
+IdModule  = sip:SIP5;
+EndCmp
+
+BeginCmp
+TimeStamp = /530E7712;
+Reference = P5;
+ValeurCmp = LEDSTACK;
+IdModule  = sip:SIP5;
+EndCmp
+
+BeginCmp
+TimeStamp = /530E775C;
+Reference = P6;
+ValeurCmp = LEDSTACK;
+IdModule  = sip:SIP5;
+EndCmp
+
+BeginCmp
+TimeStamp = /5356FC5E;
+Reference = P7;
+ValeurCmp = USER-INPUT;
+IdModule  = sip:SIP5;
+EndCmp
+
+BeginCmp
+TimeStamp = /53570408;
+Reference = P8;
+ValeurCmp = EXTRA-IO;
+IdModule  = sip:SIP2;
+EndCmp
+
+BeginCmp
+TimeStamp = /5356F83C;
+Reference = P9;
+ValeurCmp = WIFI;
+IdModule  = sip:SIP3;
+EndCmp
+
+BeginCmp
+TimeStamp = /535707D7;
+Reference = P10;
+ValeurCmp = VCC;
+IdModule  = sip:SIP2;
+EndCmp
+
+BeginCmp
+TimeStamp = /530E6B36;
+Reference = R1;
+ValeurCmp = 10kΩ;
+IdModule  = passive-smd:0603(1608m);
+EndCmp
+
+BeginCmp
+TimeStamp = /530E6B4A;
+Reference = R2;
+ValeurCmp = 10kΩ;
+IdModule  = passive-smd:0603(1608m);
+EndCmp
+
+BeginCmp
+TimeStamp = /530E6B5E;
+Reference = R3;
+ValeurCmp = 10kΩ;
+IdModule  = passive-smd:0603(1608m);
+EndCmp
+
+BeginCmp
+TimeStamp = /5310FE43;
+Reference = R6;
+ValeurCmp = 1kΩ;
+IdModule  = passive-smd:0603(1608m);
+EndCmp
+
+BeginCmp
+TimeStamp = /531100E8;
+Reference = R7;
+ValeurCmp = 1kΩ;
+IdModule  = passive-smd:0603(1608m);
+EndCmp
+
+BeginCmp
+TimeStamp = /530E2AA7;
+Reference = Y1;
+ValeurCmp = 8MHz;
+IdModule  = crystal:ABRACON-ABM2_xtal;
+EndCmp
+
+EndListe
