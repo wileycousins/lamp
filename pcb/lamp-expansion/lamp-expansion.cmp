@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by Cvpcb (2014-05-01 BZR 4839)-product   date = Fri 02 May 2014 03:31:45 PM CDT
+Cmp-Mod V01 Created by Cvpcb (2014-05-01 BZR 4839)-product   date = Tue 06 May 2014 02:11:57 PM CDT
 
 BeginCmp
 TimeStamp = /53573213;
@@ -193,35 +193,35 @@ BeginCmp
 TimeStamp = /53646F2B;
 Reference = D1;
 ValeurCmp = 3A;
-IdModule  = diode:MICROSMP;
+IdModule  = diode:DO-214AC;
 EndCmp
 
 BeginCmp
 TimeStamp = /5356B322;
 Reference = D2;
 ValeurCmp = 2A;
-IdModule  = diode:DO-214AC;
+IdModule  = diode:MICROSMP;
 EndCmp
 
 BeginCmp
 TimeStamp = /53653ECD;
 Reference = D3;
 ValeurCmp = 3A;
-IdModule  = diode:MICROSMP;
+IdModule  = diode:DO-214AC;
 EndCmp
 
 BeginCmp
 TimeStamp = /53587C2A;
 Reference = D4;
 ValeurCmp = 3A;
-IdModule  = diode:MICROSMP;
+IdModule  = diode:DO-214AC;
 EndCmp
 
 BeginCmp
 TimeStamp = /5364E0F9;
 Reference = D6;
 ValeurCmp = 2A;
-IdModule  = diode:DO-214AC;
+IdModule  = diode:MICROSMP;
 EndCmp
 
 BeginCmp
@@ -246,10 +246,10 @@ IdModule  = sot:SOT23-5;
 EndCmp
 
 BeginCmp
-TimeStamp = /5356BF95;
+TimeStamp = /53697460;
 Reference = IC3;
-ValeurCmp = AP2401;
-IdModule  = soic:SOIC8;
+ValeurCmp = AP2411_ep;
+IdModule  = sop:MSOP8_ep;
 EndCmp
 
 BeginCmp
@@ -309,13 +309,6 @@ IdModule  = sip:SIP2;
 EndCmp
 
 BeginCmp
-TimeStamp = /535895B4;
-Reference = J6;
-ValeurCmp = 2PIN_IO;
-IdModule  = sip:SIP2;
-EndCmp
-
-BeginCmp
 TimeStamp = /53588CAB;
 Reference = J7;
 ValeurCmp = 2PIN_POWER;
@@ -334,13 +327,6 @@ TimeStamp = /5357358E;
 Reference = J9;
 ValeurCmp = UF.L;
 IdModule  = connect-sm:U.FL-COAX;
-EndCmp
-
-BeginCmp
-TimeStamp = /5357083F;
-Reference = J10;
-ValeurCmp = CC-IO;
-IdModule  = sip:SIP3;
 EndCmp
 
 BeginCmp
@@ -395,6 +381,13 @@ EndCmp
 BeginCmp
 TimeStamp = /53582767;
 Reference = Q1;
+ValeurCmp = 2N7002;
+IdModule  = sot:SOT23;
+EndCmp
+
+BeginCmp
+TimeStamp = /536939CA;
+Reference = Q2;
 ValeurCmp = 2N7002;
 IdModule  = sot:SOT23;
 EndCmp
@@ -570,20 +563,6 @@ EndCmp
 BeginCmp
 TimeStamp = /53589C44;
 Reference = TP10;
-ValeurCmp = PIN;
-IdModule  = connect-thru:1-PIN;
-EndCmp
-
-BeginCmp
-TimeStamp = /535895DA;
-Reference = TP11;
-ValeurCmp = PIN;
-IdModule  = connect-thru:1-PIN;
-EndCmp
-
-BeginCmp
-TimeStamp = /535895C8;
-Reference = TP12;
 ValeurCmp = PIN;
 IdModule  = connect-thru:1-PIN;
 EndCmp

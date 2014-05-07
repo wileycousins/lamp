@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by Cvpcb (2014-05-01 BZR 4839)-product   date = Fri 02 May 2014 12:53:13 PM CDT
+Cmp-Mod V01 Created by Cvpcb (2014-05-01 BZR 4839)-product   date = Mon 05 May 2014 02:08:51 PM CDT
 
 BeginCmp
 TimeStamp = /530E2DE7;
@@ -78,6 +78,13 @@ IdModule  = sot:SOT223;
 EndCmp
 
 BeginCmp
+TimeStamp = /5363ED03;
+Reference = JP1;
+ValeurCmp = VLED-VIN-JUMP;
+IdModule  = jumper:SOLDER-JUMPER_1-WAY;
+EndCmp
+
+BeginCmp
 TimeStamp = /5310FF26;
 Reference = LED1;
 ValeurCmp = RED;
@@ -143,15 +150,8 @@ EndCmp
 BeginCmp
 TimeStamp = /53570408;
 Reference = P8;
-ValeurCmp = EXTRA-IO;
+ValeurCmp = EXTRA-ADC;
 IdModule  = sip:SIP2;
-EndCmp
-
-BeginCmp
-TimeStamp = /5356F83C;
-Reference = P9;
-ValeurCmp = WIFI;
-IdModule  = sip:SIP3;
 EndCmp
 
 BeginCmp
