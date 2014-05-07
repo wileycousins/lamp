@@ -1,4 +1,4 @@
-update=Fri 02 May 2014 07:08:41 PM CDT
+update=Wed 07 May 2014 12:09:26 PM CDT
 version=1
 last_client=kicad
 [cvpcb]
@@ -43,6 +43,8 @@ LibName13=led
 LibName14=dip_sockets
 LibName15=pga_sockets
 LibName16=valves
+[general]
+version=1
 [eeschema]
 version=1
 PageLayoutDescrFile=
@@ -78,5 +80,4 @@ LibName20=led
 LibName21=diode-inc-ic
 LibName22=transistor
 LibName23=regulator
-[general]
-version=1
+LibName24=on-semi-ic

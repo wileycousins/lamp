@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by Cvpcb (2014-05-01 BZR 4839)-product   date = Tue 06 May 2014 02:11:57 PM CDT
+Cmp-Mod V01 Created by Cvpcb (2014-05-01 BZR 4839)-product   date = Wed 07 May 2014 12:58:55 PM CDT
 
 BeginCmp
 TimeStamp = /53573213;
@@ -18,13 +18,6 @@ BeginCmp
 TimeStamp = /5356B9ED;
 Reference = C1;
 ValeurCmp = 1uF;
-IdModule  = passive-smd:0603(1608m);
-EndCmp
-
-BeginCmp
-TimeStamp = /5356C58B;
-Reference = C2;
-ValeurCmp = 0.1uF;
 IdModule  = passive-smd:0603(1608m);
 EndCmp
 
@@ -74,13 +67,6 @@ BeginCmp
 TimeStamp = /5356BAEE;
 Reference = C9;
 ValeurCmp = 1uF;
-IdModule  = passive-smd:0603(1608m);
-EndCmp
-
-BeginCmp
-TimeStamp = /5356C458;
-Reference = C10;
-ValeurCmp = 0.1uF;
 IdModule  = passive-smd:0603(1608m);
 EndCmp
 
@@ -190,13 +176,6 @@ IdModule  = passive-smd:1206(3216m);
 EndCmp
 
 BeginCmp
-TimeStamp = /53646F2B;
-Reference = D1;
-ValeurCmp = 3A;
-IdModule  = diode:DO-214AC;
-EndCmp
-
-BeginCmp
 TimeStamp = /5356B322;
 Reference = D2;
 ValeurCmp = 2A;
@@ -246,10 +225,10 @@ IdModule  = sot:SOT23-5;
 EndCmp
 
 BeginCmp
-TimeStamp = /53697460;
+TimeStamp = /536AB247;
 Reference = IC3;
-ValeurCmp = AP2411_ep;
-IdModule  = sop:MSOP8_ep;
+ValeurCmp = NTHD3101F;
+IdModule  = sot:CHIPFET-1206-8;
 EndCmp
 
 BeginCmp
@@ -284,7 +263,7 @@ BeginCmp
 TimeStamp = /53619F5D;
 Reference = J2;
 ValeurCmp = DCIN;
-IdModule  = connect-sm:CUI-PJ-002AH-SMT_dc-barrel-jack;
+IdModule  = connect-thru:CUI-PJ-102A_dc-barrel-jack;
 EndCmp
 
 BeginCmp
@@ -327,13 +306,6 @@ TimeStamp = /5357358E;
 Reference = J9;
 ValeurCmp = UF.L;
 IdModule  = connect-sm:U.FL-COAX;
-EndCmp
-
-BeginCmp
-TimeStamp = /5361BCCF;
-Reference = JP2;
-ValeurCmp = I-TEST;
-IdModule  = sip:SIP2;
 EndCmp
 
 BeginCmp
@@ -386,16 +358,9 @@ IdModule  = sot:SOT23;
 EndCmp
 
 BeginCmp
-TimeStamp = /536939CA;
-Reference = Q2;
-ValeurCmp = 2N7002;
-IdModule  = sot:SOT23;
-EndCmp
-
-BeginCmp
-TimeStamp = /5356C040;
+TimeStamp = /536A97BF;
 Reference = R1;
-ValeurCmp = 10kΩ;
+ValeurCmp = 100kΩ;
 IdModule  = passive-smd:0603(1608m);
 EndCmp
 
