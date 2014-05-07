@@ -430,8 +430,7 @@ F0 "IC" -150 300 60 H V C CNN
 F1 "MCP73811/2" 0 -350 60 H V C CNN
 F2 "" -150 -50 60 H I C CNN
 F3 "" -50 50 60 H I C CNN
-F4 "MCP7381_T-420I/OT" 0 -550 60 H I C CNN "Manuf. Part"
-F5 "Microchip Technology" 0 -450 60 H I C CNN "Manufacturer"
+F4 "Microchip Technology" 0 -450 60 H I C CNN "Manufacturer"
 $FPLIST
  SOT23-5
 $ENDFPLIST
