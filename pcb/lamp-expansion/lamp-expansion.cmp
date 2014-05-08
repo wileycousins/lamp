@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by Cvpcb (2014-05-01 BZR 4839)-product   date = Wed 07 May 2014 12:58:55 PM CDT
+Cmp-Mod V01 Created by Cvpcb (2014-05-01 BZR 4839)-product   date = Thu 08 May 2014 03:24:39 PM CDT
 
 BeginCmp
 TimeStamp = /53573213;
@@ -11,7 +11,7 @@ BeginCmp
 TimeStamp = /5355BB28;
 Reference = BT1;
 ValeurCmp = LIPO;
-IdModule  = connect-sm:JST-S2B-PH-SM4-TB_right-angle-jack;
+IdModule  = connect-thru:JST-S2B-PH-K_right-angle-jack;
 EndCmp
 
 BeginCmp
@@ -428,13 +428,6 @@ IdModule  = passive-smd:0603(1608m);
 EndCmp
 
 BeginCmp
-TimeStamp = /5358ABDC;
-Reference = R11;
-ValeurCmp = 10kΩ;
-IdModule  = passive-smd:0603(1608m);
-EndCmp
-
-BeginCmp
 TimeStamp = /535720DF;
 Reference = R12;
 ValeurCmp = 0Ω;
@@ -451,13 +444,6 @@ EndCmp
 BeginCmp
 TimeStamp = /5358A1D1;
 Reference = S1;
-ValeurCmp = SPST;
-IdModule  = switch:SPST-4-PIN_6mm_thru;
-EndCmp
-
-BeginCmp
-TimeStamp = /5358ABCF;
-Reference = S2;
 ValeurCmp = SPST;
 IdModule  = switch:SPST-4-PIN_6mm_thru;
 EndCmp
@@ -536,21 +522,21 @@ BeginCmp
 TimeStamp = /53589C7F;
 Reference = VR1;
 ValeurCmp = 100kΩ;
-IdModule  = bourns:BOURNS-PTA4543_slide-pot;
+IdModule  = bourns:BOURNS-PTA2043_20mm-slide-pot;
 EndCmp
 
 BeginCmp
 TimeStamp = /5358A177;
 Reference = VR2;
 ValeurCmp = 100kΩ;
-IdModule  = bourns:BOURNS-PTA4543_slide-pot;
+IdModule  = bourns:BOURNS-PTA2043_20mm-slide-pot;
 EndCmp
 
 BeginCmp
 TimeStamp = /5358A1B6;
 Reference = VR3;
 ValeurCmp = 100kΩ;
-IdModule  = bourns:BOURNS-PTA4543_slide-pot;
+IdModule  = bourns:BOURNS-PTA2043_20mm-slide-pot;
 EndCmp
 
 EndListe
