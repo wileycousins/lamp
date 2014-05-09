@@ -724,12 +724,8 @@ Text Label 4750 1500 2    60   ~ 0
 POT_0
 Text Label 4750 3250 2    60   ~ 0
 ADC6
-Text Label 4850 2500 2    60   ~ 0
-WIFI_IRQ
 Text Label 5600 2500 2    60   ~ 0
 BUTTON_0
-Text Label 5600 2400 2    60   ~ 0
-BUTTON_1
 $Comp
 L C C9
 U 1 1 530E333B
@@ -750,7 +746,7 @@ Text Label 1000 6750 0    60   ~ 0
 WIFI_EN
 Text Label 1000 6850 0    60   ~ 0
 WIFI_SS
-Text Label 1000 6450 0    60   ~ 0
+Text Label 1500 6550 0    60   ~ 0
 WIFI_IRQ
 Text Label 4750 1250 2    60   ~ 0
 POT_2
@@ -771,8 +767,6 @@ F 3 "" H 2300 6550 60  0001 C CNN
 $EndComp
 Text Label 1500 6450 0    60   ~ 0
 BUTTON_0
-Text Label 1500 6550 0    60   ~ 0
-BUTTON_1
 Text Label 1650 6850 0    60   ~ 0
 POT_2
 Text Label 1650 6750 0    60   ~ 0
@@ -1076,8 +1070,6 @@ Wire Wire Line
 Wire Wire Line
 	2150 6550 1500 6550
 Wire Wire Line
-	1000 6450 2150 6450
-Wire Wire Line
 	3350 6700 2900 6700
 Wire Wire Line
 	2900 6600 3350 6600
@@ -1102,4 +1094,8 @@ Wire Wire Line
 NoConn ~ 4350 2300
 NoConn ~ 2350 3050
 NoConn ~ 2350 3150
+Text Label 5600 2400 2    60   ~ 0
+WIFI_IRQ
+Wire Wire Line
+	1500 6450 2150 6450
 $EndSCHEMATC
