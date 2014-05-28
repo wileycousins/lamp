@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by Cvpcb (2014-05-01 BZR 4839)-product   date = Thu 08 May 2014 03:24:39 PM CDT
+Cmp-Mod V01 Created by Cvpcb (2014-05-01 BZR 4839)-product   date = Wed 28 May 2014 03:42:26 PM CDT
 
 BeginCmp
 TimeStamp = /53573213;
@@ -445,7 +445,7 @@ BeginCmp
 TimeStamp = /5358A1D1;
 Reference = S1;
 ValeurCmp = SPST;
-IdModule  = switch:SPST-4-PIN_6mm_thru;
+IdModule  = switch:SPST-2-PIN_6mm_thru;
 EndCmp
 
 BeginCmp
