@@ -1,0 +1,59 @@
+Source:,/media/sf_projects/lamp/pcb/lamp-expansion/lamp-expansion.sch
+Date:,Fri 15 Aug 2014 06:17:15 PM CDT
+Tool:,Eeschema (2014-04-22 BZR 4817)-product
+Component Count:,67
+
+Individual Components:
+
+Item,Qty,Reference(s),Value,LibPart,Footprint,Datasheet,Distrib. Part,Distributor,Manuf. Part,Manufacturer
+,,AE1,2500AT44M0400E,standard:ANTENNA,,,712-1403-1-ND,Digikey,2500AT44M0400E,Johanson Technology Inc
+,,BT1,LIPO,connector:LIPO,,,,,,
+,,C1,1uF,standard:C,,,,,,
+,,C13,10uF,standard:C_POL,,,587-1353-1-ND,Digikey,TMK316F106ZL-T,Taiyo Yuden
+,,C14,0.1uF,standard:C,,,,,,
+,,C15,1uF,standard:C,,,,,,
+,,C16,0.1uF,standard:C,,,,,,
+,,C18,47pF,standard:C,,,,,,
+,,C19,100uF,standard:C_POL,,,565-2089-1-ND,Digikey,EMVA160ADA101MF55G,United Chemi-Con
+,,C20,22uF,standard:C_POL,,,587-1356-1-ND,Digikey,LMK316F226ZL-T,Taiyo Yuden
+,,C22,2.2pF,standard:C,,,,,,
+,,C24,10pF,standard:C,,,,,,
+,,C26,DNP(10pF),standard:C,,,,,,
+,,C27,1uF,standard:C,,,,,,
+,,C28,1uF,standard:C,,,,,,
+,,C29,2.2nF,standard:C,,,,,,
+,,C3,100uF,standard:C_POL,,,565-2089-1-ND,Digikey,EMVA160ADA101MF55G,United Chemi-Con
+,,C30,0.1uF,standard:C,,,,,,
+,,C31,10uF,standard:C,,,,,,
+,,C4,0.1uF,standard:C,,,,,,
+,,C5,47pF,standard:C,,,,,,
+,,C6,47pF,standard:C,,,,,,
+,,C7,10uF,standard:C_POL,,,587-1353-1-ND,Digikey,Taiyo Yuden,TMK316F106ZL-T
+,,C8,10uF,standard:C,,,,,,
+,,C9,1uF,standard:C,,,,,,
+,,D2,2A,standard:D_SCHOTTKY,,,MSS2P2-M3/89AGICT-ND,Digikey,MSS2P2-M3/89A,Vishay
+,,D3,3A,standard:D_SCHOTTKY,,,RB056L-40TE25CT-ND,Digikey,RB056L-40TE25,Rohm Semiconductor
+,,D4,3A,standard:D_SCHOTTKY,,,RB056L-40TE25CT-ND,Digikey,RB056L-40TE25,Rohm Semiconductor
+,,D6,2A,standard:D_SCHOTTKY,,,MSS2P2-M3/89AGICT-ND,Digikey,MSS2P2-M3/89A,Vishay
+,,F1,2A,standard:PTC,,,,,,
+,,IC1,PAM2421,diode-inc-ic:PAM242X,,,,,,Diodes Inc
+,,IC2,MCP73811,microchip-ic:MCP73811/2,,,MCP73811T-420I/OTCT-ND,Digikey,MCP73811T-420I/OT,Microchip Technology
+,,IC3,NTHD3101F,on-semi-ic:NTHD3101F,,,,,,On Semiconductor
+,,IC6,LM1117_5.0,regulator:LM1117,,,AZ1117CH-5.0TRG1DICT-ND,Digikey,AZ1117CH-5.0TRG1,Diodes Incorporated
+,,IC7,FT230X_SOP,ftdi-ic:FT230X_SOP,,,,,,
+,,IC9,CC3000,ti-ic:CC3000,,http://www.ti.com/lit/gpn/cc3000,296-35512-1-ND,Digikey,CC3000MOD,TI
+,,J1,MICROUSB,connector:MICROUSB,,,,,,
+,,J2,DCIN,connector:DC-BARREL-JACK,,,,,,
+,,J3,SERIAL,connector:6PIN_FEMALE,,,,,,
+,,J4,5PIN_INPUT,connector:5PIN_FEMALE,,,,,,
+,,J5,2PIN_POWER,connector:2PIN_FEMALE,,,,,,
+,,J7,2PIN_POWER,connector:2PIN_FEMALE,,,,,,
+,,J8,AVR_ISP,avr-mcu:AVR_ISP,,,,,,
+,,J9,UF.L,connector:COAX-JACK,,,,,,
+,,JP3,MODE-SEL,standard:JUMPER_3-PIN,,,,,,
+,,L1,6.8uH,standard:L,,,SRN6045-6R8YCT-ND,Digikey,SRN6045-6R8Y,Bourns Inc
+,,L2,DNP,standard:L,,,,,,
+,,L3,2.2nH,standard:L,,,,,,
+,,LED1,YEL,standard:LED,,,,,,
+,,LED2,GRN,standard:LED,,,,,,
+,,Q1,2N7002,transistor:N-CHAN-MOSFET_SOT,,,568-5818-1-ND,Digikey,"2N7002P,215",NXP
