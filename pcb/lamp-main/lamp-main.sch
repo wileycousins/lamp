@@ -48,7 +48,7 @@ F 6 "Digikey" H 3350 2250 60  0001 C CNN "Distributor"
 F 7 "ATMEGA328P-AU-ND" H 3350 2250 60  0001 C CNN "Distrib. Part"
 F 8 "http://www.digikey.com/product-detail/en/ATMEGA328P-AU/ATMEGA328P-AU-ND/1832260" H 3350 2250 60  0001 C CNN "Distrib. Link"
 	1    3350 2250
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L AVR_ISP P2
@@ -59,7 +59,7 @@ F 1 "AVR_ISP" H 2100 5300 60  0000 C CNN
 F 2 "connect-thru:2x3-ARRAY_P100mil" H 1950 5100 60  0001 C CNN
 F 3 "" H 1950 5100 60  0001 C CNN
 	1    1950 5100
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L 6PIN_HEADER P3
@@ -70,7 +70,7 @@ F 1 "SERIAL" H 4000 5450 60  0000 C CNN
 F 2 "sip:SIP6" H 4100 5050 60  0001 C CNN
 F 3 "" H 4100 5050 60  0001 C CNN
 	1    4050 5050
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L CRYSTAL Y1
@@ -86,7 +86,7 @@ F 6 "Digikey" H 2150 2500 60  0001 C CNN "Distributor"
 F 7 "535-10870-1-ND" H 2150 2500 60  0001 C CNN "Distrib. Part"
 F 8 "http://www.digikey.com/product-detail/en/ABM2-8.000MHZ-D4Y-T/535-10870-1-ND/2624229" H 2150 2500 60  0001 C CNN "Distrib. Link"
 	1    2150 2500
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 $Comp
 L C C2
@@ -102,7 +102,7 @@ F 6 "Digikey" H 1500 2400 60  0001 C CNN "Distributor"
 F 7 "1276-2242-1-ND" H 1500 2400 60  0001 C CNN "Distrib. Part"
 F 8 "http://www.digikey.com/product-detail/en/CL10C240JB8NCNC/1276-2242-1-ND/3890328" H 1500 2400 60  0001 C CNN "Distrib. Link"
 	1    1500 2400
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L GND #PWR01
@@ -113,7 +113,7 @@ F 1 "GND" H 1200 2430 30  0001 C CNN
 F 2 "" H 1200 2500 60  0000 C CNN
 F 3 "" H 1200 2500 60  0000 C CNN
 	1    1200 2500
-	0    1    1    0   
+	0    1    1    0
 $EndComp
 Text Label 1850 2750 0    60   ~ 0
 AVR_SCK
@@ -133,7 +133,7 @@ F 2 "capacitor:0603(1608m)-CHIP-CAP" H 2100 2250 60  0001 C CNN
 F 3 "" H 2100 2250 60  0001 C CNN
 F 4 "On hand" H 2100 2250 60  0001 C CNN "Distributor"
 	1    2100 2250
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L GND #PWR02
@@ -144,7 +144,7 @@ F 1 "GND" H 1900 2180 30  0001 C CNN
 F 2 "" H 1900 2250 60  0000 C CNN
 F 3 "" H 1900 2250 60  0000 C CNN
 	1    1900 2250
-	0    1    1    0   
+	0    1    1    0
 $EndComp
 $Comp
 L VCC #PWR03
@@ -155,7 +155,7 @@ F 1 "VCC" H 1150 1950 30  0000 C CNN
 F 2 "" H 1150 1850 60  0000 C CNN
 F 3 "" H 1150 1850 60  0000 C CNN
 	1    1150 1850
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 $Comp
 L GND #PWR04
@@ -166,7 +166,7 @@ F 1 "GND" H 1150 1580 30  0001 C CNN
 F 2 "" H 1150 1650 60  0000 C CNN
 F 3 "" H 1150 1650 60  0000 C CNN
 	1    1150 1650
-	0    1    1    0   
+	0    1    1    0
 $EndComp
 $Comp
 L C C1
@@ -178,7 +178,7 @@ F 2 "capacitor:0603(1608m)-CHIP-CAP" H 1350 1750 60  0001 C CNN
 F 3 "" H 1350 1750 60  0001 C CNN
 F 4 "On Hand" H 1350 1750 60  0001 C CNN "Distributor"
 	1    1350 1750
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 $Comp
 L C C4
@@ -190,7 +190,7 @@ F 2 "capacitor:0603(1608m)-CHIP-CAP" H 1650 1750 60  0001 C CNN
 F 3 "" H 1650 1750 60  0001 C CNN
 F 4 "On hand" H 1650 1750 60  0001 C CNN "Distributor"
 	1    1650 1750
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 $Comp
 L C C5
@@ -202,7 +202,7 @@ F 2 "capacitor:0603(1608m)-CHIP-CAP" H 1950 1750 60  0001 C CNN
 F 3 "" H 1950 1750 60  0001 C CNN
 F 4 "On hand" H 1950 1750 60  0001 C CNN "Distributor"
 	1    1950 1750
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 Text Label 1000 5200 0    60   ~ 0
 AVR_RST
@@ -221,7 +221,7 @@ F 1 "VCC" H 2500 5050 30  0000 C CNN
 F 2 "" H 2500 4950 60  0000 C CNN
 F 3 "" H 2500 4950 60  0000 C CNN
 	1    2500 4950
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L GND #PWR06
@@ -232,7 +232,7 @@ F 1 "GND" H 2500 5180 30  0001 C CNN
 F 2 "" H 2500 5250 60  0000 C CNN
 F 3 "" H 2500 5250 60  0000 C CNN
 	1    2500 5250
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text Label 5350 2650 2    60   ~ 0
 USART_TX
@@ -247,7 +247,7 @@ F 1 "GND" H 3750 4730 30  0001 C CNN
 F 2 "" H 3750 4800 60  0000 C CNN
 F 3 "" H 3750 4800 60  0000 C CNN
 	1    3750 4800
-	0    1    1    0   
+	0    1    1    0
 $EndComp
 $Comp
 L VCC #PWR08
@@ -258,7 +258,7 @@ F 1 "VCC" H 3750 5100 30  0000 C CNN
 F 2 "" H 3750 5000 60  0000 C CNN
 F 3 "" H 3750 5000 60  0000 C CNN
 	1    3750 5000
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 Text Label 3100 5100 0    60   ~ 0
 USART_RX
@@ -275,7 +275,7 @@ F 1 "VLED_IN" H 7050 3700 60  0000 C CNN
 F 2 "sip:SIP2" H 7100 3700 60  0001 C CNN
 F 3 "" H 7100 3700 60  0001 C CNN
 	1    7150 3900
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text Label 6850 3850 0    60   ~ 0
 VL
@@ -288,7 +288,7 @@ F 1 "GND" H 6900 3880 30  0001 C CNN
 F 2 "" H 6900 3950 60  0000 C CNN
 F 3 "" H 6900 3950 60  0000 C CNN
 	1    6900 3950
-	0    1    1    0   
+	0    1    1    0
 $EndComp
 $Comp
 L LM1117 IC2
@@ -296,6 +296,7 @@ U 1 1 530E4152
 P 8400 4100
 F 0 "IC2" H 8400 4500 60  0000 C CNN
 F 1 "LM1117_3.3" H 8400 4400 60  0000 C CNN
+F 1 "DNP(LM1117_3.3)" H 8400 4400 60  0000 C CNN
 F 2 "sot:SOT223" H 8400 4100 60  0001 C CNN
 F 3 "http://www.diodes.com/datasheets/AZ1117C.pdf" H 8400 4100 60  0001 C CNN
 F 4 "Diodes Incorporated" H 8400 4100 60  0001 C CNN "Manufacturer"
@@ -304,7 +305,7 @@ F 6 "Digikey" H 8400 4100 60  0001 C CNN "Distributor"
 F 7 "AZ1117CH-5.0TRG1DICT-ND" H 8400 4100 60  0001 C CNN "Distrib. Part"
 F 8 "http://www.digikey.com/product-detail/en/AZ1117CH-5.0TRG1/AZ1117CH-5.0TRG1DICT-ND/4505207" H 8400 4100 60  0001 C CNN "Distrib. Link"
 	1    8400 4100
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L GND #PWR010
@@ -315,7 +316,7 @@ F 1 "GND" H 7850 3930 30  0001 C CNN
 F 2 "" H 7850 4000 60  0000 C CNN
 F 3 "" H 7850 4000 60  0000 C CNN
 	1    7850 4000
-	0    1    1    0   
+	0    1    1    0
 $EndComp
 $Comp
 L VCC #PWR011
@@ -326,7 +327,7 @@ F 1 "VCC" H 7650 4100 30  0000 C CNN
 F 2 "" H 7650 4000 60  0000 C CNN
 F 3 "" H 7650 4000 60  0000 C CNN
 	1    7650 4000
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text Label 7650 4200 0    60   ~ 0
 VIN
@@ -339,7 +340,7 @@ F 1 "VCC" H 8950 4200 30  0000 C CNN
 F 2 "" H 8950 4100 60  0000 C CNN
 F 3 "" H 8950 4100 60  0000 C CNN
 	1    8950 4100
-	0    1    1    0   
+	0    1    1    0
 $EndComp
 $Comp
 L C_POL C7
@@ -347,6 +348,7 @@ U 1 1 530E44C1
 P 7850 4400
 F 0 "C7" V 7850 4550 60  0000 C CNN
 F 1 "10uF" V 7950 4700 60  0000 C CNN
+F 1 "DNP(10uF)" V 7950 4700 60  0000 C CNN
 F 2 "capacitor:1206(3216m)-CHIP-CAP" H 7850 4400 60  0001 C CNN
 F 3 "" H 7850 4400 60  0001 C CNN
 F 4 "Taiyo Yuden" H 7850 4400 60  0001 C CNN "Manufacturer"
@@ -355,7 +357,7 @@ F 6 "Digikey" H 7850 4400 60  0001 C CNN "Distributor"
 F 7 "587-1353-1-ND" H 7850 4400 60  0001 C CNN "Distrib. Part"
 F 8 "http://www.digikey.com/product-detail/en/TMK316F106ZL-T/587-1353-1-ND/931130" H 7850 4400 60  0001 C CNN "Distrib. Link"
 	1    7850 4400
-	0    1    1    0   
+	0    1    1    0
 $EndComp
 $Comp
 L C_POL C8
@@ -371,7 +373,7 @@ F 6 "Digikey" H 8900 4300 60  0001 C CNN "Distributor"
 F 7 "587-1356-1-ND" H 8900 4300 60  0001 C CNN "Distrib. Part"
 F 8 "http://www.digikey.com/product-detail/en/LMK316F226ZL-T/587-1356-1-ND/931133" H 8900 4300 60  0001 C CNN "Distrib. Link"
 	1    8900 4300
-	0    1    1    0   
+	0    1    1    0
 $EndComp
 $Comp
 L GND #PWR013
@@ -382,7 +384,7 @@ F 1 "GND" H 7850 4530 30  0001 C CNN
 F 2 "" H 7850 4600 60  0000 C CNN
 F 3 "" H 7850 4600 60  0000 C CNN
 	1    7850 4600
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L GND #PWR014
@@ -393,7 +395,7 @@ F 1 "GND" H 8900 4430 30  0001 C CNN
 F 2 "" H 8900 4500 60  0000 C CNN
 F 3 "" H 8900 4500 60  0000 C CNN
 	1    8900 4500
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text Label 5100 1800 2    60   ~ 0
 STACKSENSE0
@@ -411,7 +413,7 @@ F 2 "resistor:0603(1608m)-CHIP-RESISTOR" H 5350 1700 60  0001 C CNN
 F 3 "" H 5350 1700 60  0001 C CNN
 F 4 "On hand" H 5350 1700 60  0001 C CNN "Distributor"
 	1    5350 1700
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L R R3
@@ -423,7 +425,7 @@ F 2 "resistor:0603(1608m)-CHIP-RESISTOR" H 5350 1800 60  0001 C CNN
 F 3 "" H 5350 1800 60  0001 C CNN
 F 4 "On hand" H 5350 1800 60  0001 C CNN "Distributor"
 	1    5350 1800
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L GND #PWR015
@@ -434,7 +436,7 @@ F 1 "GND" H 5700 1630 30  0001 C CNN
 F 2 "" H 5700 1700 60  0000 C CNN
 F 3 "" H 5700 1700 60  0000 C CNN
 	1    5700 1700
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 Text Label 5100 2200 2    60   ~ 0
 LEDSTACK0
@@ -451,7 +453,7 @@ F 1 "LEDSTACK" H 7800 1400 60  0000 C CNN
 F 2 "sip:SIP5" H 7500 1200 60  0001 C CNN
 F 3 "" H 7500 1200 60  0001 C CNN
 	1    7450 1300
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text Label 7100 1100 0    60   ~ 0
 VL
@@ -464,7 +466,7 @@ F 1 "VCC" H 6950 1300 30  0000 C CNN
 F 2 "" H 6950 1200 60  0000 C CNN
 F 3 "" H 6950 1200 60  0000 C CNN
 	1    6950 1200
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L GND #PWR017
@@ -475,7 +477,7 @@ F 1 "GND" H 6800 1130 30  0001 C CNN
 F 2 "" H 6800 1200 60  0000 C CNN
 F 3 "" H 6800 1200 60  0000 C CNN
 	1    6800 1200
-	-1   0    0    1   
+	-1   0    0    1
 $EndComp
 Text Label 6650 1400 0    60   ~ 0
 LEDSTACK0
@@ -490,7 +492,7 @@ F 1 "LEDSTACK" H 7800 2100 60  0000 C CNN
 F 2 "sip:SIP5" H 7500 1900 60  0001 C CNN
 F 3 "" H 7500 1900 60  0001 C CNN
 	1    7450 2000
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L VCC #PWR018
@@ -501,7 +503,7 @@ F 1 "VCC" H 6950 2000 30  0000 C CNN
 F 2 "" H 6950 1900 60  0000 C CNN
 F 3 "" H 6950 1900 60  0000 C CNN
 	1    6950 1900
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L GND #PWR019
@@ -512,7 +514,7 @@ F 1 "GND" H 6800 1830 30  0001 C CNN
 F 2 "" H 6800 1900 60  0000 C CNN
 F 3 "" H 6800 1900 60  0000 C CNN
 	1    6800 1900
-	-1   0    0    1   
+	-1   0    0    1
 $EndComp
 Text Label 6650 2100 0    60   ~ 0
 LEDSTACK1
@@ -527,7 +529,7 @@ F 1 "LEDSTACK" H 7800 2800 60  0000 C CNN
 F 2 "sip:SIP5" H 7500 2600 60  0001 C CNN
 F 3 "" H 7500 2600 60  0001 C CNN
 	1    7450 2700
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L VCC #PWR020
@@ -538,7 +540,7 @@ F 1 "VCC" H 6950 2700 30  0000 C CNN
 F 2 "" H 6950 2600 60  0000 C CNN
 F 3 "" H 6950 2600 60  0000 C CNN
 	1    6950 2600
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L GND #PWR021
@@ -549,7 +551,7 @@ F 1 "GND" H 6800 2530 30  0001 C CNN
 F 2 "" H 6800 2600 60  0000 C CNN
 F 3 "" H 6800 2600 60  0000 C CNN
 	1    6800 2600
-	-1   0    0    1   
+	-1   0    0    1
 $EndComp
 Text Label 6650 2800 0    60   ~ 0
 LEDSTACK2
@@ -566,7 +568,7 @@ F 1 "GND" H 6900 4380 30  0001 C CNN
 F 2 "" H 6900 4450 60  0000 C CNN
 F 3 "" H 6900 4450 60  0000 C CNN
 	1    6900 4450
-	0    1    -1   0   
+	0    1    -1   0
 $EndComp
 Text Notes 900  4350 0    80   ~ 0
 programming and communication
@@ -583,7 +585,7 @@ F 1 "PWR_FLAG" H 9600 3980 30  0000 C CNN
 F 2 "" H 9600 3800 60  0000 C CNN
 F 3 "" H 9600 3800 60  0000 C CNN
 	1    9600 3800
-	0    1    1    0   
+	0    1    1    0
 $EndComp
 $Comp
 L PWR_FLAG #FLG024
@@ -594,7 +596,7 @@ F 1 "PWR_FLAG" H 9600 4230 30  0000 C CNN
 F 2 "" H 9600 4050 60  0000 C CNN
 F 3 "" H 9600 4050 60  0000 C CNN
 	1    9600 4050
-	0    1    1    0   
+	0    1    1    0
 $EndComp
 Text Label 9350 3800 0    60   ~ 0
 VIN
@@ -607,7 +609,7 @@ F 1 "GND" H 9400 3980 30  0001 C CNN
 F 2 "" H 9400 4050 60  0000 C CNN
 F 3 "" H 9400 4050 60  0000 C CNN
 	1    9400 4050
-	0    1    1    0   
+	0    1    1    0
 $EndComp
 $Comp
 L C C3
@@ -623,7 +625,7 @@ F 6 "Digikey" H 1500 2600 60  0001 C CNN "Distributor"
 F 7 "1276-2242-1-ND" H 1500 2600 60  0001 C CNN "Distrib. Part"
 F 8 "http://www.digikey.com/product-detail/en/CL10C240JB8NCNC/1276-2242-1-ND/3890328" H 1500 2600 60  0001 C CNN "Distrib. Link"
 	1    1500 2600
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L R R6
@@ -635,7 +637,7 @@ F 2 "resistor:0603(1608m)-CHIP-RESISTOR" H 2000 3350 60  0001 C CNN
 F 3 "" H 2000 3350 60  0001 C CNN
 F 4 "On hand" H 2000 3350 60  0001 C CNN "Distributor"
 	1    2000 3350
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L LED LED1
@@ -647,7 +649,7 @@ F 2 "led:0603(1608m)-SM-LED" H 1600 3350 60  0001 C CNN
 F 3 "" H 1600 3350 60  0001 C CNN
 F 4 "On hand" H 1600 3350 60  0001 C CNN "Distributor"
 	1    1600 3350
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L VCC #PWR026
@@ -658,7 +660,7 @@ F 1 "VCC" H 1350 3450 30  0000 C CNN
 F 2 "" H 1350 3350 60  0000 C CNN
 F 3 "" H 1350 3350 60  0000 C CNN
 	1    1350 3350
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 $Comp
 L R R7
@@ -670,7 +672,7 @@ F 2 "resistor:0603(1608m)-CHIP-RESISTOR" H 2000 3600 60  0001 C CNN
 F 3 "" H 2000 3600 60  0001 C CNN
 F 4 "On hand" H 2000 3600 60  0001 C CNN "Distributor"
 	1    2000 3600
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L LED LED2
@@ -682,7 +684,7 @@ F 2 "led:0603(1608m)-SM-LED" H 1600 3600 60  0001 C CNN
 F 3 "" H 1600 3600 60  0001 C CNN
 F 4 "On hand" H 1600 3600 60  0001 C CNN "Distributor"
 	1    1600 3600
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L GND #PWR027
@@ -693,7 +695,7 @@ F 1 "GND" H 2250 3530 30  0001 C CNN
 F 2 "" H 2250 3600 60  0000 C CNN
 F 3 "" H 2250 3600 60  0000 C CNN
 	1    2250 3600
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 $Comp
 L VCC #PWR028
@@ -704,7 +706,7 @@ F 1 "VCC" H 1350 3700 30  0000 C CNN
 F 2 "" H 1350 3600 60  0000 C CNN
 F 3 "" H 1350 3600 60  0000 C CNN
 	1    1350 3600
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 $Comp
 L R R1
@@ -716,7 +718,7 @@ F 2 "resistor:0603(1608m)-CHIP-RESISTOR" H 5350 1600 60  0001 C CNN
 F 3 "" H 5350 1600 60  0001 C CNN
 F 4 "On hand" H 5350 1600 60  0001 C CNN "Distributor"
 	1    5350 1600
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text Label 4750 3150 2    60   ~ 0
 ADC7
@@ -736,7 +738,7 @@ F 2 "capacitor:0603(1608m)-CHIP-CAP" H 3750 5300 60  0001 C CNN
 F 3 "" H 3750 5300 60  0001 C CNN
 F 4 "On hand" H 3750 5300 60  0001 C CNN "Distributor"
 	1    3750 5300
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text Label 5250 1350 2    60   ~ 0
 WIFI_EN
@@ -763,7 +765,7 @@ F 1 "USER-INPUT" H 2100 6200 60  0000 C CNN
 F 2 "sip:SIP5" H 2300 6550 60  0001 C CNN
 F 3 "" H 2300 6550 60  0001 C CNN
 	1    2250 6650
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text Label 1500 6450 0    60   ~ 0
 BUTTON_0
@@ -782,7 +784,7 @@ F 1 "EXTRA-ADC" H 3350 6350 60  0000 C CNN
 F 2 "sip:SIP2" H 3400 6450 60  0001 C CNN
 F 3 "" H 3400 6450 60  0001 C CNN
 	1    3450 6650
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text Label 2900 6700 0    60   ~ 0
 ADC6
@@ -797,7 +799,7 @@ F 1 "V_IN" H 7150 4200 60  0000 C CNN
 F 2 "sip:SIP2" H 7100 4200 60  0001 C CNN
 F 3 "" H 7100 4200 60  0001 C CNN
 	1    7150 4400
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text Label 7100 1800 0    60   ~ 0
 VL
@@ -814,7 +816,7 @@ F 1 "VLED-VIN-JUMP" H 7100 4800 60  0000 C CNN
 F 2 "jumper:SOLDER-JUMPER_1-WAY" H 7000 4900 60  0001 C CNN
 F 3 "" H 7100 5000 60  0001 C CNN
 	1    7100 4900
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text Label 6750 4900 0    60   ~ 0
 VL
@@ -1010,13 +1012,13 @@ Wire Notes Line
 Wire Notes Line
 	6500 3100 8200 3100
 Wire Notes Line
-	8200 3100 8200 900 
+	8200 3100 8200 900
 Wire Notes Line
-	8200 900  6500 900 
+	8200 900  6500 900
 Wire Notes Line
 	850  900  850  3950
 Wire Notes Line
-	5950 900  850  900 
+	5950 900  850  900
 Wire Wire Line
 	9350 3800 9600 3800
 Wire Wire Line
@@ -1060,7 +1062,7 @@ Wire Wire Line
 Wire Notes Line
 	850  3950 5950 3950
 Wire Notes Line
-	5950 3950 5950 900 
+	5950 3950 5950 900
 Wire Wire Line
 	1000 6850 2150 6850
 Wire Wire Line
