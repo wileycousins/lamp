@@ -1,0 +1,31 @@
+Source:,/media/sf_projects/lamp/pcb/lamp-main/lamp-main.sch
+Date:,Fri 15 Aug 2014 04:16:45 PM CDT
+Tool:,eeschema (2014-03-19 BZR 4756)-product
+Component Count:,29
+
+Individual Components:
+
+Item,Qty,Reference(s),Value,LibPart,Footprint,Datasheet,Distrib. Link,Distrib. Part,Distributor,Manuf. Part,Manufacturer
+,,C1,0.1uF,standard:C,capacitor:0603(1608m)-CHIP-CAP,,,,On Hand,,
+,,C2,24pF,standard:C,capacitor:0603(1608m)-CHIP-CAP,,http://www.digikey.com/product-detail/en/CL10C240JB8NCNC/1276-2242-1-ND/3890328,1276-2242-1-ND,Digikey,CL10C240JB8NCNC,Samsung
+,,C3,24pF,standard:C,capacitor:0603(1608m)-CHIP-CAP,,http://www.digikey.com/product-detail/en/CL10C240JB8NCNC/1276-2242-1-ND/3890328,1276-2242-1-ND,Digikey,CL10C240JB8NCNC,"Samsung Electro-Mechanics America, Inc"
+,,C4,0.1uF,standard:C,capacitor:0603(1608m)-CHIP-CAP,,,,On hand,,
+,,C5,0.1uF,standard:C,capacitor:0603(1608m)-CHIP-CAP,,,,On hand,,
+,,C6,0.1uF,standard:C,capacitor:0603(1608m)-CHIP-CAP,,,,On hand,,
+,,C7,DNP(10uF),standard:C_POL,capacitor:1206(3216m)-CHIP-CAP,,http://www.digikey.com/product-detail/en/TMK316F106ZL-T/587-1353-1-ND/931130,587-1353-1-ND,Digikey,TMK316F106ZL-T,Taiyo Yuden
+,,C8,DNP(22uF),standard:C_POL,capacitor:1206(3216m)-CHIP-CAP,,http://www.digikey.com/product-detail/en/LMK316F226ZL-T/587-1356-1-ND/931133,587-1356-1-ND,Digikey,LMK316F226ZL-T,Taiyo Yuden
+,,C9,0.1uF,standard:C,capacitor:0603(1608m)-CHIP-CAP,,,,On hand,,
+,,IC1,ATMEGA328P,avr-mcu:ATMEGA328P_TQFP,qfp:TQFP32_P0.8mm,,http://www.digikey.com/product-detail/en/ATMEGA328P-AU/ATMEGA328P-AU-ND/1832260,ATMEGA328P-AU-ND,Digikey,ATMEGA328P-AU,Atmel
+,,IC2,DNP(LM1117_3.3),lamp-main-cache:LM1117,sot:SOT223,http://www.diodes.com/datasheets/AZ1117C.pdf,http://www.digikey.com/product-detail/en/AZ1117CH-5.0TRG1/AZ1117CH-5.0TRG1DICT-ND/4505207,AZ1117CH-5.0TRG1DICT-ND,Digikey,AZ1117CH-5.0TRG1,Diodes Incorporated
+,,JP1,VLED-VIN-JUMP,standard:JUMPER_2-PIN,jumper:SOLDER-JUMPER_1-WAY,,,,,,
+,,LED1,RED,standard:LED,led:0603(1608m)-SM-LED,,,,On hand,,
+,,LED2,RED,standard:LED,led:0603(1608m)-SM-LED,,,,On hand,,
+,,P1,VLED_IN,connector:2PIN_MALE,sip:SIP2,,,,,,
+,,P10,V_IN,connector:2PIN_MALE,sip:SIP2,,,,,,
+,,P2,AVR_ISP,avr-mcu:AVR_ISP,connect-thru:2x3-ARRAY_P100mil,,,,,,
+,,P3,SERIAL,connector:6PIN_HEADER,sip:SIP6,,,,,,
+,,P4,LEDSTACK,connector:5PIN_MALE,sip:SIP5,,,,,,
+,,P5,LEDSTACK,connector:5PIN_MALE,sip:SIP5,,,,,,
+,,P6,LEDSTACK,connector:5PIN_MALE,sip:SIP5,,,,,,
+,,P7,USER-INPUT,connector:5PIN_MALE,sip:SIP5,,,,,,
+,,P8,EXTRA-ADC,connector:2PIN_MALE,sip:SIP2,,,,,,

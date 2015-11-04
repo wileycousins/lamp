@@ -1,0 +1,1528 @@
+<?xml version="1.0" encoding="utf-8"?>
+<export version="D">
+    <design>
+        <source>/media/sf_projects/lamp/pcb/lamp-expansion/lamp-expansion.sch</source>
+        <date>Fri 15 Aug 2014 07:13:58 PM EDT</date>
+        <tool>eeschema (2014-03-19 BZR 4756)-product</tool>
+    </design>
+    <components>
+        <comp ref="IC9">
+            <value>CC3000</value>
+            <footprint>texas:CC3000</footprint>
+            <datasheet>http://www.ti.com/lit/gpn/cc3000</datasheet>
+            <fields>
+                <field name="Distrib. Part">296-35512-1-ND</field>
+                <field name="Manuf. Part">CC3000MOD</field>
+                <field name="Distributor">Digikey</field>
+                <field name="Manufacturer">TI</field>
+            </fields>
+            <libsource lib="ti-ic" part="CC3000"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5355A86B</tstamp>
+        </comp>
+        <comp ref="J1">
+            <value>MICROUSB</value>
+            <footprint>connect-sm:MICROUSB_sm</footprint>
+            <libsource lib="connector" part="MICROUSB"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5355A8A8</tstamp>
+        </comp>
+        <comp ref="IC7">
+            <value>FT230X_SOP</value>
+            <footprint>sop:SSOP16</footprint>
+            <libsource lib="ftdi-ic" part="FT230X_SOP"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5355A8C6</tstamp>
+        </comp>
+        <comp ref="F1">
+            <value>2A</value>
+            <footprint>passive-smd:1206(3216m)</footprint>
+            <libsource lib="standard" part="PTC"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5355A8E4</tstamp>
+        </comp>
+        <comp ref="R2">
+            <value>27Ω</value>
+            <footprint>passive-smd:0603(1608m)</footprint>
+            <libsource lib="standard" part="R"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5355A973</tstamp>
+        </comp>
+        <comp ref="R3">
+            <value>27Ω</value>
+            <footprint>passive-smd:0603(1608m)</footprint>
+            <fields>
+                <field name="Manufacturer">something</field>
+            </fields>
+            <libsource lib="standard" part="R"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5355A987</tstamp>
+        </comp>
+        <comp ref="C5">
+            <value>47pF</value>
+            <footprint>passive-smd:0603(1608m)</footprint>
+            <libsource lib="standard" part="C"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5355A9CD</tstamp>
+        </comp>
+        <comp ref="C6">
+            <value>47pF</value>
+            <footprint>passive-smd:0603(1608m)</footprint>
+            <libsource lib="standard" part="C"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5355A9E1</tstamp>
+        </comp>
+        <comp ref="C4">
+            <value>0.1uF</value>
+            <footprint>passive-smd:0603(1608m)</footprint>
+            <libsource lib="standard" part="C"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5355AC06</tstamp>
+        </comp>
+        <comp ref="C7">
+            <value>10uF</value>
+            <footprint>passive-smd:1206(3216m)</footprint>
+            <fields>
+                <field name="Manufacturer">TMK316F106ZL-T</field>
+                <field name="Manuf. Part">Taiyo Yuden</field>
+                <field name="Distributor">Digikey</field>
+                <field name="Distrib. Part">587-1353-1-ND</field>
+            </fields>
+            <libsource lib="standard" part="C_POL"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5355ACED</tstamp>
+        </comp>
+        <comp ref="C16">
+            <value>0.1uF</value>
+            <footprint>passive-smd:0603(1608m)</footprint>
+            <libsource lib="standard" part="C"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5355A856</tstamp>
+        </comp>
+        <comp ref="C14">
+            <value>0.1uF</value>
+            <footprint>passive-smd:0603(1608m)</footprint>
+            <libsource lib="standard" part="C"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5355A8EC</tstamp>
+        </comp>
+        <comp ref="LED2">
+            <value>GRN</value>
+            <footprint>led:0603(1608m)-SM-LED</footprint>
+            <libsource lib="standard" part="LED"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5355ACEE</tstamp>
+        </comp>
+        <comp ref="LED1">
+            <value>YEL</value>
+            <footprint>led:0603(1608m)-SM-LED</footprint>
+            <libsource lib="standard" part="LED"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5355AD34</tstamp>
+        </comp>
+        <comp ref="R8">
+            <value>330Ω</value>
+            <footprint>passive-smd:0603(1608m)</footprint>
+            <libsource lib="standard" part="R"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5355AE07</tstamp>
+        </comp>
+        <comp ref="R9">
+            <value>330Ω</value>
+            <footprint>passive-smd:0603(1608m)</footprint>
+            <libsource lib="standard" part="R"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5355AE1B</tstamp>
+        </comp>
+        <comp ref="BT1">
+            <value>LIPO</value>
+            <footprint>connect-thru:JST-S2B-PH-K_right-angle-jack</footprint>
+            <libsource lib="connector" part="LIPO"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5355BB28</tstamp>
+        </comp>
+        <comp ref="IC6">
+            <value>LM1117_5.0</value>
+            <footprint>sot:SOT223</footprint>
+            <fields>
+                <field name="Manufacturer">Diodes Incorporated</field>
+                <field name="Manuf. Part">AZ1117CH-5.0TRG1</field>
+                <field name="Distributor">Digikey</field>
+                <field name="Distrib. Part">AZ1117CH-5.0TRG1DICT-ND</field>
+            </fields>
+            <libsource lib="regulator" part="LM1117"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5355BBB1</tstamp>
+        </comp>
+        <comp ref="C13">
+            <value>10uF</value>
+            <footprint>passive-smd:1206(3216m)</footprint>
+            <fields>
+                <field name="Manufacturer">Taiyo Yuden</field>
+                <field name="Manuf. Part">TMK316F106ZL-T</field>
+                <field name="Distributor">Digikey</field>
+                <field name="Distrib. Part">587-1353-1-ND</field>
+            </fields>
+            <libsource lib="standard" part="C_POL"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5355BC5C</tstamp>
+        </comp>
+        <comp ref="D2">
+            <value>2A</value>
+            <footprint>diode:MICROSMP</footprint>
+            <fields>
+                <field name="Manufacturer">Vishay</field>
+                <field name="Manuf. Part">MSS2P2-M3/89A</field>
+                <field name="Distributor">Digikey</field>
+                <field name="Distrib. Part">MSS2P2-M3/89AGICT-ND</field>
+            </fields>
+            <libsource lib="standard" part="D_SCHOTTKY"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5356B322</tstamp>
+        </comp>
+        <comp ref="IC2">
+            <value>MCP73811</value>
+            <footprint>sot:SOT23-5</footprint>
+            <fields>
+                <field name="Manufacturer">Microchip Technology</field>
+                <field name="Manuf. Part">MCP73811T-420I/OT</field>
+                <field name="Distributor">Digikey</field>
+                <field name="Distrib. Part">MCP73811T-420I/OTCT-ND</field>
+            </fields>
+            <libsource lib="microchip-ic" part="MCP73811/2"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5356B69E</tstamp>
+        </comp>
+        <comp ref="C1">
+            <value>1uF</value>
+            <footprint>passive-smd:0603(1608m)</footprint>
+            <libsource lib="standard" part="C"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5356B9ED</tstamp>
+        </comp>
+        <comp ref="C9">
+            <value>1uF</value>
+            <footprint>passive-smd:0603(1608m)</footprint>
+            <libsource lib="standard" part="C"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5356BAEE</tstamp>
+        </comp>
+        <comp ref="J3">
+            <value>SERIAL</value>
+            <footprint>sip:SIP6</footprint>
+            <libsource lib="connector" part="6PIN_FEMALE"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5356D196</tstamp>
+        </comp>
+        <comp ref="TP1">
+            <value>TEST</value>
+            <footprint>connect-thru:1-PIN</footprint>
+            <libsource lib="standard" part="TEST"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>53570951</tstamp>
+        </comp>
+        <comp ref="TP2">
+            <value>TEST</value>
+            <footprint>connect-thru:1-PIN</footprint>
+            <libsource lib="standard" part="TEST"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>53570981</tstamp>
+        </comp>
+        <comp ref="TP3">
+            <value>TEST</value>
+            <footprint>connect-thru:1-PIN</footprint>
+            <libsource lib="standard" part="TEST"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>53570B57</tstamp>
+        </comp>
+        <comp ref="C27">
+            <value>1uF</value>
+            <footprint>passive-smd:0603(1608m)</footprint>
+            <libsource lib="standard" part="C"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>53570C4B</tstamp>
+        </comp>
+        <comp ref="TP4">
+            <value>TEST</value>
+            <footprint>connect-thru:1-PIN</footprint>
+            <libsource lib="standard" part="TEST"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>53570C80</tstamp>
+        </comp>
+        <comp ref="TP5">
+            <value>TEST</value>
+            <footprint>connect-thru:1-PIN</footprint>
+            <libsource lib="standard" part="TEST"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>53570C86</tstamp>
+        </comp>
+        <comp ref="R12">
+            <value>0Ω</value>
+            <footprint>passive-smd:0603(1608m)</footprint>
+            <libsource lib="standard" part="R"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>535720DF</tstamp>
+        </comp>
+        <comp ref="C24">
+            <value>10pF</value>
+            <footprint>passive-smd:0603(1608m)</footprint>
+            <libsource lib="standard" part="C"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>53572897</tstamp>
+        </comp>
+        <comp ref="C22">
+            <value>2.2pF</value>
+            <footprint>passive-smd:0603(1608m)</footprint>
+            <libsource lib="standard" part="C"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>535728CE</tstamp>
+        </comp>
+        <comp ref="L3">
+            <value>2.2nH</value>
+            <footprint>passive-smd:0603(1608m)</footprint>
+            <libsource lib="standard" part="L"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>535728E2</tstamp>
+        </comp>
+        <comp ref="L2">
+            <value>DNP</value>
+            <footprint>passive-smd:0603(1608m)</footprint>
+            <libsource lib="standard" part="L"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>535728F6</tstamp>
+        </comp>
+        <comp ref="AE1">
+            <value>2500AT44M0400E</value>
+            <footprint>johanson:JOHANSON-2500AT44M0400_2.4GHz-chip-antenna</footprint>
+            <fields>
+                <field name="Manufacturer">Johanson Technology Inc</field>
+                <field name="Manuf. Part">2500AT44M0400E</field>
+                <field name="Distributor">Digikey</field>
+                <field name="Distrib. Part">712-1403-1-ND</field>
+            </fields>
+            <libsource lib="standard" part="ANTENNA"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>53573213</tstamp>
+        </comp>
+        <comp ref="C26">
+            <value>DNP(10pF)</value>
+            <footprint>passive-smd:0603(1608m)</footprint>
+            <libsource lib="standard" part="C"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>53573346</tstamp>
+        </comp>
+        <comp ref="J9">
+            <value>UF.L</value>
+            <footprint>connect-sm:U.FL-COAX</footprint>
+            <libsource lib="connector" part="COAX-JACK"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5357358E</tstamp>
+        </comp>
+        <comp ref="C28">
+            <value>1uF</value>
+            <footprint>passive-smd:0603(1608m)</footprint>
+            <libsource lib="standard" part="C"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5357209E</tstamp>
+        </comp>
+        <comp ref="Q1">
+            <value>2N7002</value>
+            <footprint>sot:SOT23</footprint>
+            <fields>
+                <field name="Manufacturer">NXP</field>
+                <field name="Manuf. Part">2N7002P</field>
+                <field name="Distributor">Digikey</field>
+                <field name="Distrib. Part">568-5818-1-ND</field>
+            </fields>
+            <libsource lib="transistor" part="N-CHAN-MOSFET_SOT"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>53582767</tstamp>
+        </comp>
+        <comp ref="L1">
+            <value>6.8uH</value>
+            <footprint>inductor:SM-INDUCTOR_6mmX6mm</footprint>
+            <fields>
+                <field name="Manufacturer">Bourns Inc</field>
+                <field name="Manuf. Part">SRN6045-6R8Y</field>
+                <field name="Distributor">Digikey</field>
+                <field name="Distrib. Part">SRN6045-6R8YCT-ND</field>
+            </fields>
+            <libsource lib="standard" part="L"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>53583590</tstamp>
+        </comp>
+        <comp ref="R6">
+            <value>47kΩ</value>
+            <footprint>passive-smd:0603(1608m)</footprint>
+            <libsource lib="standard" part="R"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>53583C31</tstamp>
+        </comp>
+        <comp ref="R5">
+            <value>10kΩ</value>
+            <footprint>passive-smd:0603(1608m)</footprint>
+            <libsource lib="standard" part="R"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>53583C86</tstamp>
+        </comp>
+        <comp ref="C19">
+            <value>100uF</value>
+            <footprint>capacitor:PANA-D_CHEMI-F_SM-ALUMINUM</footprint>
+            <fields>
+                <field name="Manufacturer">United Chemi-Con</field>
+                <field name="Manuf. Part">EMVA160ADA101MF55G</field>
+                <field name="Distributor">Digikey</field>
+                <field name="Distrib. Part">565-2089-1-ND</field>
+            </fields>
+            <libsource lib="standard" part="C_POL"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5358626E</tstamp>
+        </comp>
+        <comp ref="D4">
+            <value>3A</value>
+            <footprint>diode:DO-214AC</footprint>
+            <fields>
+                <field name="Manufacturer">Rohm Semiconductor</field>
+                <field name="Manuf. Part">RB056L-40TE25</field>
+                <field name="Distributor">Digikey</field>
+                <field name="Distrib. Part">RB056L-40TE25CT-ND</field>
+            </fields>
+            <libsource lib="standard" part="D_SCHOTTKY"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>53587C2A</tstamp>
+        </comp>
+        <comp ref="C20">
+            <value>22uF</value>
+            <footprint>passive-smd:1206(3216m)</footprint>
+            <fields>
+                <field name="Manufacturer">Taiyo Yuden</field>
+                <field name="Manuf. Part">LMK316F226ZL-T</field>
+                <field name="Distributor">Digikey</field>
+                <field name="Distrib. Part">587-1356-1-ND</field>
+            </fields>
+            <libsource lib="standard" part="C_POL"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>53588207</tstamp>
+        </comp>
+        <comp ref="J5">
+            <value>2PIN_POWER</value>
+            <footprint>sip:SIP2</footprint>
+            <libsource lib="connector" part="2PIN_FEMALE"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>535889A2</tstamp>
+        </comp>
+        <comp ref="J7">
+            <value>2PIN_POWER</value>
+            <footprint>sip:SIP2</footprint>
+            <libsource lib="connector" part="2PIN_FEMALE"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>53588CAB</tstamp>
+        </comp>
+        <comp ref="TP7">
+            <value>PIN</value>
+            <footprint>connect-thru:1-PIN</footprint>
+            <libsource lib="standard" part="TEST"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>53589C22</tstamp>
+        </comp>
+        <comp ref="TP6">
+            <value>PIN</value>
+            <footprint>connect-thru:1-PIN</footprint>
+            <libsource lib="standard" part="TEST"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>53589C28</tstamp>
+        </comp>
+        <comp ref="TP9">
+            <value>PIN</value>
+            <footprint>connect-thru:1-PIN</footprint>
+            <libsource lib="standard" part="TEST"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>53589C30</tstamp>
+        </comp>
+        <comp ref="TP8">
+            <value>PIN</value>
+            <footprint>connect-thru:1-PIN</footprint>
+            <libsource lib="standard" part="TEST"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>53589C36</tstamp>
+        </comp>
+        <comp ref="TP10">
+            <value>PIN</value>
+            <footprint>connect-thru:1-PIN</footprint>
+            <libsource lib="standard" part="TEST"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>53589C44</tstamp>
+        </comp>
+        <comp ref="J4">
+            <value>5PIN_INPUT</value>
+            <footprint>sip:SIP5</footprint>
+            <libsource lib="connector" part="5PIN_FEMALE"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>53589C55</tstamp>
+        </comp>
+        <comp ref="VR1">
+            <value>100kΩ</value>
+            <footprint>bourns:BOURNS-PTA2043_20mm-slide-pot</footprint>
+            <fields>
+                <field name="Manufacturer">Bourns</field>
+                <field name="Manuf. Part">PTA2043-2015CPB103</field>
+                <field name="Distributor">Digikey</field>
+                <field name="Distrib. Part">PTA2043-2015CPB103-ND</field>
+            </fields>
+            <libsource lib="standard" part="POT"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>53589C7F</tstamp>
+        </comp>
+        <comp ref="S1">
+            <value>SPST</value>
+            <footprint>switch:SPST-2-PIN_6mm_thru</footprint>
+            <libsource lib="standard" part="SPST"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5358A1D1</tstamp>
+        </comp>
+        <comp ref="R10">
+            <value>10kΩ</value>
+            <footprint>passive-smd:0603(1608m)</footprint>
+            <libsource lib="standard" part="R"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5358A39A</tstamp>
+        </comp>
+        <comp ref="R13">
+            <value>0Ω</value>
+            <footprint>passive-smd:0603(1608m)</footprint>
+            <libsource lib="standard" part="R"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>53612CBD</tstamp>
+        </comp>
+        <comp ref="J2">
+            <value>DCIN</value>
+            <footprint>connect-thru:CUI-PJ-102A_dc-barrel-jack</footprint>
+            <libsource lib="connector" part="DC-BARREL-JACK"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>53619F5D</tstamp>
+        </comp>
+        <comp ref="JP3">
+            <value>MODE-SEL</value>
+            <footprint>jumper:SOLDER-JUMPER_2-WAY</footprint>
+            <libsource lib="standard" part="JUMPER_3-PIN"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5361C056</tstamp>
+        </comp>
+        <comp ref="R4">
+            <value>10k</value>
+            <footprint>passive-smd:0603(1608m)</footprint>
+            <libsource lib="standard" part="R"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>53581BC1</tstamp>
+        </comp>
+        <comp ref="IC1">
+            <value>PAM2421</value>
+            <footprint>sop:SOP8_ep</footprint>
+            <fields>
+                <field name="Manufacturer">Diodes Inc</field>
+            </fields>
+            <libsource lib="diode-inc-ic" part="PAM242X"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>53630C76</tstamp>
+        </comp>
+        <comp ref="C15">
+            <value>1uF</value>
+            <footprint>passive-smd:0603(1608m)</footprint>
+            <libsource lib="standard" part="C"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5363155A</tstamp>
+        </comp>
+        <comp ref="C18">
+            <value>47pF</value>
+            <footprint>passive-smd:0603(1608m)</footprint>
+            <libsource lib="standard" part="C"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>536353D9</tstamp>
+        </comp>
+        <comp ref="C29">
+            <value>2.2nF</value>
+            <footprint>passive-smd:0603(1608m)</footprint>
+            <libsource lib="standard" part="C"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>536355D7</tstamp>
+        </comp>
+        <comp ref="R7">
+            <value>51k</value>
+            <footprint>passive-smd:0603(1608m)</footprint>
+            <libsource lib="standard" part="R"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>53635868</tstamp>
+        </comp>
+        <comp ref="C30">
+            <value>0.1uF</value>
+            <footprint>passive-smd:0603(1608m)</footprint>
+            <libsource lib="standard" part="C"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>536391F1</tstamp>
+        </comp>
+        <comp ref="C31">
+            <value>10uF</value>
+            <footprint>passive-smd:1206(3216m)</footprint>
+            <libsource lib="standard" part="C"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5363D1D3</tstamp>
+        </comp>
+        <comp ref="C8">
+            <value>10uF</value>
+            <footprint>passive-smd:1206(3216m)</footprint>
+            <libsource lib="standard" part="C"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5363F282</tstamp>
+        </comp>
+        <comp ref="C3">
+            <value>100uF</value>
+            <footprint>capacitor:PANA-D_CHEMI-F_SM-ALUMINUM</footprint>
+            <fields>
+                <field name="Manufacturer">United Chemi-Con</field>
+                <field name="Manuf. Part">EMVA160ADA101MF55G</field>
+                <field name="Distributor">Digikey</field>
+                <field name="Distrib. Part">565-2089-1-ND</field>
+            </fields>
+            <libsource lib="standard" part="C_POL"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>53642540</tstamp>
+        </comp>
+        <comp ref="J8">
+            <value>AVR_ISP</value>
+            <footprint>connect-thru:2x3-ARRAY_P100mil</footprint>
+            <libsource lib="avr-mcu" part="AVR_ISP"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5364A0F3</tstamp>
+        </comp>
+        <comp ref="D6">
+            <value>2A</value>
+            <footprint>diode:MICROSMP</footprint>
+            <fields>
+                <field name="Manufacturer">Vishay</field>
+                <field name="Manuf. Part">MSS2P2-M3/89A</field>
+                <field name="Distributor">Digikey</field>
+                <field name="Distrib. Part">MSS2P2-M3/89AGICT-ND</field>
+            </fields>
+            <libsource lib="standard" part="D_SCHOTTKY"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>5364E0F9</tstamp>
+        </comp>
+        <comp ref="D3">
+            <value>3A</value>
+            <footprint>diode:DO-214AC</footprint>
+            <fields>
+                <field name="Manufacturer">Rohm Semiconductor</field>
+                <field name="Manuf. Part">RB056L-40TE25</field>
+                <field name="Distributor">Digikey</field>
+                <field name="Distrib. Part">RB056L-40TE25CT-ND</field>
+            </fields>
+            <libsource lib="standard" part="D_SCHOTTKY"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>53653ECD</tstamp>
+        </comp>
+        <comp ref="R1">
+            <value>100kΩ</value>
+            <footprint>passive-smd:0603(1608m)</footprint>
+            <libsource lib="standard" part="R"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>536A97BF</tstamp>
+        </comp>
+        <comp ref="IC3">
+            <value>NTHD3101F</value>
+            <footprint>sot:CHIPFET-1206-8</footprint>
+            <fields>
+                <field name="Manufacturer">On Semiconductor</field>
+            </fields>
+            <libsource lib="on-semi-ic" part="NTHD3101F"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>536AB247</tstamp>
+        </comp>
+        <comp ref="VR2">
+            <value>100kΩ</value>
+            <footprint>bourns:BOURNS-PTA2043_20mm-slide-pot</footprint>
+            <fields>
+                <field name="Manufacturer">Bourns</field>
+                <field name="Manuf. Part">PTA2043-2015CPB103</field>
+                <field name="Distributor">Digikey</field>
+                <field name="Distrib. Part">PTA2043-2015CPB103-ND</field>
+            </fields>
+            <libsource lib="standard" part="POT"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>536D02B9</tstamp>
+        </comp>
+        <comp ref="VR3">
+            <value>100kΩ</value>
+            <footprint>bourns:BOURNS-PTA2043_20mm-slide-pot</footprint>
+            <fields>
+                <field name="Manufacturer">Bourns</field>
+                <field name="Manuf. Part">PTA2043-2015CPB103</field>
+                <field name="Distributor">Digikey</field>
+                <field name="Distrib. Part">PTA2043-2015CPB103-ND</field>
+            </fields>
+            <libsource lib="standard" part="POT"/>
+            <sheetpath names="/" tstamps="/"/>
+            <tstamp>536D032F</tstamp>
+        </comp>
+    </components>
+    <libparts>
+        <libpart lib="avr-mcu" part="AVR_ISP">
+            <description>6-pin AVR ISP</description>
+            <footprints>
+                <fp>2x3-array</fp>
+            </footprints>
+            <fields>
+                <field name="Reference">P</field>
+                <field name="Value">AVR_ISP</field>
+            </fields>
+            <pins>
+                <pin num="1" name="MISO" type="input"/>
+                <pin num="2" name="VCC" type="power_in"/>
+                <pin num="3" name="SCK" type="output"/>
+                <pin num="4" name="MOSI" type="output"/>
+                <pin num="5" name="RESET" type="output"/>
+                <pin num="6" name="GND" type="power_in"/>
+            </pins>
+        </libpart>
+        <libpart lib="connector" part="2PIN_FEMALE">
+            <description>2 pin female connection</description>
+            <footprints>
+                <fp>SIP2</fp>
+            </footprints>
+            <fields>
+                <field name="Reference">J</field>
+                <field name="Value">2PIN_FEMALE</field>
+            </fields>
+            <pins>
+                <pin num="1" name="~" type="passive"/>
+                <pin num="2" name="~" type="passive"/>
+            </pins>
+        </libpart>
+        <libpart lib="connector" part="5PIN_FEMALE">
+            <description>5 pin female connection</description>
+            <footprints>
+                <fp>SIP5</fp>
+            </footprints>
+            <fields>
+                <field name="Reference">J</field>
+                <field name="Value">5PIN_FEMALE</field>
+            </fields>
+            <pins>
+                <pin num="1" name="~" type="passive"/>
+                <pin num="2" name="~" type="passive"/>
+                <pin num="3" name="~" type="passive"/>
+                <pin num="4" name="~" type="passive"/>
+                <pin num="5" name="~" type="passive"/>
+            </pins>
+        </libpart>
+        <libpart lib="connector" part="6PIN_FEMALE">
+            <description>6 pin female connection</description>
+            <footprints>
+                <fp>SIP6</fp>
+            </footprints>
+            <fields>
+                <field name="Reference">J</field>
+                <field name="Value">6PIN_FEMALE</field>
+            </fields>
+            <pins>
+                <pin num="1" name="~" type="passive"/>
+                <pin num="2" name="~" type="passive"/>
+                <pin num="3" name="~" type="passive"/>
+                <pin num="4" name="~" type="passive"/>
+                <pin num="5" name="~" type="passive"/>
+                <pin num="6" name="~" type="passive"/>
+            </pins>
+        </libpart>
+        <libpart lib="connector" part="COAX-JACK">
+            <description>Coaxial jack</description>
+            <fields>
+                <field name="Reference">J</field>
+                <field name="Value">COAX-JACK</field>
+            </fields>
+            <pins>
+                <pin num="1" name="CENTER" type="passive"/>
+                <pin num="2" name="~" type="passive"/>
+                <pin num="3" name="~" type="passive"/>
+            </pins>
+        </libpart>
+        <libpart lib="connector" part="DC-BARREL-JACK">
+            <description>DC barrel jack</description>
+            <fields>
+                <field name="Reference">J</field>
+                <field name="Value">DC-BARREL-JACK</field>
+            </fields>
+            <pins>
+                <pin num="1" name="POLE" type="power_out"/>
+                <pin num="2" name="OUT" type="power_in"/>
+                <pin num="3" name="OUT" type="power_in"/>
+            </pins>
+        </libpart>
+        <libpart lib="connector" part="LIPO">
+            <description>Lithium Polymer Battery Jack</description>
+            <footprints>
+                <fp>JST_PH_2-pin</fp>
+            </footprints>
+            <fields>
+                <field name="Reference">BT</field>
+                <field name="Value">LIPO</field>
+            </fields>
+            <pins>
+                <pin num="1" name="+" type="power_out"/>
+                <pin num="2" name="-" type="power_in"/>
+            </pins>
+        </libpart>
+        <libpart lib="connector" part="MICROUSB">
+            <description>MicroUSB port</description>
+            <docs>http://www.sparkfun.com/datasheets/Prototyping/Micro-USB.pdf</docs>
+            <footprints>
+                <fp>MICROUSB_*</fp>
+            </footprints>
+            <fields>
+                <field name="Reference">J</field>
+                <field name="Value">MICROUSB</field>
+            </fields>
+            <pins>
+                <pin num="1" name="VBUS" type="power_out"/>
+                <pin num="2" name="D-" type="BiDi"/>
+                <pin num="3" name="D+" type="BiDi"/>
+                <pin num="4" name="NC" type="NotConnected"/>
+                <pin num="5" name="GND" type="power_in"/>
+            </pins>
+        </libpart>
+        <libpart lib="ftdi-ic" part="FT230X_SOP">
+            <description>FTDI USB to USART Converter</description>
+            <footprints>
+                <fp>SSOP16</fp>
+            </footprints>
+            <fields>
+                <field name="Reference">IC</field>
+                <field name="Value">FT230X_SOP</field>
+            </fields>
+            <pins>
+                <pin num="1" name="TXD" type="output"/>
+                <pin num="2" name="~RTS~" type="output"/>
+                <pin num="3" name="VCCIO" type="power_in"/>
+                <pin num="4" name="RXD" type="input"/>
+                <pin num="5" name="GND" type="power_in"/>
+                <pin num="6" name="~CTS~" type="output"/>
+                <pin num="7" name="CBUS2" type="BiDi"/>
+                <pin num="8" name="USBDP" type="input"/>
+                <pin num="9" name="USBDM" type="input"/>
+                <pin num="10" name="3V3OUT" type="power_out"/>
+                <pin num="11" name="~RESET~" type="input"/>
+                <pin num="12" name="VCC" type="power_in"/>
+                <pin num="13" name="GND" type="power_in"/>
+                <pin num="14" name="CBUS1" type="BiDi"/>
+                <pin num="15" name="CBUS0" type="BiDi"/>
+                <pin num="16" name="CBUS3" type="BiDi"/>
+            </pins>
+        </libpart>
+        <libpart lib="microchip-ic" part="MCP73811/2">
+            <description>MCP73811/2 Miniature Single-Cell, Fully Integrated Li-Ion / Li-Polymer Charge Management Controller</description>
+            <docs>http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en528273</docs>
+            <footprints>
+                <fp>SOT23-5</fp>
+            </footprints>
+            <fields>
+                <field name="Reference">IC</field>
+                <field name="Value">MCP73811/2</field>
+                <field name="Manufacturer">Microchip Technology</field>
+            </fields>
+            <pins>
+                <pin num="1" name="CE" type="input"/>
+                <pin num="2" name="VSS" type="power_in"/>
+                <pin num="3" name="VBAT" type="power_in"/>
+                <pin num="4" name="VDD" type="power_in"/>
+                <pin num="5" name="PROG" type="input"/>
+            </pins>
+        </libpart>
+        <libpart lib="standard" part="ANTENNA">
+            <description>Antenna</description>
+            <fields>
+                <field name="Reference">AE</field>
+                <field name="Value">ANTENNA</field>
+            </fields>
+            <pins>
+                <pin num="1" name="~" type="passive"/>
+            </pins>
+        </libpart>
+        <libpart lib="standard" part="C">
+            <description>Non-polarized Capacitor</description>
+            <footprints>
+                <fp>capacitor:*</fp>
+            </footprints>
+            <fields>
+                <field name="Reference">C</field>
+                <field name="Value">C</field>
+            </fields>
+            <pins>
+                <pin num="1" name="~" type="passive"/>
+                <pin num="2" name="~" type="passive"/>
+            </pins>
+        </libpart>
+        <libpart lib="standard" part="C_POL">
+            <description>Polaraized capacitor</description>
+            <footprints>
+                <fp>capacitor:*</fp>
+            </footprints>
+            <fields>
+                <field name="Reference">C</field>
+                <field name="Value">C_POL</field>
+            </fields>
+            <pins>
+                <pin num="1" name="~" type="passive"/>
+                <pin num="2" name="~" type="passive"/>
+            </pins>
+        </libpart>
+        <libpart lib="standard" part="D_SCHOTTKY">
+            <description>Schottky diode</description>
+            <fields>
+                <field name="Reference">D</field>
+                <field name="Value">D_SCHOTTKY</field>
+            </fields>
+            <pins>
+                <pin num="1" name="C" type="passive"/>
+                <pin num="2" name="A" type="passive"/>
+            </pins>
+        </libpart>
+        <libpart lib="standard" part="JUMPER_3-PIN">
+            <description>3-pin jumper</description>
+            <fields>
+                <field name="Reference">JP</field>
+                <field name="Value">JUMPER_3-PIN</field>
+            </fields>
+            <pins>
+                <pin num="1" name="~" type="passive"/>
+                <pin num="2" name="~" type="passive"/>
+                <pin num="3" name="~" type="passive"/>
+            </pins>
+        </libpart>
+        <libpart lib="standard" part="L">
+            <description>Resistor</description>
+            <footprints>
+                <fp>0402(1005m)</fp>
+                <fp>0603(1608m)</fp>
+                <fp>1206(3216m)</fp>
+            </footprints>
+            <fields>
+                <field name="Reference">L</field>
+                <field name="Value">L</field>
+            </fields>
+            <pins>
+                <pin num="1" name="~" type="passive"/>
+                <pin num="2" name="~" type="passive"/>
+            </pins>
+        </libpart>
+        <libpart lib="standard" part="LED">
+            <description>Light Emitting Diode</description>
+            <footprints>
+                <fp>0603(1608m)_led</fp>
+                <fp>0402(1005m)_led</fp>
+            </footprints>
+            <fields>
+                <field name="Reference">LED</field>
+                <field name="Value">LED</field>
+            </fields>
+            <pins>
+                <pin num="1" name="C" type="passive"/>
+                <pin num="2" name="A" type="passive"/>
+            </pins>
+        </libpart>
+        <libpart lib="standard" part="POT">
+            <description>Potentiometer</description>
+            <footprints>
+                <fp>BOURNS-3362P_pot</fp>
+            </footprints>
+            <fields>
+                <field name="Reference">VR</field>
+                <field name="Value">POT</field>
+            </fields>
+            <pins>
+                <pin num="1" name="E1" type="passive"/>
+                <pin num="2" name="W" type="passive"/>
+                <pin num="3" name="E2" type="passive"/>
+            </pins>
+        </libpart>
+        <libpart lib="standard" part="PTC">
+            <description>PTC Resettable Fuse</description>
+            <footprints>
+                <fp>1206(3216m)</fp>
+            </footprints>
+            <fields>
+                <field name="Reference">F</field>
+                <field name="Value">PTC</field>
+            </fields>
+            <pins>
+                <pin num="1" name="~" type="passive"/>
+                <pin num="2" name="~" type="passive"/>
+            </pins>
+        </libpart>
+        <libpart lib="standard" part="R">
+            <description>Resistor</description>
+            <footprints>
+                <fp>0402(1005m)</fp>
+                <fp>0603(1608m)</fp>
+                <fp>1206(3216m)</fp>
+            </footprints>
+            <fields>
+                <field name="Reference">R</field>
+                <field name="Value">R</field>
+            </fields>
+            <pins>
+                <pin num="1" name="~" type="passive"/>
+                <pin num="2" name="~" type="passive"/>
+            </pins>
+        </libpart>
+        <libpart lib="standard" part="SPST">
+            <description>Single Pole Single Throw Pushbutton</description>
+            <docs>http://www.sparkfun.com/datasheets/Components/Buttons/SMD-Button.pdf</docs>
+            <footprints>
+                <fp>SPST_*</fp>
+            </footprints>
+            <fields>
+                <field name="Reference">S</field>
+                <field name="Value">SPST</field>
+            </fields>
+            <pins>
+                <pin num="1" name="~" type="passive"/>
+                <pin num="2" name="~" type="passive"/>
+            </pins>
+        </libpart>
+        <libpart lib="standard" part="TEST">
+            <description>Test point</description>
+            <fields>
+                <field name="Reference">TP</field>
+                <field name="Value">TEST</field>
+            </fields>
+            <pins>
+                <pin num="1" name="TP" type="passive"/>
+            </pins>
+        </libpart>
+        <libpart lib="ti-ic" part="CC3000">
+            <description>TI CC3000 Module - Wi-Fi 802.11b/g Network Processor</description>
+            <docs>http://www.ti.com/lit/gpn/cc3000</docs>
+            <footprints>
+                <fp>CC3000</fp>
+            </footprints>
+            <fields>
+                <field name="Reference">IC</field>
+                <field name="Value">CC3000</field>
+                <field name="Datasheet">http://www.ti.com/lit/gpn/cc3000</field>
+                <field name="Distrib. Part">296-35512-1-ND</field>
+                <field name="Manuf. Part">CC3000MOD</field>
+                <field name="Distributor">Digikey</field>
+                <field name="Manufacturer">TI</field>
+            </fields>
+            <pins>
+                <pin num="1" name="GND" type="power_in"/>
+                <pin num="2" name="RES1_TP" type="passive"/>
+                <pin num="3" name="NC" type="NotConnected"/>
+                <pin num="4" name="RES2_TP" type="passive"/>
+                <pin num="5" name="WL_EN2" type="input"/>
+                <pin num="6" name="WL_RS232_TX" type="output"/>
+                <pin num="7" name="WL_EN1" type="input"/>
+                <pin num="8" name="WL_RS232_RX" type="input"/>
+                <pin num="9" name="GND" type="power_in"/>
+                <pin num="10" name="GND" type="power_in"/>
+                <pin num="11" name="GND" type="power_in"/>
+                <pin num="12" name="SPI_CS" type="input"/>
+                <pin num="13" name="SPI_DOUT" type="output"/>
+                <pin num="14" name="SPI_IRQ" type="output"/>
+                <pin num="15" name="SPI_DIN" type="input"/>
+                <pin num="16" name="GND" type="power_in"/>
+                <pin num="17" name="SPI_CLK" type="input"/>
+                <pin num="18" name="GND" type="power_in"/>
+                <pin num="19" name="VBAT_IN" type="power_in"/>
+                <pin num="20" name="GND" type="power_in"/>
+                <pin num="21" name="EXT_32K_CTG" type="passive"/>
+                <pin num="22" name="GND" type="passive"/>
+                <pin num="23" name="VIO_HOST" type="power_in"/>
+                <pin num="24" name="RES_3_TP" type="passive"/>
+                <pin num="25" name="GND" type="power_in"/>
+                <pin num="26" name="VBAT_SW_EN" type="input"/>
+                <pin num="27" name="SDA_EEPROM" type="BiDi"/>
+                <pin num="28" name="SDA_CC3000" type="BiDi"/>
+                <pin num="29" name="SCL_EEPROM" type="BiDi"/>
+                <pin num="30" name="SCL_CC3000" type="BiDi"/>
+                <pin num="31" name="GND" type="power_in"/>
+                <pin num="32" name="GND" type="power_in"/>
+                <pin num="33" name="GND" type="power_in"/>
+                <pin num="34" name="GND" type="power_in"/>
+                <pin num="35" name="RF_ANT" type="BiDi"/>
+                <pin num="36" name="GND" type="power_in"/>
+                <pin num="37" name="GND" type="power_in"/>
+                <pin num="38" name="GND" type="power_in"/>
+                <pin num="39" name="GND" type="power_in"/>
+                <pin num="40" name="GND" type="power_in"/>
+                <pin num="41" name="GND" type="power_in"/>
+                <pin num="42" name="GND" type="power_in"/>
+                <pin num="43" name="GND" type="power_in"/>
+                <pin num="44" name="GND" type="power_in"/>
+                <pin num="45" name="GND" type="power_in"/>
+                <pin num="46" name="GND" type="power_in"/>
+            </pins>
+        </libpart>
+        <libpart lib="transistor" part="N-CHAN-MOSFET_SOT">
+            <description>N-channel SOT MOSFET</description>
+            <footprints>
+                <fp>SOT23</fp>
+            </footprints>
+            <fields>
+                <field name="Reference">Q</field>
+                <field name="Value">N-CHAN-MOSFET_SOT</field>
+            </fields>
+            <pins>
+                <pin num="1" name="G" type="passive"/>
+                <pin num="2" name="S" type="passive"/>
+                <pin num="3" name="D" type="passive"/>
+            </pins>
+        </libpart>
+        <libpart lib="on-semi-ic" part="NTHD3101F">
+            <description>NTHD3101F 20V, 4.4A P−channel MOSFET with 4.1A Schottky diode</description>
+            <docs>http://www.onsemi.com/pub_link/Collateral/NTHD3101F-D.PDF</docs>
+            <footprints>
+                <fp>CHIPFET-1206-8</fp>
+            </footprints>
+            <fields>
+                <field name="Reference">IC</field>
+                <field name="Value">NTHD3101F</field>
+                <field name="Manufacturer">On Semiconductor</field>
+            </fields>
+            <pins>
+                <pin num="1" name="A" type="passive"/>
+                <pin num="2" name="A" type="passive"/>
+                <pin num="3" name="S" type="passive"/>
+                <pin num="4" name="G" type="passive"/>
+                <pin num="5" name="D" type="passive"/>
+                <pin num="6" name="D" type="passive"/>
+                <pin num="7" name="C" type="passive"/>
+                <pin num="8" name="C" type="passive"/>
+            </pins>
+        </libpart>
+        <libpart lib="diode-inc-ic" part="PAM242X">
+            <description>PAM24X 3A/4.5A/5.5A fixed frequency, current-mode PWM step-up DC/DC converter</description>
+            <docs>http://www.diodes.com/datasheets/PAM242x.pdf</docs>
+            <footprints>
+                <fp>SOP8_ep</fp>
+            </footprints>
+            <fields>
+                <field name="Reference">IC</field>
+                <field name="Value">PAM242X</field>
+                <field name="Manufacturer">Diodes Inc</field>
+            </fields>
+            <pins>
+                <pin num="0" name="PAD" type="passive"/>
+                <pin num="1" name="PGND" type="power_in"/>
+                <pin num="2" name="VIN" type="power_in"/>
+                <pin num="3" name="EN" type="input"/>
+                <pin num="4" name="COMP" type="passive"/>
+                <pin num="5" name="AGND" type="power_in"/>
+                <pin num="6" name="FB" type="passive"/>
+                <pin num="7" name="SS" type="passive"/>
+                <pin num="8" name="SW" type="passive"/>
+            </pins>
+        </libpart>
+        <libpart lib="regulator" part="LM1117">
+            <footprints>
+                <fp>SOT223</fp>
+                <fp>TO220</fp>
+                <fp>TO252</fp>
+            </footprints>
+            <fields>
+                <field name="Reference">IC</field>
+                <field name="Value">LM1117</field>
+            </fields>
+            <pins>
+                <pin num="0" name="VOUT" type="passive"/>
+                <pin num="1" name="ADJ/GND" type="passive"/>
+                <pin num="2" name="VOUT" type="power_out"/>
+                <pin num="3" name="VIN" type="power_in"/>
+            </pins>
+        </libpart>
+    </libparts>
+    <libraries>
+        <library logical="avr-mcu">
+            <uri>../../../kicad-lib/components/avr-mcu.lib</uri>
+        </library>
+        <library logical="connector">
+            <uri>../../../kicad-lib/components/connector.lib</uri>
+        </library>
+        <library logical="ftdi-ic">
+            <uri>../../../kicad-lib/components/ftdi-ic.lib</uri>
+        </library>
+        <library logical="microchip-ic">
+            <uri>../../../kicad-lib/components/microchip-ic.lib</uri>
+        </library>
+        <library logical="standard">
+            <uri>../../../kicad-lib/components/standard.lib</uri>
+        </library>
+        <library logical="ti-ic">
+            <uri>../../../kicad-lib/components/ti-ic.lib</uri>
+        </library>
+        <library logical="diode-inc-ic">
+            <uri>../../../kicad-lib/components/diode-inc-ic.lib</uri>
+        </library>
+        <library logical="transistor">
+            <uri>../../../kicad-lib/components/transistor.lib</uri>
+        </library>
+        <library logical="on-semi-ic">
+            <uri>../../../kicad-lib/components/on-semi-ic.lib</uri>
+        </library>
+        <library logical="regulator">
+            <uri>../../../kicad-lib/components/regulator.lib</uri>
+        </library>
+    </libraries>
+    <nets>
+        <net code="1" name="Net-(IC9-Pad2)">
+            <node ref="TP1" pin="1"/>
+            <node ref="IC9" pin="2"/>
+        </net>
+        <net code="2" name="Net-(IC9-Pad4)">
+            <node ref="TP2" pin="1"/>
+            <node ref="IC9" pin="4"/>
+        </net>
+        <net code="3" name="Net-(IC9-Pad24)">
+            <node ref="TP3" pin="1"/>
+            <node ref="IC9" pin="24"/>
+        </net>
+        <net code="4" name="Net-(C24-Pad1)">
+            <node ref="IC9" pin="35"/>
+            <node ref="C24" pin="1"/>
+            <node ref="C26" pin="1"/>
+        </net>
+        <net code="5" name="Net-(C26-Pad2)">
+            <node ref="C26" pin="2"/>
+            <node ref="J9" pin="1"/>
+        </net>
+        <net code="6" name="/USB_CTS">
+            <node ref="J3" pin="2"/>
+            <node ref="IC7" pin="6"/>
+        </net>
+        <net code="7" name="Net-(IC9-Pad30)">
+            <node ref="IC9" pin="30"/>
+            <node ref="R12" pin="1"/>
+        </net>
+        <net code="8" name="Net-(IC9-Pad6)">
+            <node ref="IC9" pin="6"/>
+            <node ref="TP4" pin="1"/>
+        </net>
+        <net code="9" name="Net-(IC9-Pad8)">
+            <node ref="IC9" pin="8"/>
+            <node ref="TP5" pin="1"/>
+        </net>
+        <net code="10" name="Net-(IC9-Pad29)">
+            <node ref="R12" pin="2"/>
+            <node ref="IC9" pin="29"/>
+        </net>
+        <net code="11" name="/CC_SEL">
+            <node ref="J4" pin="5"/>
+            <node ref="IC9" pin="12"/>
+            <node ref="TP10" pin="1"/>
+            <node ref="VR3" pin="2"/>
+        </net>
+        <net code="12" name="/CC_MISO">
+            <node ref="J8" pin="1"/>
+            <node ref="IC9" pin="13"/>
+        </net>
+        <net code="13" name="/CC_IRQ">
+            <node ref="S1" pin="2"/>
+            <node ref="TP6" pin="1"/>
+            <node ref="J4" pin="1"/>
+            <node ref="IC9" pin="14"/>
+            <node ref="R10" pin="2"/>
+        </net>
+        <net code="14" name="/CC_EN">
+            <node ref="IC9" pin="26"/>
+            <node ref="VR2" pin="2"/>
+            <node ref="J4" pin="4"/>
+            <node ref="TP9" pin="1"/>
+        </net>
+        <net code="15" name="/USB_DP">
+            <node ref="R3" pin="2"/>
+            <node ref="IC7" pin="8"/>
+        </net>
+        <net code="16" name="/USB_DM">
+            <node ref="IC7" pin="9"/>
+            <node ref="R2" pin="2"/>
+        </net>
+        <net code="17" name="Net-(C5-Pad1)">
+            <node ref="R2" pin="1"/>
+            <node ref="C5" pin="1"/>
+            <node ref="J1" pin="2"/>
+        </net>
+        <net code="18" name="Net-(C6-Pad1)">
+            <node ref="J1" pin="3"/>
+            <node ref="R3" pin="1"/>
+            <node ref="C6" pin="1"/>
+        </net>
+        <net code="19" name="Net-(C4-Pad2)">
+            <node ref="J1" pin="1"/>
+            <node ref="C4" pin="2"/>
+            <node ref="F1" pin="1"/>
+        </net>
+        <net code="20" name="Net-(IC7-Pad14)">
+            <node ref="R8" pin="1"/>
+            <node ref="IC7" pin="14"/>
+        </net>
+        <net code="21" name="Net-(IC7-Pad7)">
+            <node ref="IC7" pin="7"/>
+            <node ref="R9" pin="1"/>
+        </net>
+        <net code="22" name="Net-(LED2-Pad1)">
+            <node ref="R9" pin="2"/>
+            <node ref="LED2" pin="1"/>
+        </net>
+        <net code="23" name="Net-(LED1-Pad1)">
+            <node ref="LED1" pin="1"/>
+            <node ref="R8" pin="2"/>
+        </net>
+        <net code="24" name="/USB_TX">
+            <node ref="IC7" pin="1"/>
+            <node ref="J3" pin="4"/>
+        </net>
+        <net code="25" name="/USB_RX">
+            <node ref="IC7" pin="4"/>
+            <node ref="J3" pin="5"/>
+        </net>
+        <net code="26" name="/USB_RTS">
+            <node ref="IC7" pin="2"/>
+            <node ref="J3" pin="6"/>
+        </net>
+        <net code="27" name="/CC_MOSI">
+            <node ref="J8" pin="4"/>
+            <node ref="IC9" pin="15"/>
+        </net>
+        <net code="28" name="Net-(C13-Pad1)">
+            <node ref="IC6" pin="3"/>
+            <node ref="C13" pin="1"/>
+            <node ref="D2" pin="1"/>
+        </net>
+        <net code="29" name="/VSUP">
+            <node ref="J7" pin="1"/>
+            <node ref="C3" pin="1"/>
+            <node ref="L1" pin="2"/>
+            <node ref="IC1" pin="2"/>
+            <node ref="R4" pin="1"/>
+            <node ref="C8" pin="1"/>
+            <node ref="C15" pin="2"/>
+            <node ref="IC3" pin="8"/>
+            <node ref="IC3" pin="7"/>
+            <node ref="IC3" pin="3"/>
+        </net>
+        <net code="30" name="/DC_IN">
+            <node ref="D2" pin="2"/>
+            <node ref="J2" pin="1"/>
+            <node ref="Q1" pin="1"/>
+            <node ref="D6" pin="2"/>
+        </net>
+        <net code="31" name="/CC_SCK">
+            <node ref="J8" pin="3"/>
+            <node ref="IC9" pin="17"/>
+        </net>
+        <net code="32" name="Net-(J8-Pad5)">
+            <node ref="J8" pin="5"/>
+        </net>
+        <net code="33" name="Net-(BT1-Pad1)">
+            <node ref="IC3" pin="5"/>
+            <node ref="IC3" pin="6"/>
+            <node ref="C9" pin="1"/>
+            <node ref="IC2" pin="3"/>
+            <node ref="BT1" pin="1"/>
+        </net>
+        <net code="34" name="+5V">
+            <node ref="IC3" pin="4"/>
+            <node ref="IC3" pin="2"/>
+            <node ref="IC3" pin="1"/>
+            <node ref="C1" pin="1"/>
+            <node ref="R1" pin="2"/>
+            <node ref="D3" pin="1"/>
+            <node ref="IC2" pin="1"/>
+            <node ref="C20" pin="1"/>
+            <node ref="IC2" pin="4"/>
+            <node ref="IC2" pin="5"/>
+            <node ref="IC6" pin="2"/>
+            <node ref="IC6" pin="0"/>
+        </net>
+        <net code="35" name="Net-(IC9-Pad27)">
+            <node ref="IC9" pin="27"/>
+            <node ref="R13" pin="2"/>
+        </net>
+        <net code="36" name="Net-(IC9-Pad28)">
+            <node ref="R13" pin="1"/>
+            <node ref="IC9" pin="28"/>
+        </net>
+        <net code="37" name="Net-(IC1-Pad3)">
+            <node ref="R4" pin="2"/>
+            <node ref="Q1" pin="3"/>
+            <node ref="IC1" pin="3"/>
+        </net>
+        <net code="38" name="/POT_0">
+            <node ref="VR1" pin="2"/>
+            <node ref="J4" pin="3"/>
+            <node ref="TP8" pin="1"/>
+        </net>
+        <net code="39" name="GND">
+            <node ref="C9" pin="2"/>
+            <node ref="C1" pin="2"/>
+            <node ref="J3" pin="1"/>
+            <node ref="IC7" pin="13"/>
+            <node ref="J7" pin="2"/>
+            <node ref="VR1" pin="3"/>
+            <node ref="C19" pin="2"/>
+            <node ref="IC9" pin="25"/>
+            <node ref="IC9" pin="44"/>
+            <node ref="IC9" pin="34"/>
+            <node ref="C27" pin="2"/>
+            <node ref="IC9" pin="43"/>
+            <node ref="C29" pin="1"/>
+            <node ref="IC9" pin="33"/>
+            <node ref="R5" pin="2"/>
+            <node ref="IC7" pin="5"/>
+            <node ref="Q1" pin="2"/>
+            <node ref="S1" pin="1"/>
+            <node ref="IC9" pin="1"/>
+            <node ref="C28" pin="1"/>
+            <node ref="J9" pin="3"/>
+            <node ref="J9" pin="2"/>
+            <node ref="J5" pin="2"/>
+            <node ref="C20" pin="2"/>
+            <node ref="IC2" pin="2"/>
+            <node ref="IC9" pin="45"/>
+            <node ref="JP3" pin="3"/>
+            <node ref="C18" pin="2"/>
+            <node ref="IC1" pin="0"/>
+            <node ref="IC1" pin="1"/>
+            <node ref="IC1" pin="5"/>
+            <node ref="L3" pin="2"/>
+            <node ref="L2" pin="2"/>
+            <node ref="IC9" pin="42"/>
+            <node ref="IC9" pin="32"/>
+            <node ref="IC9" pin="22"/>
+            <node ref="J2" pin="3"/>
+            <node ref="J2" pin="2"/>
+            <node ref="C5" pin="2"/>
+            <node ref="C6" pin="2"/>
+            <node ref="C4" pin="1"/>
+            <node ref="C30" pin="2"/>
+            <node ref="C7" pin="1"/>
+            <node ref="IC9" pin="18"/>
+            <node ref="IC9" pin="38"/>
+            <node ref="IC9" pin="37"/>
+            <node ref="J1" pin="5"/>
+            <node ref="C15" pin="1"/>
+            <node ref="IC9" pin="46"/>
+            <node ref="IC9" pin="36"/>
+            <node ref="IC9" pin="16"/>
+            <node ref="IC9" pin="9"/>
+            <node ref="IC9" pin="10"/>
+            <node ref="IC9" pin="20"/>
+            <node ref="IC9" pin="39"/>
+            <node ref="IC9" pin="40"/>
+            <node ref="IC9" pin="11"/>
+            <node ref="IC9" pin="21"/>
+            <node ref="IC9" pin="31"/>
+            <node ref="IC9" pin="41"/>
+            <node ref="C8" pin="2"/>
+            <node ref="C31" pin="2"/>
+            <node ref="VR3" pin="3"/>
+            <node ref="VR2" pin="3"/>
+            <node ref="J8" pin="6"/>
+            <node ref="C3" pin="2"/>
+            <node ref="R1" pin="1"/>
+            <node ref="C16" pin="2"/>
+            <node ref="IC6" pin="1"/>
+            <node ref="C13" pin="2"/>
+            <node ref="C14" pin="2"/>
+            <node ref="BT1" pin="2"/>
+        </net>
+        <net code="40" name="Net-(IC1-Pad6)">
+            <node ref="R6" pin="1"/>
+            <node ref="R5" pin="1"/>
+            <node ref="IC1" pin="6"/>
+        </net>
+        <net code="41" name="Net-(C29-Pad2)">
+            <node ref="R7" pin="2"/>
+            <node ref="C29" pin="2"/>
+        </net>
+        <net code="42" name="Net-(C18-Pad1)">
+            <node ref="IC1" pin="4"/>
+            <node ref="R7" pin="1"/>
+            <node ref="C18" pin="1"/>
+        </net>
+        <net code="43" name="Net-(D4-Pad2)">
+            <node ref="L1" pin="1"/>
+            <node ref="D4" pin="2"/>
+            <node ref="IC1" pin="8"/>
+        </net>
+        <net code="44" name="Net-(C30-Pad1)">
+            <node ref="IC1" pin="7"/>
+            <node ref="C30" pin="1"/>
+        </net>
+        <net code="45" name="/V_USB">
+            <node ref="IC7" pin="12"/>
+            <node ref="C16" pin="1"/>
+            <node ref="D3" pin="2"/>
+            <node ref="F1" pin="2"/>
+            <node ref="C7" pin="2"/>
+        </net>
+        <net code="46" name="/V_FTDI">
+            <node ref="IC7" pin="11"/>
+            <node ref="IC7" pin="10"/>
+            <node ref="IC7" pin="3"/>
+            <node ref="LED2" pin="2"/>
+            <node ref="C14" pin="1"/>
+            <node ref="LED1" pin="2"/>
+        </net>
+        <net code="47" name="Net-(IC7-Pad16)">
+            <node ref="IC7" pin="16"/>
+        </net>
+        <net code="48" name="Net-(IC7-Pad15)">
+            <node ref="IC7" pin="15"/>
+        </net>
+        <net code="49" name="Net-(IC9-Pad3)">
+            <node ref="IC9" pin="3"/>
+        </net>
+        <net code="50" name="Net-(J1-Pad4)">
+            <node ref="J1" pin="4"/>
+        </net>
+        <net code="51" name="/V_LED">
+            <node ref="C19" pin="1"/>
+            <node ref="R6" pin="2"/>
+            <node ref="J5" pin="1"/>
+            <node ref="D6" pin="1"/>
+            <node ref="D4" pin="1"/>
+            <node ref="C31" pin="1"/>
+        </net>
+        <net code="52" name="/SW_1">
+            <node ref="J4" pin="2"/>
+            <node ref="TP7" pin="1"/>
+        </net>
+        <net code="53" name="Net-(IC9-Pad5)">
+            <node ref="JP3" pin="2"/>
+            <node ref="IC9" pin="5"/>
+            <node ref="IC9" pin="7"/>
+            <node ref="JP3" pin="1"/>
+        </net>
+        <net code="54" name="Net-(C22-Pad2)">
+            <node ref="L3" pin="1"/>
+            <node ref="C22" pin="2"/>
+            <node ref="C24" pin="2"/>
+        </net>
+        <net code="55" name="Net-(AE1-Pad1)">
+            <node ref="AE1" pin="1"/>
+            <node ref="L2" pin="1"/>
+            <node ref="C22" pin="1"/>
+        </net>
+        <net code="56" name="VCC">
+            <node ref="J8" pin="2"/>
+            <node ref="VR2" pin="1"/>
+            <node ref="VR3" pin="1"/>
+            <node ref="J3" pin="3"/>
+            <node ref="VR1" pin="1"/>
+            <node ref="IC9" pin="23"/>
+            <node ref="C27" pin="1"/>
+            <node ref="IC9" pin="19"/>
+            <node ref="C28" pin="2"/>
+            <node ref="R10" pin="1"/>
+        </net>
+    </nets>
+</export>

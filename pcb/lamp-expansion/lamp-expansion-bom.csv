@@ -1,0 +1,59 @@
+Source:,/media/sf_projects/lamp/pcb/lamp-expansion/lamp-expansion.sch
+Date:,Fri 15 Aug 2014 07:13:58 PM EDT
+Tool:,eeschema (2014-03-19 BZR 4756)-product
+Component Count:,67
+
+Individual Components:
+
+Item,Qty,Reference(s),Value,LibPart,Footprint,Datasheet,Distrib. Part,Distributor,Manuf. Part,Manufacturer
+,,AE1,2500AT44M0400E,standard:ANTENNA,johanson:JOHANSON-2500AT44M0400_2.4GHz-chip-antenna,,712-1403-1-ND,Digikey,2500AT44M0400E,Johanson Technology Inc
+,,BT1,LIPO,connector:LIPO,connect-thru:JST-S2B-PH-K_right-angle-jack,,,,,
+,,C1,1uF,standard:C,passive-smd:0603(1608m),,,,,
+,,C13,10uF,standard:C_POL,passive-smd:1206(3216m),,587-1353-1-ND,Digikey,TMK316F106ZL-T,Taiyo Yuden
+,,C14,0.1uF,standard:C,passive-smd:0603(1608m),,,,,
+,,C15,1uF,standard:C,passive-smd:0603(1608m),,,,,
+,,C16,0.1uF,standard:C,passive-smd:0603(1608m),,,,,
+,,C18,47pF,standard:C,passive-smd:0603(1608m),,,,,
+,,C19,100uF,standard:C_POL,capacitor:PANA-D_CHEMI-F_SM-ALUMINUM,,565-2089-1-ND,Digikey,EMVA160ADA101MF55G,United Chemi-Con
+,,C20,22uF,standard:C_POL,passive-smd:1206(3216m),,587-1356-1-ND,Digikey,LMK316F226ZL-T,Taiyo Yuden
+,,C22,2.2pF,standard:C,passive-smd:0603(1608m),,,,,
+,,C24,10pF,standard:C,passive-smd:0603(1608m),,,,,
+,,C26,DNP(10pF),standard:C,passive-smd:0603(1608m),,,,,
+,,C27,1uF,standard:C,passive-smd:0603(1608m),,,,,
+,,C28,1uF,standard:C,passive-smd:0603(1608m),,,,,
+,,C29,2.2nF,standard:C,passive-smd:0603(1608m),,,,,
+,,C3,100uF,standard:C_POL,capacitor:PANA-D_CHEMI-F_SM-ALUMINUM,,565-2089-1-ND,Digikey,EMVA160ADA101MF55G,United Chemi-Con
+,,C30,0.1uF,standard:C,passive-smd:0603(1608m),,,,,
+,,C31,10uF,standard:C,passive-smd:1206(3216m),,,,,
+,,C4,0.1uF,standard:C,passive-smd:0603(1608m),,,,,
+,,C5,47pF,standard:C,passive-smd:0603(1608m),,,,,
+,,C6,47pF,standard:C,passive-smd:0603(1608m),,,,,
+,,C7,10uF,standard:C_POL,passive-smd:1206(3216m),,587-1353-1-ND,Digikey,Taiyo Yuden,TMK316F106ZL-T
+,,C8,10uF,standard:C,passive-smd:1206(3216m),,,,,
+,,C9,1uF,standard:C,passive-smd:0603(1608m),,,,,
+,,D2,2A,standard:D_SCHOTTKY,diode:MICROSMP,,MSS2P2-M3/89AGICT-ND,Digikey,MSS2P2-M3/89A,Vishay
+,,D3,3A,standard:D_SCHOTTKY,diode:DO-214AC,,RB056L-40TE25CT-ND,Digikey,RB056L-40TE25,Rohm Semiconductor
+,,D4,3A,standard:D_SCHOTTKY,diode:DO-214AC,,RB056L-40TE25CT-ND,Digikey,RB056L-40TE25,Rohm Semiconductor
+,,D6,2A,standard:D_SCHOTTKY,diode:MICROSMP,,MSS2P2-M3/89AGICT-ND,Digikey,MSS2P2-M3/89A,Vishay
+,,F1,2A,standard:PTC,passive-smd:1206(3216m),,,,,
+,,IC1,PAM2421,diode-inc-ic:PAM242X,sop:SOP8_ep,,,,,Diodes Inc
+,,IC2,MCP73811,microchip-ic:MCP73811/2,sot:SOT23-5,,MCP73811T-420I/OTCT-ND,Digikey,MCP73811T-420I/OT,Microchip Technology
+,,IC3,NTHD3101F,on-semi-ic:NTHD3101F,sot:CHIPFET-1206-8,,,,,On Semiconductor
+,,IC6,LM1117_5.0,regulator:LM1117,sot:SOT223,,AZ1117CH-5.0TRG1DICT-ND,Digikey,AZ1117CH-5.0TRG1,Diodes Incorporated
+,,IC7,FT230X_SOP,ftdi-ic:FT230X_SOP,sop:SSOP16,,,,,
+,,IC9,CC3000,ti-ic:CC3000,texas:CC3000,http://www.ti.com/lit/gpn/cc3000,296-35512-1-ND,Digikey,CC3000MOD,TI
+,,J1,MICROUSB,connector:MICROUSB,connect-sm:MICROUSB_sm,,,,,
+,,J2,DCIN,connector:DC-BARREL-JACK,connect-thru:CUI-PJ-102A_dc-barrel-jack,,,,,
+,,J3,SERIAL,connector:6PIN_FEMALE,sip:SIP6,,,,,
+,,J4,5PIN_INPUT,connector:5PIN_FEMALE,sip:SIP5,,,,,
+,,J5,2PIN_POWER,connector:2PIN_FEMALE,sip:SIP2,,,,,
+,,J7,2PIN_POWER,connector:2PIN_FEMALE,sip:SIP2,,,,,
+,,J8,AVR_ISP,avr-mcu:AVR_ISP,connect-thru:2x3-ARRAY_P100mil,,,,,
+,,J9,UF.L,connector:COAX-JACK,connect-sm:U.FL-COAX,,,,,
+,,JP3,MODE-SEL,standard:JUMPER_3-PIN,jumper:SOLDER-JUMPER_2-WAY,,,,,
+,,L1,6.8uH,standard:L,inductor:SM-INDUCTOR_6mmX6mm,,SRN6045-6R8YCT-ND,Digikey,SRN6045-6R8Y,Bourns Inc
+,,L2,DNP,standard:L,passive-smd:0603(1608m),,,,,
+,,L3,2.2nH,standard:L,passive-smd:0603(1608m),,,,,
+,,LED1,YEL,standard:LED,led:0603(1608m)-SM-LED,,,,,
+,,LED2,GRN,standard:LED,led:0603(1608m)-SM-LED,,,,,
+,,Q1,2N7002,transistor:N-CHAN-MOSFET_SOT,sot:SOT23,,568-5818-1-ND,Digikey,2N7002P,NXP
